@@ -224,3 +224,31 @@ function verifyCSRFToken($token) {
 function formatPrice($price) {
     return CURRENCY . number_format($price, 0);
 }
+/**
+ * Create SEO-friendly slug
+ * 
+ * @param string $text Text to convert
+ * @return string Slug
+ */
+function createSlug($text) {
+    $text = preg_replace('~[^\pL\d]+~u', '-', $text);
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+    $text = preg_replace('~[^-\w]+~', '', $text);
+    $text = trim($text, '-');
+    $text = preg_replace('~-+~', '-', $text);
+    $text = strtolower($text);
+    return empty($text) ? 'n-a' : $text;
+}
+
+/**
+ * Display flash message
+ * 
+ * @param string $type Message type (success, error, warning, info)
+ * @param string $message Message text
+ */
+function setFlashMessage($type, $message) {
+    $_SESSION['flash_message'] = [
+        'type' => $type,
+        'message' => $message
+    ];
+}
