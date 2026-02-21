@@ -301,3 +301,20 @@ function redirect($url) {
 function getCurrentUrl() {
     return "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 }
+/**
+ * Log error message
+ * 
+ * @param string $message Error message
+ * @param string $file File name
+ * @param int $line Line number
+ */
+function logError($message, $file = '', $line = 0) {
+    $logMessage = date('[Y-m-d H:i:s]') . " Error: {$message}";
+    if ($file) {
+        $logMessage .= " in {$file}";
+    }
+    if ($line) {
+        $logMessage .= " on line {$line}";
+    }
+    error_log($logMessage . "\n", 3, __DIR__ . '/../logs/error.log');
+}
