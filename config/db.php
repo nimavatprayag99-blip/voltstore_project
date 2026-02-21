@@ -318,3 +318,10 @@ function logError($message, $file = '', $line = 0) {
     }
     error_log($logMessage . "\n", 3, __DIR__ . '/../logs/error.log');
 }
+// Set error reporting (disable in production)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Set timezone
+date_default_timezone_set('Asia/Kolkata');
+?>
