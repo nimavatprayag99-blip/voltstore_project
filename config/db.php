@@ -274,3 +274,30 @@ function getFlashMessage() {
 function isLoggedIn() {
     return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
 }
+**
+ * Check if admin is logged in
+ * 
+ * @return bool
+ */
+function isAdminLoggedIn() {
+    return isset($_SESSION['admin_id']) && !empty($_SESSION['admin_id']);
+}
+
+/**
+ * Redirect to URL
+ * 
+ * @param string $url URL to redirect to
+ */
+function redirect($url) {
+    header("Location: " . $url);
+    exit();
+}
+
+/**
+ * Get current URL
+ * 
+ * @return string
+ */
+function getCurrentUrl() {
+    return "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+}
