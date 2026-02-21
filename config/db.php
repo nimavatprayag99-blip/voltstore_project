@@ -252,3 +252,25 @@ function setFlashMessage($type, $message) {
         'message' => $message
     ];
 }
+/**
+ * Get and clear flash message
+ * 
+ * @return array|null
+ */
+function getFlashMessage() {
+    if (isset($_SESSION['flash_message'])) {
+        $message = $_SESSION['flash_message'];
+        unset($_SESSION['flash_message']);
+        return $message;
+    }
+    return null;
+}
+
+/**
+ * Check if user is logged in
+ * 
+ * @return bool
+ */
+function isLoggedIn() {
+    return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
+}
