@@ -274,3 +274,57 @@ function getFlashMessage() {
 function isLoggedIn() {
     return isset($_SESSION['user_id']) && !empty($_SESSION['user_id']);
 }
+
+/**
+ * Check if admin is logged in
+ * 
+ * @return bool
+ */
+function isAdminLoggedIn() {
+    return isset($_SESSION['admin_id']) && !empty($_SESSION['admin_id']);
+}
+
+/**
+ * Redirect to URL
+ * 
+ * @param string $url URL to redirect to
+ */
+function redirect($url) {
+    header("Location: " . $url);
+    exit();
+}
+
+/**
+ * Get current URL
+ * 
+ * @return string
+ */
+function getCurrentUrl() {
+    return "http://" . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+}
+
+/**
+ * Log error message
+ * 
+ * @param string $message Error message
+ * @param string $file File name
+ * @param int $line Line number
+ */
+function logError($message, $file = '', $line = 0) {
+    $logMessage = date('[Y-m-d H:i:s]') . " Error: {$message}";
+    if ($file) {
+        $logMessage .= " in {$file}";
+    }
+    if ($line) {
+        $logMessage .= " on line {$line}";
+    }
+    error_log($logMessage . "\n", 3, __DIR__ . '/../logs/error.log');
+}
+
+// Set error reporting (disable in production)
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Set timezone
+date_default_timezone_set('Asia/Kolkata');
+?>
