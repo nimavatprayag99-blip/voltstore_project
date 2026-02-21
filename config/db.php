@@ -167,3 +167,29 @@ function update($table, $data, $where, $whereParams = []) {
     
     return $stmt->rowCount();
 }
+/**
+ * Delete data from table
+ * 
+ * @param string $table Table name
+ * @param string $where Where clause
+ * @param array $params Parameters
+ * @return int Affected rows
+ */
+function delete($table, $where, $params = []) {
+    $sql = "DELETE FROM {$table} WHERE {$where}";
+    $stmt = executeQuery($sql, $params);
+    return $stmt->rowCount();
+}
+
+/**
+ * Sanitize input data
+ * 
+ * @param mixed $data Input data
+ * @return mixed Sanitized data
+ */
+function sanitize($data) {
+    if (is_array($data)) {
+        return array_map('sanitize', $data);
+    }
+    return htmlspecialchars(trim($data), ENT_QUOTES, 'UTF-8');
+}
