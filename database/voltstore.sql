@@ -48,3 +48,22 @@ CREATE TABLE IF NOT EXISTS admin (
     INDEX idx_username (username),
     INDEX idx_email (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- =====================================================
+-- TABLE: categories
+-- Description: Store product categories
+-- =====================================================
+CREATE TABLE IF NOT EXISTS categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    slug VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT,
+    image VARCHAR(255),
+    parent_id INT DEFAULT NULL,
+    status TINYINT(1) DEFAULT 1 COMMENT '0=inactive, 1=active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (parent_id) REFERENCES categories(id) ON DELETE SET NULL,
+    INDEX idx_slug (slug),
+    INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
