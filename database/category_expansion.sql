@@ -168,3 +168,25 @@ INSERT INTO products (name, slug, description, short_description, price, sale_pr
 -- Outdoor Gear
 ('Camping Backpack 50L', 'camping-backpack-50l', 'Durable 50-liter backpack for trekking and camping. Multiple compartments, rain cover included, comfortable straps.', 'Large camping backpack', 3499.00, 2999.00, 'OUTDOOR-PACK-001', 45, @outdoor_cat, 'backpack.jpg', 'TrailMaster', 1, 1),
 ('Portable Camping Tent', 'portable-camping-tent', 'Easy-setup 2-person camping tent. Waterproof, windproof, with mosquito net. Compact when folded, perfect for outdoor trips.', 'Lightweight camping tent', 5999.00, 4999.00, 'OUTDOOR-TENT-001', 30, @outdoor_cat, 'camping-tent.jpg', 'CampGear', 1, 1);
+
+-- =====================================================
+-- INSERT SAMPLE PRODUCTS - HOME & KITCHEN
+-- =====================================================
+
+SET @cookware_cat = (SELECT id FROM categories WHERE slug = 'cookware');
+SET @appliances_cat = (SELECT id FROM categories WHERE slug = 'kitchen-appliances');
+SET @decor_cat = (SELECT id FROM categories WHERE slug = 'home-decor');
+
+INSERT INTO products (name, slug, description, short_description, price, sale_price, sku, stock_quantity, category_id, featured_image, brand, featured, status) VALUES
+-- Cookware
+('Non-Stick Cookware Set', 'non-stick-cookware-set', '7-piece non-stick cookware set including frying pans, saucepans, and kadai. Premium coating, induction compatible.', 'Complete cookware set', 4999.00, 3999.00, 'COOK-SET-001', 55, @cookware_cat, 'cookware-set.jpg', 'ChefMaster', 1, 1),
+('Stainless Steel Pressure Cooker', 'stainless-steel-pressure-cooker', '5-liter stainless steel pressure cooker with safety features. Durable, easy to clean, perfect for fast cooking.', 'Reliable pressure cooker', 2499.00, 1999.00, 'COOK-PRESSURE-001', 70, @cookware_cat, 'pressure-cooker.jpg', 'HomeKitchen', 1, 1),
+
+-- Kitchen Appliances
+('Electric Kettle 1.8L', 'electric-kettle-1-8l', 'Fast-boiling 1.8-liter electric kettle with auto shut-off. Stainless steel body, cordless design for easy pouring.', 'Convenient electric kettle', 1499.00, 1199.00, 'APPL-KETTLE-001', 90, @appliances_cat, 'electric-kettle.jpg', 'QuickBoil', 1, 1),
+('Mixer Grinder 750W', 'mixer-grinder-750w', 'Powerful 750W mixer grinder with 3 jars. Multiple speed settings, durable motor, perfect for Indian cooking needs.', 'Versatile mixer grinder', 3999.00, 3299.00, 'APPL-MIXER-001', 65, @appliances_cat, 'mixer-grinder.jpg', 'PowerMix', 1, 1),
+('Induction Cooktop 2000W', 'induction-cooktop-2000w', 'Digital induction cooktop with touch controls and preset cooking modes. Energy-efficient, safe, and fast heating.', 'Smart induction cooktop', 2999.00, 2499.00, 'APPL-INDUCTION-001', 50, @appliances_cat, 'induction-cooktop.jpg', 'CookSmart', 0, 1),
+
+-- Home Decor
+('Decorative Wall Clock', 'decorative-wall-clock', 'Modern wall clock with silent movement. Elegant design suitable for living room or bedroom. Diameter: 30cm.', 'Stylish wall clock', 899.00, 699.00, 'DECOR-CLOCK-001', 100, @decor_cat, 'wall-clock.jpg', 'TimeDecor', 0, 1),
+('Artificial Plant Set', 'artificial-plant-set', 'Set of 3 realistic artificial plants in decorative pots. No maintenance required, adds greenery to any space.', 'Maintenance-free plants', 1299.00, 999.00, 'DECOR-PLANT-001', 80, @decor_cat, 'artificial-plants.jpg', 'GreenSpace', 0, 1);
