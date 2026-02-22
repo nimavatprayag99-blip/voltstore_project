@@ -5,3 +5,27 @@
 -- Create Database
 CREATE DATABASE IF NOT EXISTS voltstore CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE voltstore;
+
+-- =====================================================
+-- TABLE: users
+-- Description: Store registered user information
+-- =====================================================
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(20),
+    address TEXT,
+    city VARCHAR(50),
+    state VARCHAR(50),
+    zip_code VARCHAR(20),
+    country VARCHAR(50) DEFAULT 'India',
+    profile_image VARCHAR(255) DEFAULT NULL,
+    status TINYINT(1) DEFAULT 1 COMMENT '0=inactive, 1=active',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    INDEX idx_email (email),
+    INDEX idx_status (status)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
