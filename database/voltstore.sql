@@ -203,3 +203,25 @@ INSERT INTO categories (name, slug, description, image, status) VALUES
 ('Audio', 'audio', 'Premium audio devices and accessories', 'category-audio.jpg', 1),
 ('Smartwatches', 'smartwatches', 'Smart wearables and fitness trackers', 'category-watches.jpg', 1),
 ('Accessories', 'accessories', 'Mobile and laptop accessories', 'category-accessories.jpg', 1);
+
+-- Insert Sample Products
+INSERT INTO products (name, slug, description, short_description, price, sale_price, sku, stock_quantity, stock_status, category_id, featured_image, brand, featured, status) VALUES
+('iPhone 17 Pro Max', 'iphone-17-pro-max', 'The most advanced iPhone ever. Featuring the A19 Pro chip, titanium design, and an incredible camera system.', 'Experience the future with iPhone 17 Pro Max.', 149900.00, 139900.00, 'IPHONE17PM-001', 50, 'in_stock', 1, 'iphone-17-pro-max.jpg', 'Apple', 1, 1),
+
+('Samsung Galaxy S25 Ultra', 'samsung-galaxy-s25-ultra', 'The ultimate Galaxy experience with S Pen, 200MP camera, and all-day battery life.', 'Power meets precision with Galaxy S25 Ultra.', 134999.00, 124999.00, 'SGS25U-001', 40, 'in_stock', 1, 'samsung-s25-ultra.jpg', 'Samsung', 1, 1),
+
+('MacBook Pro 16-inch M4', 'macbook-pro-16-m4', 'Supercharged by M4 Pro or M4 Max, MacBook Pro empowers you to take on the most demanding projects.', 'The most advanced Mac laptop ever.', 249900.00, NULL, 'MBP16-M4-001', 30, 'in_stock', 2, 'macbook-pro-16.jpg', 'Apple', 1, 1),
+
+('HP Victus 16', 'hp-victus-16', 'Powered by an AMD Ryzen™ processor, the HP Victus 16 Gaming Laptop has all the features to handle your gaming and daily needs.', 'Flagship gaming performance.', 84999.00, 76999.00, 'HP-V16-001', 25, 'in_stock', 2, 'hp-victus-16.jpg', 'HP', 1, 1),
+
+('AirPods Pro 3', 'airpods-pro-3', 'Active Noise Cancellation, Transparency mode, and spatial audio with dynamic head tracking.', 'Immersive sound, seamless experience.', 29900.00, 26900.00, 'APP3-001', 100, 'in_stock', 3, 'airpods-pro-3.jpg', 'Apple', 1, 1),
+
+('Sony WH-1000XM6', 'sony-wh-1000xm6', 'Industry-leading noise cancellation with exceptional sound quality and comfort.', 'Silence the world, hear the music.', 34990.00, 29990.00, 'SONY-XM6-001', 60, 'in_stock', 3, 'sony-wh1000xm6.jpg', 'Sony', 1, 1),
+
+('Apple Watch Ultra 3', 'apple-watch-ultra-3', 'The most rugged and capable Apple Watch. Built for endurance, exploration, and adventure.', 'Push your limits further.', 89900.00, NULL, 'AWU3-001', 35, 'in_stock', 4, 'apple-watch-ultra-3.jpg', 'Apple', 1, 1),
+
+('Samsung Galaxy Watch 7', 'samsung-galaxy-watch-7', 'Advanced health monitoring, fitness tracking, and seamless Galaxy ecosystem integration.', 'Your health, your way.', 34999.00, 29999.00, 'SGW7-001', 45, 'in_stock', 4, 'galaxy-watch-7.jpg', 'Samsung', 0, 1),
+
+('Anker 737 Power Bank', 'anker-737-power-bank', '24000mAh capacity with 140W output. Charge your laptop, phone, and tablet simultaneously.', 'Power that lasts.', 14999.00, 12999.00, 'ANKER-737-001', 80, 'in_stock', 5, 'anker-737.jpg', 'Anker', 0, 1),
+
+('Logitech MX Master 3S', 'logitech-mx-master-3s', 'An icon remastered. Feel every moment of your workflow with even more precision and tactility.', 'Master your workflow.', 10995.00, 8995.00, 'MX-MASTER-3S-001', 70, 'in_stock', 5, 'mx-master-3s.jpg', 'Logitech', 0, 1);
