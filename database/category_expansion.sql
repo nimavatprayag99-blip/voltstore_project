@@ -66,3 +66,37 @@ INSERT INTO categories (name, slug, description, parent_id, status) VALUES
 ('Lifestyle', 'lifestyle', 'Accessories, beauty, and lifestyle products', NULL, 1);
 
 SET @lifestyle_id = LAST_INSERT_ID();
+
+-- =====================================================
+-- INSERT SUB-CATEGORIES
+-- =====================================================
+
+-- Clothing Sub-categories
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Men', 'men-clothing', 'Fashion and apparel for men', @clothing_id, 1),
+('Women', 'women-clothing', 'Trendy clothing for women', @clothing_id, 1),
+('Kids', 'kids-clothing', 'Comfortable clothing for children', @clothing_id, 1);
+
+-- Furniture Sub-categories
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Living Room', 'living-room-furniture', 'Sofas, tables, and living room essentials', @furniture_id, 1),
+('Bedroom', 'bedroom-furniture', 'Beds, wardrobes, and bedroom furniture', @furniture_id, 1),
+('Office', 'office-furniture', 'Desks, chairs, and office essentials', @furniture_id, 1);
+
+-- Sports & Fitness Sub-categories
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Fitness Equipment', 'fitness-equipment', 'Dumbbells, yoga mats, and workout gear', @sports_id, 1),
+('Sportswear', 'sportswear', 'Athletic clothing and shoes', @sports_id, 1),
+('Outdoor Gear', 'outdoor-gear', 'Camping, hiking, and outdoor equipment', @sports_id, 1);
+
+-- Home & Kitchen Sub-categories
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Cookware', 'cookware', 'Pots, pans, and cooking essentials', @kitchen_id, 1),
+('Kitchen Appliances', 'kitchen-appliances', 'Blenders, kettles, and kitchen gadgets', @kitchen_id, 1),
+('Home Decor', 'home-decor', 'Decorative items and home accessories', @kitchen_id, 1);
+
+-- Lifestyle Sub-categories
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Fashion Accessories', 'fashion-accessories', 'Watches, sunglasses, and jewelry', @lifestyle_id, 1),
+('Health & Beauty', 'health-beauty', 'Skincare, grooming, and wellness products', @lifestyle_id, 1),
+('Bags & Luggage', 'bags-luggage', 'Backpacks, suitcases, and travel bags', @lifestyle_id, 1);
