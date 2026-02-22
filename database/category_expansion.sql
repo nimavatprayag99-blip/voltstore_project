@@ -20,3 +20,25 @@ CREATE TABLE IF NOT EXISTS product_attributes (
     INDEX idx_product (product_id),
     INDEX idx_attribute (attribute_name)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+-- =====================================================
+-- UPDATE EXISTING CATEGORIES - Add Parent Category
+-- =====================================================
+
+-- Create Electronics parent category
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Electronics', 'electronics', 'Cutting-edge technology and gadgets', NULL, 1);
+
+SET @electronics_id = LAST_INSERT_ID();
+
+-- Update existing categories to be children of Electronics
+UPDATE categories SET parent_id = @electronics_id WHERE slug IN ('smartphones', 'laptops', 'audio', 'smartwatches', 'accessories');
+
+-- =====================================================
+-- INSERT NEW PARENT CATEGORIES
+-- =====================================================
+
+-- Clothing
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Clothing', 'clothing', 'Fashion for everyone - men, women, and kids', NULL, 1);
+
+SET @clothing_id = LAST_INSERT_ID();
