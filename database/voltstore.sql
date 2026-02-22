@@ -255,3 +255,59 @@ FROM orders
 WHERE status != 'cancelled'
 GROUP BY DATE_FORMAT(created_at, '%Y-%m')
 ORDER BY month DESC;
+
+-- =====================================================
+-- STORED PROCEDURES
+-- =====================================================
+
+DELIMITER //
+
+-- Procedure: Get User Order History
+CREATE PROCEDURE GetUserOrderHistory(IN p_user_id INT)
+BEGIN
+    SELECT 
+        o.*,
+        COUNT(oi.id) as total_items
+    FROM orders o
+    LEFT JOIN order_items oi ON o.id = oi.order_id
+    WHERE o.user_id = p_user_id
+    GROUP BY o.id
+    ORDER BY o.created_at DESC;
+END //
+
+-- Procedure: Update Product Stock
+CREATE PROCEDURE UpdateProductStock(IN p_product_id INT, IN p_quantity INT)
+BEGIN
+    UPDATE products 
+    SET stock_quantity = stock_quantity - p_quantity,
+        stock_status = CASE 
+            WHEN stock_quantity - p_quantity <= 0 THEN 'out_of_stock'
+            ELSE 'in_stock'
+        END
+    WHERE id = p_product_id;
+END //
+
+DELIMITER ;
+
+-- =====================================================
+-- TRIGGERS
+-- =====================================================
+
+DELIMITER //
+
+-- Trigger: Update order total when item is added
+CREATE TRIGGER after_order_item_insert 
+AFTER INSERT ON order_items
+FOR EACH ROW
+BEGIN
+    UPDATE orders 
+    SET total_amount = (
+        SELECT SUM(subtotal) FROM order_items WHERE order_id = NEW.order_id
+    ),
+    final_amount = (
+        SELECT SUM(subtotal) FROM order_items WHERE order_id = NEW.order_id
+    ) + shipping_amount - discount_amount
+    WHERE id = NEW.order_id;
+END //
+
+DELIMITER ;
