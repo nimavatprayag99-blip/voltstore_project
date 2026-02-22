@@ -124,3 +124,25 @@ INSERT INTO products (name, slug, description, short_description, price, sale_pr
 -- Kids' Clothing
 ('Kids Graphic T-Shirt', 'kids-graphic-tshirt', 'Fun and colorful graphic t-shirt for kids. Soft cotton fabric, durable print, perfect for active children.', 'Playful kids t-shirt', 499.00, 399.00, 'KIDS-TSHIRT-001', 200, @kids_cat, 'kids-tshirt.jpg', 'KidZone', 1, 1),
 ('Kids Denim Shorts', 'kids-denim-shorts', 'Comfortable denim shorts for kids. Adjustable waist, durable construction for everyday play.', 'Durable kids shorts', 699.00, 549.00, 'KIDS-SHORTS-001', 150, @kids_cat, 'kids-shorts.jpg', 'PlayWear', 0, 1);
+
+-- =====================================================
+-- INSERT SAMPLE PRODUCTS - FURNITURE
+-- =====================================================
+
+SET @living_cat = (SELECT id FROM categories WHERE slug = 'living-room-furniture');
+SET @bedroom_cat = (SELECT id FROM categories WHERE slug = 'bedroom-furniture');
+SET @office_cat = (SELECT id FROM categories WHERE slug = 'office-furniture');
+
+INSERT INTO products (name, slug, description, short_description, price, sale_price, sku, stock_quantity, category_id, featured_image, brand, featured, status) VALUES
+-- Living Room
+('3-Seater Fabric Sofa', '3-seater-fabric-sofa', 'Elegant 3-seater sofa with premium fabric upholstery. Comfortable seating with solid wooden frame. Dimensions: 200cm x 90cm x 85cm.', 'Comfortable 3-seater sofa', 34999.00, 29999.00, 'SOFA-3SEAT-001', 25, @living_cat, 'sofa-3seater.jpg', 'HomeFurniture', 1, 1),
+('Modern Coffee Table', 'modern-coffee-table', 'Contemporary wooden coffee table with elegant finish. Features storage shelf and sturdy construction. 120cm x 60cm x 45cm.', 'Stylish coffee table', 8999.00, 7499.00, 'TABLE-COFFEE-001', 40, @living_cat, 'coffee-table.jpg', 'WoodCraft', 1, 1),
+('TV Unit Stand', 'tv-unit-stand', 'Spacious TV unit with multiple storage compartments. Supports TVs up to 65 inches. Made from engineered wood.', 'Modern TV stand', 12999.00, 10999.00, 'TV-UNIT-001', 30, @living_cat, 'tv-unit.jpg', 'MediaFurniture', 0, 1),
+
+-- Bedroom
+('Queen Size Bed Frame', 'queen-size-bed-frame', 'Solid wood queen size bed frame with elegant headboard. Strong construction, easy assembly. Dimensions: 200cm x 160cm.', 'Premium wooden bed', 24999.00, 21999.00, 'BED-QUEEN-001', 20, @bedroom_cat, 'queen-bed.jpg', 'SleepWell', 1, 1),
+('Sliding Door Wardrobe', 'sliding-door-wardrobe', 'Spacious 3-door sliding wardrobe with hanging space and shelves. Perfect for organizing clothing. 180cm x 60cm x 200cm.', 'Large storage wardrobe', 18999.00, 15999.00, 'WARDROBE-3D-001', 15, @bedroom_cat, 'wardrobe.jpg', 'StoragePlus', 1, 1),
+
+-- Office
+('Ergonomic Office Chair', 'ergonomic-office-chair', 'Professional ergonomic chair with lumbar support and adjustable height. Breathable mesh back, comfortable for long hours.', 'Comfortable office chair', 7999.00, 6499.00, 'CHAIR-ERGO-001', 50, @office_cat, 'office-chair.jpg', 'WorkComfort', 1, 1),
+('Executive Study Table', 'executive-study-table', 'Spacious study table with built-in drawers and cable management. Premium finish, durable construction. 150cm x 75cm.', 'Modern study desk', 11999.00, 9999.00, 'DESK-EXEC-001', 35, @office_cat, 'study-table.jpg', 'OfficePro', 1, 1);
