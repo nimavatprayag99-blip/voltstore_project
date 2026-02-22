@@ -42,3 +42,27 @@ INSERT INTO categories (name, slug, description, parent_id, status) VALUES
 ('Clothing', 'clothing', 'Fashion for everyone - men, women, and kids', NULL, 1);
 
 SET @clothing_id = LAST_INSERT_ID();
+
+-- Furniture
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Furniture', 'furniture', 'Premium furniture for home and office', NULL, 1);
+
+SET @furniture_id = LAST_INSERT_ID();
+
+-- Sports & Fitness
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Sports & Fitness', 'sports-fitness', 'Stay active and healthy with our fitness gear', NULL, 1);
+
+SET @sports_id = LAST_INSERT_ID();
+
+-- Home & Kitchen
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Home & Kitchen', 'home-kitchen', 'Essential appliances and cookware for your home', NULL, 1);
+
+SET @kitchen_id = LAST_INSERT_ID();
+
+-- Lifestyle
+INSERT INTO categories (name, slug, description, parent_id, status) VALUES
+('Lifestyle', 'lifestyle', 'Accessories, beauty, and lifestyle products', NULL, 1);
+
+SET @lifestyle_id = LAST_INSERT_ID();
