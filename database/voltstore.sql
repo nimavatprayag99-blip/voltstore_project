@@ -186,3 +186,20 @@ CREATE TABLE IF NOT EXISTS wishlist (
     UNIQUE KEY unique_wishlist_item (user_id, product_id),
     INDEX idx_user (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- =====================================================
+-- INSERT DEFAULT DATA
+-- =====================================================
+
+-- Insert Default Admin User
+-- Password: admin123 (hashed with password_hash)
+INSERT INTO admin (username, email, password, full_name, role, status) VALUES
+('admin', 'admin@voltstore.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'System Administrator', 'super_admin', 1);
+
+-- Insert Sample Categories
+INSERT INTO categories (name, slug, description, image, status) VALUES
+('Smartphones', 'smartphones', 'Latest smartphones from top brands', 'category-phones.jpg', 1),
+('Laptops', 'laptops', 'High-performance laptops for work and gaming', 'category-laptops.jpg', 1),
+('Audio', 'audio', 'Premium audio devices and accessories', 'category-audio.jpg', 1),
+('Smartwatches', 'smartwatches', 'Smart wearables and fitness trackers', 'category-watches.jpg', 1),
+('Accessories', 'accessories', 'Mobile and laptop accessories', 'category-accessories.jpg', 1);
