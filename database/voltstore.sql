@@ -225,3 +225,33 @@ INSERT INTO products (name, slug, description, short_description, price, sale_pr
 ('Anker 737 Power Bank', 'anker-737-power-bank', '24000mAh capacity with 140W output. Charge your laptop, phone, and tablet simultaneously.', 'Power that lasts.', 14999.00, 12999.00, 'ANKER-737-001', 80, 'in_stock', 5, 'anker-737.jpg', 'Anker', 0, 1),
 
 ('Logitech MX Master 3S', 'logitech-mx-master-3s', 'An icon remastered. Feel every moment of your workflow with even more precision and tactility.', 'Master your workflow.', 10995.00, 8995.00, 'MX-MASTER-3S-001', 70, 'in_stock', 5, 'mx-master-3s.jpg', 'Logitech', 0, 1);
+
+-- =====================================================
+-- VIEWS FOR REPORTING
+-- =====================================================
+
+-- View: Product Sales Summary
+CREATE OR REPLACE VIEW product_sales_summary AS
+SELECT 
+    p.id,
+    p.name,
+    p.sku,
+    p.price,
+    COALESCE(SUM(oi.quantity), 0) as total_sold,
+    COALESCE(SUM(oi.subtotal), 0) as total_revenue
+FROM products p
+LEFT JOIN order_items oi ON p.id = oi.product_id
+LEFT JOIN orders o ON oi.order_id = o.id AND o.status != 'cancelled'
+GROUP BY p.id, p.name, p.sku, p.price;
+
+-- View: Monthly Order Summary
+CREATE OR REPLACE VIEW monthly_order_summary AS
+SELECT 
+    DATE_FORMAT(created_at, '%Y-%m') as month,
+    COUNT(*) as total_orders,
+    SUM(final_amount) as total_revenue,
+    AVG(final_amount) as average_order_value
+FROM orders
+WHERE status != 'cancelled'
+GROUP BY DATE_FORMAT(created_at, '%Y-%m')
+ORDER BY month DESC;
