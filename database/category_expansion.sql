@@ -146,3 +146,25 @@ INSERT INTO products (name, slug, description, short_description, price, sale_pr
 -- Office
 ('Ergonomic Office Chair', 'ergonomic-office-chair', 'Professional ergonomic chair with lumbar support and adjustable height. Breathable mesh back, comfortable for long hours.', 'Comfortable office chair', 7999.00, 6499.00, 'CHAIR-ERGO-001', 50, @office_cat, 'office-chair.jpg', 'WorkComfort', 1, 1),
 ('Executive Study Table', 'executive-study-table', 'Spacious study table with built-in drawers and cable management. Premium finish, durable construction. 150cm x 75cm.', 'Modern study desk', 11999.00, 9999.00, 'DESK-EXEC-001', 35, @office_cat, 'study-table.jpg', 'OfficePro', 1, 1);
+
+-- =====================================================
+-- INSERT SAMPLE PRODUCTS - SPORTS & FITNESS
+-- =====================================================
+
+SET @fitness_cat = (SELECT id FROM categories WHERE slug = 'fitness-equipment');
+SET @sportswear_cat = (SELECT id FROM categories WHERE slug = 'sportswear');
+SET @outdoor_cat = (SELECT id FROM categories WHERE slug = 'outdoor-gear');
+
+INSERT INTO products (name, slug, description, short_description, price, sale_price, sku, stock_quantity, category_id, featured_image, brand, featured, status) VALUES
+-- Fitness Equipment
+('Adjustable Dumbbell Set', 'adjustable-dumbbell-set', 'Professional adjustable dumbbells with weight range 5-25kg. Space-saving design with quick adjustment mechanism.', 'Versatile dumbbell set', 4999.00, 3999.00, 'FIT-DUMBBELL-001', 60, @fitness_cat, 'dumbbells.jpg', 'FitPro', 1, 1),
+('Premium Yoga Mat', 'premium-yoga-mat', 'Extra thick 8mm yoga mat with anti-slip surface. Comes with carrying strap. Eco-friendly material, 180cm x 60cm.', 'Comfortable yoga mat', 1299.00, 999.00, 'FIT-YOGA-001', 100, @fitness_cat, 'yoga-mat.jpg', 'YogaLife', 1, 1),
+('Resistance Band Set', 'resistance-band-set', 'Complete resistance band set with 5 different resistance levels. Perfect for home workouts and strength training.', 'Versatile resistance bands', 899.00, 699.00, 'FIT-BANDS-001', 80, @fitness_cat, 'resistance-bands.jpg', 'HomeFit', 0, 1),
+
+-- Sportswear
+('Athletic Running Shoes', 'athletic-running-shoes', 'Lightweight running shoes with cushioned sole and breathable mesh upper. Suitable for running and gym workouts.', 'Comfortable running shoes', 2999.00, 2499.00, 'SPORT-SHOES-001', 70, @sportswear_cat, 'running-shoes.jpg', 'SportMax', 1, 1),
+('Quick-Dry Sports T-Shirt', 'quick-dry-sports-tshirt', 'Moisture-wicking athletic t-shirt perfect for workouts. Lightweight, breathable fabric with anti-odor technology.', 'Performance sports tee', 799.00, 599.00, 'SPORT-TSHIRT-001', 120, @sportswear_cat, 'sports-tshirt.jpg', 'ActiveWear', 0, 1),
+
+-- Outdoor Gear
+('Camping Backpack 50L', 'camping-backpack-50l', 'Durable 50-liter backpack for trekking and camping. Multiple compartments, rain cover included, comfortable straps.', 'Large camping backpack', 3499.00, 2999.00, 'OUTDOOR-PACK-001', 45, @outdoor_cat, 'backpack.jpg', 'TrailMaster', 1, 1),
+('Portable Camping Tent', 'portable-camping-tent', 'Easy-setup 2-person camping tent. Waterproof, windproof, with mosquito net. Compact when folded, perfect for outdoor trips.', 'Lightweight camping tent', 5999.00, 4999.00, 'OUTDOOR-TENT-001', 30, @outdoor_cat, 'camping-tent.jpg', 'CampGear', 1, 1);
