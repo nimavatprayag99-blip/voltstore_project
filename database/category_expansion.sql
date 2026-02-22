@@ -213,3 +213,30 @@ INSERT INTO products (name, slug, description, short_description, price, sale_pr
 ('Laptop Backpack', 'laptop-backpack-15-inch', 'Professional laptop backpack with padded compartment for 15-inch laptops. Multiple pockets, USB charging port, water-resistant.', 'Smart laptop backpack', 1999.00, 1599.00, 'BAG-LAPTOP-001', 120, @bags_cat, 'laptop-backpack.jpg', 'TechBag', 1, 1),
 ('Travel Duffle Bag', 'travel-duffle-bag', 'Spacious duffle bag perfect for weekend trips. Durable fabric, adjustable strap, multiple compartments for organization.', 'Convenient travel bag', 1799.00, 1399.00, 'BAG-DUFFLE-001', 85, @bags_cat, 'duffle-bag.jpg', 'TravelMate', 1, 1),
 ('Cabin Luggage 20-inch', 'cabin-luggage-20-inch', 'Hard-shell cabin-sized luggage with 4 spinner wheels. TSA-approved lock, lightweight, perfect for air travel.', 'Compact cabin luggage', 4999.00, 3999.00, 'BAG-LUGGAGE-001', 40, @bags_cat, 'cabin-luggage.jpg', 'JetSetter', 1, 1);
+
+-- =====================================================
+-- INSERT PRODUCT ATTRIBUTES (EXAMPLES)
+-- =====================================================
+
+-- Add size and color attributes for clothing products
+INSERT INTO product_attributes (product_id, attribute_name, attribute_value) 
+SELECT id, 'Size', 'S, M, L, XL, XXL' FROM products WHERE slug = 'mens-cotton-tshirt';
+
+INSERT INTO product_attributes (product_id, attribute_name, attribute_value) 
+SELECT id, 'Color', 'Black, White, Navy, Grey' FROM products WHERE slug = 'mens-cotton-tshirt';
+
+INSERT INTO product_attributes (product_id, attribute_name, attribute_value) 
+SELECT id, 'Size', '28, 30, 32, 34, 36, 38' FROM products WHERE slug = 'mens-denim-jeans';
+
+INSERT INTO product_attributes (product_id, attribute_name, attribute_value) 
+SELECT id, 'Fit', 'Slim Fit' FROM products WHERE slug = 'mens-denim-jeans';
+
+-- Add dimensions for furniture
+INSERT INTO product_attributes (product_id, attribute_name, attribute_value) 
+SELECT id, 'Dimensions', '200cm x 90cm x 85cm' FROM products WHERE slug = '3-seater-fabric-sofa';
+
+INSERT INTO product_attributes (product_id, attribute_name, attribute_value) 
+SELECT id, 'Material', 'Premium Fabric, Solid Wood Frame' FROM products WHERE slug = '3-seater-fabric-sofa';
+
+INSERT INTO product_attributes (product_id, attribute_name, attribute_value) 
+SELECT id, 'Color', 'Grey, Beige, Brown' FROM products WHERE slug = '3-seater-fabric-sofa';
