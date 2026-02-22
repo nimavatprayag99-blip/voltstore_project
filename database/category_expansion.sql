@@ -190,3 +190,26 @@ INSERT INTO products (name, slug, description, short_description, price, sale_pr
 -- Home Decor
 ('Decorative Wall Clock', 'decorative-wall-clock', 'Modern wall clock with silent movement. Elegant design suitable for living room or bedroom. Diameter: 30cm.', 'Stylish wall clock', 899.00, 699.00, 'DECOR-CLOCK-001', 100, @decor_cat, 'wall-clock.jpg', 'TimeDecor', 0, 1),
 ('Artificial Plant Set', 'artificial-plant-set', 'Set of 3 realistic artificial plants in decorative pots. No maintenance required, adds greenery to any space.', 'Maintenance-free plants', 1299.00, 999.00, 'DECOR-PLANT-001', 80, @decor_cat, 'artificial-plants.jpg', 'GreenSpace', 0, 1);
+
+-- =====================================================
+-- INSERT SAMPLE PRODUCTS - LIFESTYLE
+-- =====================================================
+
+SET @accessories_cat = (SELECT id FROM categories WHERE slug = 'fashion-accessories');
+SET @beauty_cat = (SELECT id FROM categories WHERE slug = 'health-beauty');
+SET @bags_cat = (SELECT id FROM categories WHERE slug = 'bags-luggage');
+
+INSERT INTO products (name, slug, description, short_description, price, sale_price, sku, stock_quantity, category_id, featured_image, brand, featured, status) VALUES
+-- Fashion Accessories
+('Leather Wallet', 'genuine-leather-wallet', 'Premium genuine leather wallet with multiple card slots and cash compartments. Compact design, RFID protection.', 'Classic leather wallet', 1299.00, 999.00, 'ACC-WALLET-001', 150, @accessories_cat, 'leather-wallet.jpg', 'LeatherCraft', 1, 1),
+('Polarized Sunglasses', 'polarized-sunglasses', 'Stylish polarized sunglasses with UV400 protection. Durable frame, comes with protective case and cleaning cloth.', 'Protective sunglasses', 1999.00, 1499.00, 'ACC-SUNGLASSES-001', 100, @accessories_cat, 'sunglasses.jpg', 'VisionStyle', 1, 1),
+('Stainless Steel Watch', 'stainless-steel-watch', 'Elegant analog watch with stainless steel band. Water-resistant, scratch-resistant glass, perfect for daily wear.', 'Classic analog watch', 2999.00, 2499.00, 'ACC-WATCH-001', 80, @accessories_cat, 'steel-watch.jpg', 'TimeKeeper', 0, 1),
+
+-- Health & Beauty
+('Electric Trimmer', 'electric-beard-trimmer', 'Cordless electric trimmer with multiple comb attachments. USB rechargeable, suitable for beard and hair styling.', 'Versatile trimmer', 1999.00, 1599.00, 'BEAUTY-TRIMMER-001', 90, @beauty_cat, 'electric-trimmer.jpg', 'GroomPro', 1, 1),
+('Skincare Gift Set', 'skincare-gift-set', 'Complete skincare set with face wash, moisturizer, and serum. Natural ingredients, suitable for all skin types.', 'Complete skincare kit', 2499.00, 1999.00, 'BEAUTY-SKINCARE-001', 70, @beauty_cat, 'skincare-set.jpg', 'GlowSkin', 0, 1),
+
+-- Bags & Luggage
+('Laptop Backpack', 'laptop-backpack-15-inch', 'Professional laptop backpack with padded compartment for 15-inch laptops. Multiple pockets, USB charging port, water-resistant.', 'Smart laptop backpack', 1999.00, 1599.00, 'BAG-LAPTOP-001', 120, @bags_cat, 'laptop-backpack.jpg', 'TechBag', 1, 1),
+('Travel Duffle Bag', 'travel-duffle-bag', 'Spacious duffle bag perfect for weekend trips. Durable fabric, adjustable strap, multiple compartments for organization.', 'Convenient travel bag', 1799.00, 1399.00, 'BAG-DUFFLE-001', 85, @bags_cat, 'duffle-bag.jpg', 'TravelMate', 1, 1),
+('Cabin Luggage 20-inch', 'cabin-luggage-20-inch', 'Hard-shell cabin-sized luggage with 4 spinner wheels. TSA-approved lock, lightweight, perfect for air travel.', 'Compact cabin luggage', 4999.00, 3999.00, 'BAG-LUGGAGE-001', 40, @bags_cat, 'cabin-luggage.jpg', 'JetSetter', 1, 1);
