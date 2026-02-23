@@ -98,3 +98,55 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                                     <a href="<?php echo SITE_URL; ?>/products.php?category=audio">Audio</a>
                                     <a href="<?php echo SITE_URL; ?>/products.php?category=smartwatches">Smartwatches</a>
                                 </div>
+                                
+                                <div class="mega-menu-column">
+                                    <a href="<?php echo SITE_URL; ?>/category.php?slug=clothing" class="mega-menu-header">
+                                        <i class="fas fa-tshirt"></i> Clothing
+                                    </a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=men-clothing">Men</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=women-clothing">Women</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=kids-clothing">Kids</a>
+                                </div>
+                                
+                                <div class="mega-menu-column">
+                                    <a href="<?php echo SITE_URL; ?>/category.php?slug=furniture" class="mega-menu-header">
+                                        <i class="fas fa-couch"></i> Furniture
+                                    </a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=living-room-furniture">Living Room</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=bedroom-furniture">Bedroom</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=office-furniture">Office</a>
+                                </div>
+                                
+                                <div class="mega-menu-column">
+                                    <a href="<?php echo SITE_URL; ?>/category.php?slug=sports-fitness" class="mega-menu-header">
+                                        <i class="fas fa-dumbbell"></i> Sports & Fitness
+                                    </a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=fitness-equipment">Fitness Equipment</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=sportswear">Sportswear</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=outdoor-gear">Outdoor Gear</a>
+                                </div>
+                                
+                                <div class="mega-menu-column">
+                                    <a href="<?php echo SITE_URL; ?>/category.php?slug=home-kitchen" class="mega-menu-header">
+                                        <i class="fas fa-utensils"></i> Home & Kitchen
+                                    </a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=cookware">Cookware</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=kitchen-appliances">Kitchen Appliances</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=home-decor">Home Decor</a>
+                                </div>
+                                
+                                <div class="mega-menu-column">
+                                    <a href="<?php echo SITE_URL; ?>/category.php?slug=lifestyle" class="mega-menu-header">
+                                        <i class="fas fa-gem"></i> Lifestyle
+                                    </a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=fashion-accessories">Fashion Accessories</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=health-beauty">Health & Beauty</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=bags-luggage">Bags & Luggage</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="<?php echo SITE_URL; ?>/about.php" class="nav-link <?php echo $currentPage === 'about' ? 'active' : ''; ?>">About</a></li>
+                    <li><a href="<?php echo SITE_URL; ?>/contact.php" class="nav-link <?php echo $currentPage === 'contact' ? 'active' : ''; ?>">Contact</a></li>
+                </ul>
