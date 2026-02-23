@@ -281,3 +281,12 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                 <span>Logout</span>
             </a>
         </div>
+        <?php else: ?>
+        <div class="mobile-menu-category">
+            <a href="<?php echo SITE_URL; ?>/login.php" class="mobile-menu-category-item">
+                <i class="fas fa-sign-in-alt"></i>
+                <span>Login</span>
+            </a>
+        </div>
+        <?php endif; ?>
+    </div>
