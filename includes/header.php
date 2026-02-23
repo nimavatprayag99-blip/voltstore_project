@@ -67,3 +67,34 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <script src="<?php echo SITE_URL; ?>/assets/js/hero-slider.js" defer></script>
 
 </head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-inner">
+                <!-- Logo -->
+                <a href="<?php echo SITE_URL; ?>/index.php" class="logo">
+                    <div class="logo-icon">V</div>
+                    <span><?php echo SITE_NAME; ?></span>
+                </a>
+                
+                <!-- Navigation Menu -->
+                <ul class="nav-menu">
+                    <li><a href="<?php echo SITE_URL; ?>/index.php" class="nav-link <?php echo $currentPage === 'index' ? 'active' : ''; ?>">Home</a></li>
+                    
+                    <!-- Categories Mega Menu -->
+                    <li class="has-dropdown">
+                        <a href="<?php echo SITE_URL; ?>/products.php" class="nav-link <?php echo $currentPage === 'products' || $currentPage === 'category' ? 'active' : ''; ?>">
+                            Categories <i class="fas fa-chevron-down" style="font-size: 0.75rem; margin-left: 4px;"></i>
+                        </a>
+                        <div class="mega-menu">
+                            <div class="mega-menu-inner">
+                                <div class="mega-menu-column">
+                                    <a href="<?php echo SITE_URL; ?>/category.php?slug=electronics" class="mega-menu-header">
+                                        <i class="fas fa-laptop"></i> Electronics
+                                    </a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=smartphones">Smartphones</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=laptops">Laptops</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=audio">Audio</a>
+                                    <a href="<?php echo SITE_URL; ?>/products.php?category=smartwatches">Smartwatches</a>
+                                </div>
