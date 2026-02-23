@@ -220,3 +220,18 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                 <i class="fas fa-times"></i>
             </button>
         </div>
+         
+        <nav class="mobile-menu-links">
+            <a href="<?php echo SITE_URL; ?>/index.php" class="mobile-menu-link <?php echo $currentPage === 'index' ? 'active' : ''; ?>">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="<?php echo SITE_URL; ?>/products.php" class="mobile-menu-link <?php echo $currentPage === 'products' ? 'active' : ''; ?>">
+                <i class="fas fa-shopping-bag"></i> All Products
+            </a>
+            <a href="<?php echo SITE_URL; ?>/about.php" class="mobile-menu-link <?php echo $currentPage === 'about' ? 'active' : ''; ?>">
+                <i class="fas fa-info-circle"></i> About
+            </a>
+            <a href="<?php echo SITE_URL; ?>/contact.php" class="mobile-menu-link <?php echo $currentPage === 'contact' ? 'active' : ''; ?>">
+                <i class="fas fa-envelope"></i> Contact
+            </a>
+        </nav>
