@@ -39,3 +39,31 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    
+    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/style.css">
+    
+    <!-- Premium Navbar Styles -->
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/navbar-premium.css">
+    
+    <!-- Hero Slider Styles -->
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/hero-slider.css">
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/assets/css/hero-animated-bg-v2.css">
+    
+    <!-- Page-specific styles -->
+    <?php if (isset($pageStyles)): ?>
+    <style><?php echo $pageStyles; ?></style>
+    <?php endif; ?>
+    
+    <!-- Navigation Script -->
+    <script src="<?php echo SITE_URL; ?>/assets/js/navigation.js" defer></script>
+    
+    <!-- Hero Slider Script -->
+    <script src="<?php echo SITE_URL; ?>/assets/js/hero-slider.js" defer></script>
+
+</head>
