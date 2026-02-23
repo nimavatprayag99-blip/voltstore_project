@@ -235,3 +235,32 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                 <i class="fas fa-envelope"></i> Contact
             </a>
         </nav>
+        
+        <div class="mobile-menu-category">
+            <div class="mobile-menu-category-title">Shop by Category</div>
+            
+            <a href="<?php echo SITE_URL; ?>/category.php?slug=electronics" class="mobile-menu-category-item">
+                <i class="fas fa-laptop"></i>
+                <span>Electronics</span>
+            </a>
+            <a href="<?php echo SITE_URL; ?>/category.php?slug=clothing" class="mobile-menu-category-item">
+                <i class="fas fa-tshirt"></i>
+                <span>Clothing</span>
+            </a>
+            <a href="<?php echo SITE_URL; ?>/category.php?slug=furniture" class="mobile-menu-category-item">
+                <i class="fas fa-couch"></i>
+                <span>Furniture</span>
+            </a>
+            <a href="<?php echo SITE_URL; ?>/category.php?slug=sports-fitness" class="mobile-menu-category-item">
+                <i class="fas fa-dumbbell"></i>
+                <span>Sports & Fitness</span>
+            </a>
+            <a href="<?php echo SITE_URL; ?>/category.php?slug=home-kitchen" class="mobile-menu-category-item">
+                <i class="fas fa-utensils"></i>
+                <span>Home & Kitchen</span>
+            </a>
+            <a href="<?php echo SITE_URL; ?>/category.php?slug=lifestyle" class="mobile-menu-category-item">
+                <i class="fas fa-gem"></i>
+                <span>Lifestyle</span>
+            </a>
+        </div>
