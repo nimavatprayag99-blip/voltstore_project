@@ -150,3 +150,21 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                     <li><a href="<?php echo SITE_URL; ?>/about.php" class="nav-link <?php echo $currentPage === 'about' ? 'active' : ''; ?>">About</a></li>
                     <li><a href="<?php echo SITE_URL; ?>/contact.php" class="nav-link <?php echo $currentPage === 'contact' ? 'active' : ''; ?>">Contact</a></li>
                 </ul>
+                 
+                <!-- Navigation Actions -->
+                <div class="nav-actions">
+                    <!-- Search -->
+                    <a href="<?php echo SITE_URL; ?>/products.php" class="nav-icon" title="Search">
+                        <i class="fas fa-search"></i>
+                    </a>
+                    
+                    <?php if (isLoggedIn()): ?>
+                        <!-- User Account -->
+                        <a href="<?php echo SITE_URL; ?>/user/profile.php" class="nav-icon" title="My Account">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        
+                        <!-- Wishlist -->
+                        <a href="<?php echo SITE_URL; ?>/user/wishlist.php" class="nav-icon" title="Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
