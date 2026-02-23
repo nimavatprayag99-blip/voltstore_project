@@ -290,3 +290,13 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
         </div>
         <?php endif; ?>
     </div>
+    
+    <!-- Flash Messages -->
+    <?php $flash = getFlashMessage(); if ($flash): ?>
+    <div class="container" style="padding-top: 80px;">
+        <div class="alert alert-<?php echo $flash['type']; ?> animate-fadeIn">
+            <i class="fas fa-<?php echo $flash['type'] === 'success' ? 'check-circle' : ($flash['type'] === 'error' ? 'exclamation-circle' : 'info-circle'); ?>"></i>
+            <span><?php echo sanitize($flash['message']); ?></span>
+        </div>
+    </div>
+    <?php endif; ?>
