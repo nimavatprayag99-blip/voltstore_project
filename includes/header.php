@@ -197,3 +197,26 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                             <i class="fas fa-shopping-cart"></i>
                         </a>
                     <?php endif; ?>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="mobile-menu-btn" aria-label="Toggle Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-header">
+            <a href="<?php echo SITE_URL; ?>/index.php" class="logo">
+                <div class="logo-icon">V</div>
+                <span><?php echo SITE_NAME; ?></span>
+            </a>
+            <button class="mobile-menu-close" aria-label="Close Menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
