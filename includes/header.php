@@ -264,3 +264,20 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                 <span>Lifestyle</span>
             </a>
         </div>
+        
+        <?php if (isLoggedIn()): ?>
+        <div class="mobile-menu-category">
+            <div class="mobile-menu-category-title">My Account</div>
+            <a href="<?php echo SITE_URL; ?>/user/profile.php" class="mobile-menu-category-item">
+                <i class="fas fa-user"></i>
+                <span>Profile</span>
+            </a>
+            <a href="<?php echo SITE_URL; ?>/cart/cart.php" class="mobile-menu-category-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Cart <?php if ($cartCount > 0) echo "($cartCount)"; ?></span>
+            </a>
+            <a href="<?php echo SITE_URL; ?>/logout.php" class="mobile-menu-category-item">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Logout</span>
+            </a>
+        </div>
