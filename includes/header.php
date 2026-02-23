@@ -181,3 +181,19 @@ $currentPage = basename($_SERVER['PHP_SELF'], '.php');
                         <a href="<?php echo SITE_URL; ?>/logout.php" class="nav-icon" title="Logout">
                             <i class="fas fa-sign-out-alt"></i>
                         </a>
+                        <?php else: ?>
+                        <!-- Login -->
+                        <a href="<?php echo SITE_URL; ?>/login.php" class="nav-icon" title="Login">
+                            <i class="fas fa-user"></i>
+                        </a>
+                        
+                        <!-- Wishlist -->
+                        <a href="<?php echo SITE_URL; ?>/user/wishlist.php" class="nav-icon" title="Wishlist">
+                            <i class="far fa-heart"></i>
+                        </a>
+                        
+                        <!-- Cart (for guests) -->
+                        <a href="<?php echo SITE_URL; ?>/cart/cart.php" class="nav-icon" title="Cart">
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    <?php endif; ?>
