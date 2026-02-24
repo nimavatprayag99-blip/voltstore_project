@@ -102,3 +102,16 @@
                         <span class="footer-divider">|</span>
                         <span class="footer-founder">Founded by Prayag Nimavat</span>
                     </p>
+                     <div class="footer-payment">
+                        <span class="payment-label">We accept:</span>
+                        <div class="payment-icons">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Visa_Inc._logo.svg" alt="Visa" height="24" class="payment-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard" height="24" class="payment-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg" alt="PayPal" height="24" class="payment-icon">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e1/UPI-Logo-vector.svg" alt="UPI" height="24" class="payment-icon">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
