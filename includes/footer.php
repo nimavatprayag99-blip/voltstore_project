@@ -158,3 +158,32 @@
                 z-index: 999;
                 border: none;
             }
+            
+            .back-to-top.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
+            
+            .back-to-top:hover {
+                background: var(--primary-dark);
+                transform: translateY(-4px);
+            }
+            
+            .notification {
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: white;
+                padding: 16px 20px;
+                border-radius: 12px;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                min-width: 300px;
+                max-width: 400px;
+                z-index: 10000;
+                transform: translateX(120%);
+                transition: transform 0.3s ease;
+            }
