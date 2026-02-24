@@ -70,4 +70,10 @@
                                 <strong>Support:</strong> +91 8765-432-109
                             </div>
                         </li>
+                         <i class="fas fa-envelope"></i>
+                            <div>
+                                <a href="mailto:info@voltstore.in">info@voltstore.in</a><br>
+                                <a href="mailto:support@voltstore.in">support@voltstore.in</a>
+                            </div>
+                        </li>
                         
