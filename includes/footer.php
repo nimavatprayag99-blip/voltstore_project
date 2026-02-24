@@ -25,3 +25,15 @@
                         <a href="https://github.com/prayagnimavat99" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
                     </div>
                 </div>
+                
+                <!-- Quick Links -->
+                <div class="footer-links">
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul>
+                        <li><a href="<?php echo SITE_URL; ?>/index.php">Home</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/products.php">Products</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/categories.php">Categories</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/about.php">About Us</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/contact.php">Contact</a></li>
+                    </ul>
+                </div>
