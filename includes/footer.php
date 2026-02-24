@@ -224,3 +224,16 @@
                 align-items: center;
                 justify-content: center;
             }
+            
+            .notification-close:hover {
+                color: var(--text-primary);
+            }
+            
+            .icon-success { color: var(--accent-green); }
+            .icon-error { color: var(--accent-red); }
+            .icon-info { color: var(--primary); }
+            
+            /* Mobile menu overlay */
+            body.menu-open {
+                overflow: hidden;
+            }
