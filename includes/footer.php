@@ -237,3 +237,16 @@
             body.menu-open {
                 overflow: hidden;
             }
+            
+            body.menu-open::after {
+                content: '';
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 99;
+            }
+        `;
+        document.head.appendChild(backToTopStyles);
+    </script>
+</body>
+</html>
