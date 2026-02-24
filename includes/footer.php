@@ -210,3 +210,17 @@
                 gap: 10px;
                 flex: 1;
             }
+            
+            .notification-close {
+                background: none;
+                border: none;
+                font-size: 20px;
+                color: var(--text-muted);
+                cursor: pointer;
+                padding: 0;
+                width: 24px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
