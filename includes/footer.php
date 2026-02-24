@@ -49,3 +49,17 @@
                         <li><a href="<?php echo SITE_URL; ?>/privacy.php">Privacy Policy</a></li>
                     </ul>
                 </div>
+                
+                <!-- Contact Info -->
+                <div class="footer-links">
+                    <h4 class="footer-title">Get In Touch</h4>
+                    <ul>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>VoltStore India Pvt. Ltd.</strong><br>
+                                Tech Plaza, 2nd Floor<br>
+                                Kalawad Road, Rajkot<br>
+                                Gujarat - 360005, India
+                            </div>
+                        </li>
