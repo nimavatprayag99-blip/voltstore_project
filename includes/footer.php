@@ -63,3 +63,11 @@
                                 Gujarat - 360005, India
                             </div>
                         </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Sales:</strong> +91 9876-543-210<br>
+                                <strong>Support:</strong> +91 8765-432-109
+                            </div>
+                        </li>
+                        
