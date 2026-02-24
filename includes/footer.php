@@ -115,3 +115,21 @@
             </div>
         </div>
     </footer>
+    
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to Top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <!-- Main JavaScript -->
+    <script src="<?php echo SITE_URL; ?>/assets/js/main.js"></script>
+    
+    <!-- Page-specific scripts -->
+    <?php if (isset($pageScripts)): ?>
+    <script><?php echo $pageScripts; ?></script>
+    <?php endif; ?>
+    
+    <!-- Inline script for immediate execution -->
+    <script>
+        // Add padding to body for fixed navbar
+        document.body.style.paddingTop = '52px';
