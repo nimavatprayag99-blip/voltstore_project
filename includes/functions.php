@@ -34,3 +34,30 @@ function getFeaturedProducts($limit = 8) {
         return [];
     }
 }
+
+/**
+ * Get categories with product counts
+ * 
+ * @param int $limit Number of categories to return
+ * @return array
+ */
+function getCategoriesWithCount($limit = 6) {
+    try {
+        $db = getDB();
+        $stmt = $db->prepare("
+            SELECT c.*, COUNT(p.id) as product_count 
+            FROM categories c 
+            LEFT JOIN products p ON c.id = p.category_id AND p.status = 1 
+            WHERE c.status = 1 
+            GROUP BY c.id 
+            ORDER BY c.name 
+            LIMIT :limit
+        ");
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        error_log("Categories error: " . $e->getMessage());
+        return [];
+    }
+}
