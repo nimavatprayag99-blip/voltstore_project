@@ -187,3 +187,26 @@
                 transform: translateX(120%);
                 transition: transform 0.3s ease;
             }
+            
+            .notification.show {
+                transform: translateX(0);
+            }
+            
+            .notification.hide {
+                transform: translateX(120%);
+            }
+            
+            .notification-success {
+                border-left: 4px solid var(--accent-green);
+            }
+            
+            .notification-error {
+                border-left: 4px solid var(--accent-red);
+            }
+            
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex: 1;
+            }
