@@ -87,3 +87,25 @@ function getNewArrivals($limit = 4) {
         return [];
     }
 }
+
+/**
+ * Get cart item count for a user
+ * 
+ * @param int $userId User ID
+ * @return int Total quantity in cart
+ */
+function getCartCount($userId) {
+    if (!$userId) return 0;
+    
+    try {
+        $db = getDB();
+        $stmt = $db->prepare("SELECT SUM(quantity) as count FROM cart WHERE user_id = ?");
+        $stmt->execute([$userId]);
+        $result = $stmt->fetch();
+        return (int)($result['count'] ?? 0);
+    } catch (PDOException $e) {
+        error_log("Cart count error: " . $e->getMessage());
+        return 0;
+    }
+}
+?>
