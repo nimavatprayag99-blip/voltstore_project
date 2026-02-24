@@ -76,4 +76,21 @@
                                 <a href="mailto:support@voltstore.in">support@voltstore.in</a>
                             </div>
                         </li>
-                        
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <strong>Mon - Fri:</strong> 9:00 AM - 7:00 PM<br>
+                                <strong>Sat - Sun:</strong> 10:00 AM - 2:00 PM<br>
+                                <small style="opacity: 0.7;">(IST)</small>
+                            </div>
+                        </li>
+                        <li style="margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);">
+                            <i class="fas fa-user-tie"></i>
+                            <div>
+                                <strong>Prayag Nimavat</strong><br>
+                                <small style="opacity: 0.8;">CEO & Founder</small>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
