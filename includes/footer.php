@@ -37,3 +37,15 @@
                         <li><a href="<?php echo SITE_URL; ?>/contact.php">Contact</a></li>
                     </ul>
                 </div>
+                
+                <!-- Customer Service -->
+                <div class="footer-links">
+                    <h4 class="footer-title">Customer Service</h4>
+                    <ul>
+                        <li><a href="<?php echo SITE_URL; ?>/faq.php">FAQ</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/shipping.php">Shipping Info</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/returns.php">Returns & Exchanges</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/terms.php">Terms & Conditions</a></li>
+                        <li><a href="<?php echo SITE_URL; ?>/privacy.php">Privacy Policy</a></li>
+                    </ul>
+                </div>
