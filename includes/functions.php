@@ -61,3 +61,29 @@ function getCategoriesWithCount($limit = 6) {
         return [];
     }
 }
+
+/**
+ * Get new arrivals
+ * 
+ * @param int $limit Number of products to return
+ * @return array
+ */
+function getNewArrivals($limit = 4) {
+    try {
+        $db = getDB();
+        $stmt = $db->prepare("
+            SELECT p.*, c.name as category_name 
+            FROM products p 
+            LEFT JOIN categories c ON p.category_id = c.id 
+            WHERE p.status = 1 
+            ORDER BY p.created_at DESC 
+            LIMIT :limit
+        ");
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        error_log("New arrivals error: " . $e->getMessage());
+        return [];
+    }
+}
