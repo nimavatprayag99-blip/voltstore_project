@@ -94,3 +94,11 @@
                     </ul>
                 </div>
             </div>
+            <!-- Footer Bottom - Centered -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p class="footer-copyright">
+                        &copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. All rights reserved.
+                        <span class="footer-divider">|</span>
+                        <span class="footer-founder">Founded by Prayag Nimavat</span>
+                    </p>
