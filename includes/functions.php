@@ -26,3 +26,11 @@ function getFeaturedProducts($limit = 8) {
             ORDER BY p.created_at DESC 
             LIMIT :limit
         ");
+         $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        error_log("Featured products error: " . $e->getMessage());
+        return [];
+    }
+}
