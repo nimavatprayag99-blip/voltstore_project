@@ -133,3 +133,28 @@
     <script>
         // Add padding to body for fixed navbar
         document.body.style.paddingTop = '52px';
+        
+        // Back to top button styles
+        const backToTopStyles = document.createElement('style');
+        backToTopStyles.textContent = `
+            .back-to-top {
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                width: 48px;
+                height: 48px;
+                background: var(--primary);
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(20px);
+                transition: all 0.3s ease;
+                box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+                z-index: 999;
+                border: none;
+            }
