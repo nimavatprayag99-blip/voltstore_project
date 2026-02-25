@@ -20,3 +20,13 @@
         radial-gradient(circle at 80% 80%, rgba(88, 86, 214, 0.1) 0%, transparent 50%);
     animation: gradientShift 10s ease infinite;
 }
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+}
