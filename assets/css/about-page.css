@@ -192,3 +192,18 @@
     position: relative;
     z-index: 2;
 }
+
+.timeline-content {
+    flex: 1;
+    background: var(--bg-secondary);
+    padding: var(--spacing-xl);
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
