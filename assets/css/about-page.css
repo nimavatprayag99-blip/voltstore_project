@@ -330,3 +330,21 @@
     font-size: 2rem;
     margin-bottom: var(--spacing-lg);
 }
+
+.mv-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+}
+
+.mv-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-lg);
+}
+
+.mv-list {
+    list-style: none;
+    padding: 0;
+}
