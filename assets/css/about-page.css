@@ -45,3 +45,15 @@
         background-position: 0% 50%;
     }
 }
+
+.about-hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xl) 0;
+}
