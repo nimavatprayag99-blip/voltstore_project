@@ -207,3 +207,14 @@
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     border-color: var(--primary);
 }
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    color: var(--primary);
+    margin-bottom: var(--spacing-sm);
+}
+
+.timeline-content p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
