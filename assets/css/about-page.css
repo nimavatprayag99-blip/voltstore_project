@@ -399,3 +399,31 @@
     margin-bottom: var(--spacing-md);
     color: #ffd60a;
 }
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    color: white;
+    white-space: nowrap;
+}
+
+.stat-number::after {
+    content: '+';
+    margin-left: 4px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.4;
+    max-width: 100%;
+    padding: 0 var(--spacing-sm);
+    word-wrap: break-word;
+    hyphens: auto;
+}
+
+/* Values Section */
+.values-section {
+    background: var(--bg-secondary);
+}
