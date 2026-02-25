@@ -474,3 +474,34 @@
     margin-bottom: var(--spacing-md);
     color: var(--text-primary);
 }
+
+.value-description {
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* CTA Section */
+.cta-section {
+    background: var(--bg-primary);
+    padding: 120px 0;
+}
+
+.cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--text-primary);
+}
+
+.cta-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.8;
+}
