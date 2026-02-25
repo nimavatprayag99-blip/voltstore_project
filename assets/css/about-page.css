@@ -348,3 +348,28 @@
     list-style: none;
     padding: 0;
 }
+
+.mv-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) 0;
+    color: var(--text-secondary);
+}
+
+.mv-list li i {
+    color: var(--primary);
+    font-size: 1.1rem;
+}
+
+/* Stats Section */
+.stats-section {
+    background: linear-gradient(135deg, #0071e3, #005bb5);
+    color: white;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--spacing-xl);
+}
