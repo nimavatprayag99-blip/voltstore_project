@@ -93,3 +93,21 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.hero-scroll-indicator {
+    position: absolute;
+    bottom: var(--spacing-xl);
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.5rem;
+    animation: bounce 2s ease-in-out infinite;
+}
