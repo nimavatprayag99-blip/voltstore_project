@@ -335,3 +335,45 @@ body {
     position: relative;
     border-radius: 8px;
 }
+
+.data-table td {
+    vertical-align: middle;
+}
+
+/* Welcome Badge Animation */
+.admin-header .badge {
+    animation: pulse-glow 2s infinite;
+}
+
+/* =====================================================
+   VISIBILITY FIXES - FORCE DARK TEXT
+   ===================================================== */
+.admin-content h1,
+.admin-content h2,
+.admin-content h3,
+.admin-content h4,
+.admin-content p {
+    color: #1d1d1f !important;
+}
+
+.data-table th {
+    color: #1d1d1f !important;
+    font-weight: 700;
+    opacity: 1 !important;
+}
+
+.data-table td {
+    color: #1d1d1f !important;
+}
+
+.data-table td strong {
+    color: #1d1d1f !important;
+}
+
+.data-table td small {
+    color: #6e6e73 !important;
+}
+
+.stat-info h3 {
+    color: #1d1d1f !important;
+}
