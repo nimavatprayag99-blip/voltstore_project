@@ -46,3 +46,23 @@
     transform: rotate(-15deg);
     pointer-events: none;
 }
+
+/* ===================================
+   POSTER 3: ACCESSORIES
+   Blue gradient with premium feel
+   =================================== */
+
+[data-slide="3"] .hero-slider-bg .bg-gradient {
+    background: linear-gradient(135deg, #0d1b2a 0%, #0071e3 25%, #2997ff 50%, #0071e3 75%, #0d1b2a 100%);
+}
+
+[data-slide="3"] .hero-slider-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
