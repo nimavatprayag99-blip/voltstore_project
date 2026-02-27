@@ -182,3 +182,35 @@ body {
     color: #ff9500;
     border: 1px solid rgba(255, 149, 0, 0.2);
 }
+
+/* Action Buttons */
+.action-btn-group {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    background: #f5f5f7;
+    color: #6e6e73;
+}
+
+.btn-icon:hover {
+    transform: translateY(-2px);
+    color: white;
+    background: var(--primary);
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+}
+
+.btn-icon.delete:hover {
+    background: #ff3b30;
+    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.3);
+}
