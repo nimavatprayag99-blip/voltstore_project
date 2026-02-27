@@ -1,0 +1,26 @@
+
+/* ===================================
+   POSTER 1: ELECTRONICS & GADGETS
+   Dark blue tech theme with circuit patterns
+   =================================== */
+
+[data-slide="1"] .hero-slider-bg .bg-gradient {
+    background:
+        radial-gradient(circle at 20% 50%, rgba(0, 113, 227, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(41, 151, 255, 0.15) 0%, transparent 50%),
+        linear-gradient(135deg, #0a1628 0%, #1a2842 25%, #1e3a5f 50%, #2a4365 75%, #1a2842 100%);
+}
+
+[data-slide="1"] .hero-slider-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 113, 227, 0.03) 2px, rgba(0, 113, 227, 0.03) 4px),
+        repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(0, 113, 227, 0.03) 2px, rgba(0, 113, 227, 0.03) 4px);
+    opacity: 0.5;
+    pointer-events: none;
+}
