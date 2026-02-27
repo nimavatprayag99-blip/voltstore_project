@@ -66,3 +66,38 @@
     background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
     pointer-events: none;
 }
+
+/* ===================================
+   POSTER 4: LIMITED TIME DEALS
+   Dark with electric blue energy
+   =================================== */
+
+[data-slide="4"] .hero-slider-bg .bg-gradient {
+    background:
+        radial-gradient(circle at 50% 50%, rgba(0, 113, 227, 0.3) 0%, transparent 50%),
+        linear-gradient(135deg, #1a0f0a 0%, #0a1a2e 25%, #16213e 50%, #0a1a2e 75%, #1a0f0a 100%);
+}
+
+/* Blue light rays effect for deals poster */
+[data-slide="4"] .hero-slider-bg::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    transform: translate(-50%, -50%);
+    background:
+        conic-gradient(from 0deg at 50% 50%,
+            transparent 0deg,
+            rgba(0, 113, 227, 0.1) 45deg,
+            transparent 90deg,
+            rgba(41, 151, 255, 0.1) 135deg,
+            transparent 180deg,
+            rgba(0, 113, 227, 0.1) 225deg,
+            transparent 270deg,
+            rgba(41, 151, 255, 0.1) 315deg,
+            transparent 360deg);
+    animation: rotateRays 20s linear infinite;
+    pointer-events: none;
+}
