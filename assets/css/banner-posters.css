@@ -24,3 +24,25 @@
     opacity: 0.5;
     pointer-events: none;
 }
+
+/* ===================================
+   POSTER 2: FASHION SALE
+   Clean white/light background with sale elements
+   =================================== */
+
+[data-slide="2"] .hero-slider-bg .bg-gradient {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
+}
+
+[data-slide="2"] .hero-slider-bg::after {
+    content: 'SALE';
+    position: absolute;
+    top: 5%;
+    left: 2%;
+    font-size: 4rem;
+    font-weight: 900;
+    color: rgba(255, 59, 48, 0.08);
+    letter-spacing: 0.5em;
+    transform: rotate(-15deg);
+    pointer-events: none;
+}
