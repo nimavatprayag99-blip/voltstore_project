@@ -310,3 +310,28 @@ body {
     animation-delay: 0.2s;
     border-bottom: 3px solid #34c759;
 }
+
+.stats-grid .stat-card:nth-child(3) {
+    animation-delay: 0.3s;
+    border-bottom: 3px solid #ff9500;
+}
+
+.stats-grid .stat-card:nth-child(4) {
+    animation-delay: 0.4s;
+    border-bottom: 3px solid #ff3b30;
+}
+
+/* Dashboard Tables */
+.data-table tbody tr {
+    transition: all 0.2s ease;
+    border-bottom: 1px solid #f0f0f5;
+}
+
+.data-table tbody tr:hover {
+    transform: scale(1.005);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    background: white;
+    z-index: 10;
+    position: relative;
+    border-radius: 8px;
+}
