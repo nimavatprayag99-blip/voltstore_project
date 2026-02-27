@@ -224,3 +224,64 @@
         opacity: 0.95;
     }
 }
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+
+@media (max-width: 768px) {
+    .contact-hero-live {
+        min-height: 400px;
+    }
+
+    .hero-heading-live {
+        font-size: 2.5rem;
+    }
+
+    .hero-slogan-live {
+        font-size: 1.1rem;
+    }
+
+    .hero-accent-line {
+        width: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-hero-live {
+        min-height: 350px;
+    }
+
+    .hero-heading-live {
+        font-size: 2rem;
+    }
+
+    .hero-slogan-live {
+        font-size: 1rem;
+    }
+}
+
+/* =====================================================
+   PERFORMANCE OPTIMIZATIONS
+   ===================================================== */
+
+/* Remove will-change after animations complete */
+.hero-heading-live,
+.hero-slogan-live {
+    animation-fill-mode: forwards;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-gradient,
+    .hero-glow-1,
+    .hero-accent-line {
+        animation: none !important;
+    }
+
+    .hero-heading-live,
+    .hero-slogan-live {
+        animation-duration: 0.3s !important;
+    }
+}
