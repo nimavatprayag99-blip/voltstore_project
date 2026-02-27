@@ -426,3 +426,42 @@ body {
     position: relative;
     border-radius: 8px;
 }
+
+.orders-grid-row:last-child {
+    border-bottom: none;
+    border-radius: 0 0 12px 12px;
+}
+
+/* Status Badges */
+.status-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    /* Increased weight */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    border: 1px solid transparent;
+    opacity: 1 !important;
+}
+
+/* ... existing badge colors ... */
+
+.form-select {
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1px solid #d2d2d7;
+    background-color: #f5f5f7;
+    color: #1d1d1f !important;
+    /* Force dark text */
+    font-size: 0.9rem;
+    min-width: 200px;
+    cursor: pointer;
+    transition: all 0.2s;
+    -webkit-appearance: auto;
+    /* Ensure arrow is visible */
+}
