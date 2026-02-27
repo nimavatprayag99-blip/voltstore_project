@@ -126,3 +126,29 @@
     transform: translateZ(0);
     will-change: transform, opacity;
 }
+
+/* Premium Reveal (on load) */
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ultra-Subtle Breathing Scale (barely noticeable) */
+@keyframes breathingScale {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.015);
+    }
+}
