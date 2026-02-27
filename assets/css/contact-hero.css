@@ -1,0 +1,25 @@
+/* Hero Container */
+.contact-hero-live {
+    position: relative;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+/* =====================================================
+   ANIMATED BACKGROUND LAYERS (OPTIMIZED)
+   ===================================================== */
+
+.hero-bg-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    will-change: background-position;
+    transform: translateZ(0);
+}
