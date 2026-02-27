@@ -23,3 +23,28 @@
     will-change: background-position;
     transform: translateZ(0);
 }
+
+/* Layer 1: Animated Gradient (Base) - OPTIMIZED */
+.hero-gradient {
+    background: linear-gradient(135deg,
+            #0066cc 0%,
+            #0052a3 25%,
+            #004080 50%,
+            #0052a3 75%,
+            #0066cc 100%);
+    background-size: 400% 400%;
+    animation: gradientFlow 25s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes gradientFlow {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
