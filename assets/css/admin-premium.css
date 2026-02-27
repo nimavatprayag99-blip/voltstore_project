@@ -402,3 +402,27 @@ body {
     letter-spacing: 0.5px;
     border-radius: 12px 12px 0 0;
 }
+
+.orders-grid-row {
+    background: white;
+    border-bottom: 1px solid #f0f0f5;
+    transition: all 0.2s ease;
+    color: #1d1d1f;
+}
+
+.orders-grid-row>div {
+    color: #1d1d1f;
+}
+
+.orders-grid-row small {
+    color: #86868b !important;
+}
+
+.orders-grid-row:hover {
+    background: #fafafa;
+    transform: scale(1.005);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+    position: relative;
+    border-radius: 8px;
+}
