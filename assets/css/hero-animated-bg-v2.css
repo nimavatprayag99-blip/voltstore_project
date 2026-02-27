@@ -48,3 +48,32 @@
     animation: orbFloat 20s ease-in-out infinite;
     will-change: transform;
 }
+
+.orb-1 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, #1976d2 0%, transparent 70%);
+    top: -10%;
+    left: -10%;
+    animation-duration: 18s;
+}
+
+.orb-2 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #42a5f5 0%, transparent 70%);
+    bottom: -15%;
+    right: -10%;
+    animation-duration: 22s;
+    animation-delay: -5s;
+}
+
+.orb-3 {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, #0d47a1 0%, transparent 70%);
+    top: 40%;
+    left: 40%;
+    animation-duration: 25s;
+    animation-delay: -10s;
+}
