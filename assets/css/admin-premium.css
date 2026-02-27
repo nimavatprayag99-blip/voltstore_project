@@ -73,3 +73,36 @@ body {
 .stagger-delay-2 {
     animation-delay: 0.2s;
 }
+
+.stagger-delay-3 {
+    animation-delay: 0.3s;
+}
+
+.stagger-delay-4 {
+    animation-delay: 0.4s;
+}
+
+.stagger-delay-5 {
+    animation-delay: 0.5s;
+}
+
+/* Product Table / List Styling */
+.product-row {
+    display: grid;
+    grid-template-columns: 80px 2fr 1fr 1fr 1fr 100px 100px;
+    align-items: center;
+    gap: 20px;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+    border-left: 4px solid transparent;
+}
+
+.product-row:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    border-left-color: var(--primary);
+}
