@@ -48,3 +48,28 @@
         background-position: 100% 50%;
     }
 }
+
+/* Layer 2: Single Optimized Glow (Replaces 3 heavy glows) */
+.hero-glow-1 {
+    background: radial-gradient(ellipse at 30% 40%,
+            rgba(0, 212, 255, 0.12) 0%,
+            transparent 60%),
+        radial-gradient(ellipse at 70% 70%,
+            rgba(138, 43, 226, 0.08) 0%,
+            transparent 60%);
+    animation: glowPulse 8s ease-in-out infinite;
+    z-index: 2;
+    opacity: 0.7;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
