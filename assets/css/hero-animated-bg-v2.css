@@ -116,3 +116,30 @@
         transform: translate3d(50px, 50px, 0);
     }
 }
+
+/* ===== LIGHT RAYS ===== */
+.light-ray {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom,
+            transparent 0%,
+            rgba(66, 165, 245, 0.2) 50%,
+            transparent 100%);
+    animation: rayMove 15s linear infinite;
+}
+
+.light-ray-1 {
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.light-ray-2 {
+    left: 50%;
+    animation-delay: -5s;
+}
+
+.light-ray-3 {
+    left: 80%;
+    animation-delay: -10s;
+}
