@@ -465,3 +465,27 @@ body {
     -webkit-appearance: auto;
     /* Ensure arrow is visible */
 }
+
+.status-badge.pending {
+    background: rgba(255, 149, 0, 0.1);
+    color: #ff9500;
+    border-color: rgba(255, 149, 0, 0.2);
+}
+
+.status-badge.processing {
+    background: rgba(0, 113, 227, 0.1);
+    color: #0071e3;
+    border-color: rgba(0, 113, 227, 0.2);
+}
+
+.status-badge.shipped {
+    background: rgba(175, 82, 222, 0.1);
+    color: #af52de;
+    border-color: rgba(175, 82, 222, 0.2);
+}
+
+.status-badge.delivered {
+    background: rgba(52, 199, 89, 0.1);
+    color: #34c759;
+    border-color: rgba(52, 199, 89, 0.2);
+}
