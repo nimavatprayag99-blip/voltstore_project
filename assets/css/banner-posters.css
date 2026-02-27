@@ -101,3 +101,31 @@
     animation: rotateRays 20s linear infinite;
     pointer-events: none;
 }
+
+@keyframes rotateRays {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Sale badge decoration for fashion poster */
+[data-slide="2"] .hero-badge {
+    position: relative;
+}
+
+[data-slide="2"] .hero-badge::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: rgba(255, 59, 48, 0.1);
+    border-radius: 50px;
+    animation: badgeGlow 2s ease-in-out infinite;
+    z-index: -1;
+}
