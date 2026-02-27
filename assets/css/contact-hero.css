@@ -180,3 +180,47 @@
         background-position: 200% 0;
     }
 }
+
+/* Slogan - Delayed Reveal + Soft Glow Pulse */
+.hero-slogan-live {
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    margin-top: var(--spacing-lg);
+
+    /* Delayed reveal with softer motion */
+    animation:
+        sloganReveal 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards,
+        glowPulse 12s cubic-bezier(0.45, 0, 0.55, 1) 3s infinite;
+    opacity: 0;
+    transform: translateZ(0);
+}
+
+/* Soft Reveal */
+@keyframes sloganReveal {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 0.9;
+        transform: translateY(0);
+    }
+}
+
+/* Ultra-Subtle Glow Pulse (on slogan only) */
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 0px rgba(255, 255, 255, 0);
+        opacity: 0.9;
+    }
+
+    50% {
+        text-shadow: 0 0 12px rgba(255, 255, 255, 0.15);
+        opacity: 0.95;
+    }
+}
