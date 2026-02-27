@@ -47,3 +47,29 @@ body {
         transform: translateY(0);
     }
 }
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 113, 227, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 113, 227, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 113, 227, 0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideInUp 0.5s ease forwards;
+}
+
+.stagger-delay-1 {
+    animation-delay: 0.1s;
+}
+
+.stagger-delay-2 {
+    animation-delay: 0.2s;
+}
