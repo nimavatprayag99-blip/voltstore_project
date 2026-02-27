@@ -24,3 +24,27 @@
             #0a1929 100%);
     animation: gradientShift 15s ease-in-out infinite;
 }
+
+@keyframes gradientShift {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+        background-size: 200% 200%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+        background-size: 200% 200%;
+    }
+}
+
+/* ===== MOVING ORBS (NO BLUR) ===== */
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    /* NO BLUR - Just solid gradients */
+    opacity: 0.3;
+    animation: orbFloat 20s ease-in-out infinite;
+    will-change: transform;
+}
