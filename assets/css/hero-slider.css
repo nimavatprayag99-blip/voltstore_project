@@ -728,3 +728,33 @@ le {
     gap: 16px;
     margin-bottom: 32px;
 }
+
+.deal-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.deal-card:hover {
+    background: rgba(255, 149, 0, 0.1);
+    border-color: rgba(255, 149, 0, 0.3);
+    transform: translateX(4px);
+}
+
+.deal-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #ff9500, #ffcc00);
+    border-radius: 12px;
+    font-size: 1.5rem;
+    color: #fff;
+}
