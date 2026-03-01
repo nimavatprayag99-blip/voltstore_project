@@ -333,3 +333,40 @@ le {
 .slider-nav:active {
     transform: scale(0.95);
 }
+
+/* ===================================
+   SLIDE INDICATORS
+   =================================== */
+
+.hero-slider-dots {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 20;
+}
+
+.slider-dot {
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-dot::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #0071e3 0%, #2997ff 100%);
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
