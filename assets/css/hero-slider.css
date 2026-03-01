@@ -447,3 +447,31 @@ le {
         font-size: 1rem;
     }
 }
+
+@media (max-width: 640px) {
+    .hero-slider {
+        min-height: 100svh;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .hero-badge {
+        font-size: 0.75rem;
+        padding: 8px 16px;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
