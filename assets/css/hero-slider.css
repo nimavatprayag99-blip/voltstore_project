@@ -677,3 +677,28 @@ le {
     border-radius: 12px;
     transition: all 0.3s ease;
 }
+
+.essential-item:hover {
+    background: rgba(0, 113, 227, 0.1);
+    border-color: rgba(0, 113, 227, 0.3);
+    transform: translateY(-4px);
+}
+
+.essential-item i {
+    font-size: 2rem;
+    color: #0071e3;
+}
+
+.essential-item span {
+    font-size: 0.875rem;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Quality Badges */
+.quality-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+}
