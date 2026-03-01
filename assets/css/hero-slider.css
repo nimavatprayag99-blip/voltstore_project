@@ -370,3 +370,36 @@ le {
     background: linear-gradient(90deg, #0071e3 0%, #2997ff 100%);
     transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.slider-dot.active::before {
+    width: 100%;
+    animation: progressBar 5s linear;
+}
+
+.slider-dot:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@keyframes progressBar {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 1200px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-slide-content {
+        gap: 48px;
+    }
+}
