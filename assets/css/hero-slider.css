@@ -218,3 +218,33 @@ le {
     transform: translate(-50%, -50%);
     transition: width 0.6s, height 0.6s;
 }
+
+.hero-actions .btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.hero-actions .btn-primary {
+    background: linear-gradient(135deg, #0071e3 0%, #2997ff 100%);
+    border: none;
+    box-shadow: 0 8px 32px rgba(0, 113, 227, 0.4);
+}
+
+.hero-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 48px rgba(0, 113, 227, 0.5),
+        0 0 40px rgba(41, 151, 255, 0.3);
+}
+
+.hero-actions .btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.hero-actions .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
