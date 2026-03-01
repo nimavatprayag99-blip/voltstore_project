@@ -1191,3 +1191,175 @@ le {
             #2d1810 75%,
             #1a0f0a 100%);
 }
+
+/* ===================================
+   ENHANCED RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 1200px) {
+    .product-main {
+        max-width: 400px;
+    }
+
+    .product-accent {
+        width: 150px;
+    }
+
+    .essentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fashion-showcase {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 968px) {
+    .hero-features {
+        justify-content: center;
+    }
+
+    .offer-highlight {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .essentials-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .essential-item {
+        padding: 12px 8px;
+    }
+
+    .essential-item i {
+        font-size: 1.5rem;
+    }
+
+    .deal-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .fashion-showcase {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .fashion-item {
+        padding: 20px 16px;
+    }
+
+    .fashion-item i {
+        font-size: 2rem;
+    }
+
+    .accessory-float {
+        width: 80px;
+        height: 80px;
+    }
+
+    .accessory-float i {
+        font-size: 2rem;
+    }
+
+    .product-showcase {
+        padding: 20px;
+    }
+
+    .product-accent {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-features {
+        gap: 8px;
+    }
+
+    .feature-tag {
+        font-size: 0.75rem;
+        padding: 6px 12px;
+    }
+
+    .offer-box {
+        width: 60px;
+        height: 60px;
+    }
+
+    .offer-percent {
+        font-size: 1.5rem;
+    }
+
+    .essentials-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .quality-badges {
+        justify-content: center;
+    }
+
+    .quality-badge {
+        font-size: 0.65rem;
+    }
+
+    .deal-cards {
+        gap: 12px;
+    }
+
+    .deal-card {
+        padding: 16px;
+    }
+
+    .deal-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+
+    .trending-brands {
+        justify-content: center;
+    }
+
+    .fashion-showcase {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 12px;
+    }
+
+    .fashion-item {
+        padding: 16px 12px;
+    }
+
+    .fashion-item i {
+        font-size: 1.75rem;
+    }
+
+    .fashion-item span {
+        font-size: 0.75rem;
+    }
+
+    .accessory-float {
+        width: 60px;
+        height: 60px;
+    }
+
+    .accessory-float i {
+        font-size: 1.5rem;
+    }
+
+    .badge-circle {
+        width: 70px;
+        height: 70px;
+        border-width: 3px;
+    }
+
+    .badge-percent {
+        font-size: 1.5rem;
+    }
+
+    .badge-off {
+        font-size: 0.75rem;
+    }
+}
