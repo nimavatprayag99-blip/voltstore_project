@@ -288,3 +288,48 @@ le {
 .hero-slide-image:hover .product-image {
     transform: scale(1.03);
 }
+
+/* ===================================
+   NAVIGATION CONTROLS
+   =================================== */
+
+.hero-slider-controls {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.slider-nav {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: all;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-nav:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+    box-shadow: 0 8px 32px rgba(0, 113, 227, 0.3);
+}
+
+.slider-nav:active {
+    transform: scale(0.95);
+}
