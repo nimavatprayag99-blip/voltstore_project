@@ -510,3 +510,42 @@ le {
         animation: none;
     }
 }
+
+/* GPU Acceleration */
+.hero-slide-text,
+.image-wrapper {
+    transform: translate3d(0, 0, 0);
+}
+
+/* ===================================
+   PREMIUM BANNER ENHANCEMENTS
+   =================================== */
+
+/* Feature Tags */
+.hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+}
+
+.feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(0, 113, 227, 0.1);
+    border: 1px solid rgba(0, 113, 227, 0.3);
+    border-radius: 20px;
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.feature-tag:hover {
+    background: rgba(0, 113, 227, 0.2);
+    border-color: rgba(0, 113, 227, 0.5);
+    transform: translateY(-2px);
+}
