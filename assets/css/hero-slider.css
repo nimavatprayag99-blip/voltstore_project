@@ -702,3 +702,29 @@ le {
     gap: 12px;
     margin-bottom: 32px;
 }
+
+.quality-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: rgba(52, 199, 89, 0.1);
+    border: 1px solid rgba(52, 199, 89, 0.3);
+    border-radius: 16px;
+    color: #34c759;
+    font-size: 0.75rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+
+.quality-badge i {
+    font-size: 0.875rem;
+}
+
+/* Deal Cards */
+.deal-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    margin-bottom: 32px;
+}
