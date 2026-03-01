@@ -758,3 +758,24 @@ le {
     font-size: 1.5rem;
     color: #fff;
 }
+
+.deal-content h3 {
+    margin: 0;
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.deal-content p {
+    margin: 0;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Trending Brands */
+.trending-brands {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 32px;
+}
