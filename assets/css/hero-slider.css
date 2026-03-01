@@ -475,3 +475,38 @@ le {
         width: 100%;
         justify-content: center;
     }
+    
+    .image-wrapper {
+        max-width: 280px;
+    }
+
+    .slider-nav {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-slider-dots {
+        bottom: 24px;
+    }
+
+    .slider-dot {
+        width: 24px;
+        height: 3px;
+    }
+}
+
+/* ===================================
+   PERFORMANCE OPTIMIZATIONS
+   =================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .hero-slide,
+    .hero-slide-text,
+    .image-wrapper,
+    .slider-nav,
+    .slider-dot {
+        transition: none;
+        animation: none;
+    }
+}
