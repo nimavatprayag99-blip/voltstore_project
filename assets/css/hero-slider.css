@@ -403,3 +403,47 @@ le {
         gap: 48px;
     }
 }
+
+@media (max-width: 968px) {
+    .hero-slide-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding-top: 120px;
+        text-align: center;
+    }
+
+    .hero-slide-text {
+        padding-right: 0;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        margin: 0 auto 32px;
+    }
+
+    .hero-actions {
+        justify-content: center;
+    }
+
+    .hero-slide-image {
+        order: -1;
+        max-height: 300px;
+    }
+
+    .image-wrapper {
+        max-width: 400px;
+    }
+
+    .hero-slider-controls {
+        padding: 0 24px;
+    }
+
+    .slider-nav {
+        width: 48px;
+        height: 48px;
+        font-size: 1rem;
+    }
+}
