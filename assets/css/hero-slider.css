@@ -856,3 +856,53 @@ le {
     left: -10%;
     animation: floatAccent1 5s ease-in-out infinite;
 }
+
+.product-accent-2 {
+    bottom: 20%;
+    right: -5%;
+    animation: floatAccent2 5.5s ease-in-out infinite;
+}
+
+@keyframes floatMain {
+
+    0%,
+    100% {
+        transform: translateY(0) scale(1);
+    }
+
+    50% {
+        transform: translateY(-20px) scale(1.02);
+    }
+}
+
+@keyframes floatAccent1 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(-8deg);
+    }
+}
+
+@keyframes floatAccent2 {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+/* Fashion Showcase Grid */
+.fashion-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 24px;
+}
