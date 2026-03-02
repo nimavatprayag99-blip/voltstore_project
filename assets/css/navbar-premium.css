@@ -158,3 +158,28 @@
         0 1px 0 rgba(255, 255, 255, 0.5) inset;
     position: relative;
 }
+
+[data-theme="dark"] .navbar.navbar-scrolled {
+    background: rgba(18, 18, 18, 0.95);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5),
+        0 1px 0 rgba(255, 255, 255, 0.05) inset;
+}
+
+/* Volt glow border on scroll */
+.navbar.navbar-scrolled::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(41, 151, 255, 0.6) 20%,
+            rgba(41, 151, 255, 0.8) 50%,
+            rgba(41, 151, 255, 0.6) 80%,
+            transparent);
+    opacity: 0;
+    animation: shimmerGradient 3s linear infinite;
+    transition: opacity 0.5s ease;
+}
