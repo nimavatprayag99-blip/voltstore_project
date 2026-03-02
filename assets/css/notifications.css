@@ -161,3 +161,31 @@
     filter: blur(4px);
     opacity: 0.8;
 }
+
+.notification-error {
+    border-left-color: #ef4444;
+}
+
+.notification-error i {
+    color: #ef4444;
+}
+
+.notification-error .notification-progress-bar {
+    color: #ef4444;
+}
+
+.notification-error::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg,
+            rgba(239, 68, 68, 0.4) 0%,
+            rgba(239, 68, 68, 0.2) 50%,
+            rgba(239, 68, 68, 0) 100%);
+    border-radius: 12px 0 0 12px;
+    filter: blur(4px);
+    opacity: 0.8;
+}
