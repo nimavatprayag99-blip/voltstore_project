@@ -237,3 +237,55 @@
         0 0 40px rgba(41, 151, 255, 0.2);
     animation: logoFloat 3s ease-in-out infinite;
 }
+
+.logo:hover .logo-icon::before {
+    opacity: 1;
+    animation: shimmerGradient 1.5s ease-in-out;
+}
+
+/* Compact mode logo */
+.navbar.navbar-scrolled .logo-icon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.2rem;
+}
+
+.navbar.navbar-scrolled .logo {
+    font-size: 1.5rem;
+}
+
+/* =====================================================
+   NAVIGATION LINKS - ENHANCED
+   ===================================================== */
+
+.nav-menu>li {
+    /* Stagger entrance animation */
+    animation: slideInDown 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.nav-menu>li:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.nav-menu>li:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.nav-menu>li:nth-child(3) {
+    animation-delay: 0.25s;
+}
+
+.nav-menu>li:nth-child(4) {
+    animation-delay: 0.3s;
+}
+
+.nav-menu>li:nth-child(5) {
+    animation-delay: 0.35s;
+}
+
+.nav-link {
+    /* Enhanced typography */
+    letter-spacing: -0.02em;
+    font-weight: 500;
+    position: relative;
+}
