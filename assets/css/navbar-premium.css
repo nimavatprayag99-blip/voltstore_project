@@ -565,3 +565,30 @@
     position: relative;
     font-weight: 500;
 }
+
+.mega-menu-column a:not(.mega-menu-header):hover {
+    color: var(--primary);
+    background: rgba(0, 113, 227, 0.06);
+    transform: translateX(6px);
+    padding-left: 16px;
+}
+
+[data-theme="dark"] .mega-menu-column a:not(.mega-menu-header):hover {
+    background: rgba(41, 151, 255, 0.15);
+    color: white;
+}
+
+/* =====================================================
+   MOBILE MENU - ENHANCED
+   ===================================================== */
+
+.mobile-menu {
+    /* Enhanced glassmorphism for mobile */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: saturate(200%) blur(30px);
+    -webkit-backdrop-filter: saturate(200%) blur(30px);
+
+    /* Better shadow */
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15),
+        -2px 0 8px rgba(0, 0, 0, 0.08);
+}
