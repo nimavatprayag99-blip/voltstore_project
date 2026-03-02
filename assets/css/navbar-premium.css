@@ -104,3 +104,37 @@
         transform: rotate(10deg);
     }
 }
+
+@keyframes iconRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* =====================================================
+   ENHANCED NAVBAR CORE
+   ===================================================== */
+
+.navbar {
+    /* Enhanced glassmorphism */
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: saturate(200%) blur(20px);
+    -webkit-backdrop-filter: saturate(200%) blur(20px);
+
+    /* Premium borders and shadows */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset,
+        0 2px 8px rgba(0, 0, 0, 0.04);
+
+    /* Smooth transitions */
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* Performance optimization */
+    will-change: transform, background, box-shadow;
+    transform: translateZ(0);
+}
