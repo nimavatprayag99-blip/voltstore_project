@@ -24,3 +24,22 @@
     /* Soft glassmorphism */
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
+    
+    /* Soft layered shadow */
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.06) inset,
+        0 20px 40px -12px rgba(0, 0, 0, 0.5),
+        0 8px 16px -4px rgba(0, 0, 0, 0.3);
+
+    /* Thin accent border on left edge */
+    border-left: 2px solid transparent;
+
+    /* Hide by default */
+    opacity: 0;
+    transform: translateX(100px) scale(0.98);
+    pointer-events: none;
+
+    /* Premium cubic-bezier animation - 60fps */
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
