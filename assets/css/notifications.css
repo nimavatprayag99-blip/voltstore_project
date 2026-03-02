@@ -271,3 +271,19 @@
         font-size: 13px;
     }
 }
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .notification {
+        transition: opacity 0.2s ease;
+        transform: none;
+    }
+
+    .notification.show {
+        transform: none;
+    }
+
+    .notification.hide {
+        transform: none;
+    }
+}
