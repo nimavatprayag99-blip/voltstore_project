@@ -217,3 +217,31 @@
     filter: blur(4px);
     opacity: 0.8;
 }
+
+.notification-warning {
+    border-left-color: #f59e0b;
+}
+
+.notification-warning i {
+    color: #f59e0b;
+}
+
+.notification-warning .notification-progress-bar {
+    color: #f59e0b;
+}
+
+.notification-warning::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg,
+            rgba(245, 158, 11, 0.4) 0%,
+            rgba(245, 158, 11, 0.2) 50%,
+            rgba(245, 158, 11, 0) 100%);
+    border-radius: 12px 0 0 12px;
+    filter: blur(4px);
+    opacity: 0.8;
+}
