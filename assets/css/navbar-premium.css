@@ -632,3 +632,41 @@
     outline: 2px solid white;
     outline-offset: -4px;
 }
+
+/* =====================================================
+   PERFORMANCE OPTIMIZATIONS
+   ===================================================== */
+
+/* Hardware acceleration for animated elements */
+.logo-icon,
+.nav-link::after,
+.nav-icon,
+.cart-badge,
+.mega-menu {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .nav-link.active::before {
+        animation: none;
+    }
+
+    .cart-badge {
+        animation: none;
+    }
+
+    .logo:hover .logo-icon {
+        animation: none;
+    }
+}
