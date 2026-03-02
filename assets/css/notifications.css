@@ -43,3 +43,26 @@
     transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
     will-change: transform, opacity;
 }
+
+/* Show state - slide-in from right + fade-in */
+.notification.show {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    pointer-events: auto;
+}
+
+/* Hide state - fade-out + slide-down */
+.notification.hide {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+    transition: all 0.15s cubic-bezier(0.4, 0, 1, 1);
+}
+
+/* Notification content wrapper */
+.notification-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+    z-index: 1;
+}
