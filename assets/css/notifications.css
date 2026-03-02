@@ -1,0 +1,26 @@
+/* =====================================================
+   LUXURY TOAST NOTIFICATIONS - SaaS Level
+   Inspired by: Apple, Stripe, Linear, Vercel
+   ===================================================== */
+
+.notification {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 9999;
+
+    /* Compact size */
+    min-width: 280px;
+    max-width: 320px;
+    width: auto;
+    padding: 14px 16px 14px 18px;
+
+    /* Rounded corners */
+    border-radius: 12px;
+
+    /* Dark matte background with subtle gradient */
+    background: linear-gradient(135deg, #0B1220 0%, #111827 100%);
+
+    /* Soft glassmorphism */
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
