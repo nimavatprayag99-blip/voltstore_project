@@ -359,3 +359,30 @@
     transition: all 0.3s ease;
     z-index: -1;
 }
+
+.nav-icon:hover::before {
+    opacity: 1;
+    transform: scale(1.2);
+}
+
+.nav-icon:hover {
+    background: rgba(0, 113, 227, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2),
+        0 0 20px rgba(41, 151, 255, 0.1);
+}
+
+/* Individual icon animations */
+.nav-icon:nth-child(1):hover i {
+    /* Search icon - rotate */
+    animation: iconRotate 0.6s ease-in-out;
+}
+
+.nav-icon:nth-child(2):hover i {
+    /* User icon - bounce */
+    animation: iconBounce 0.5s ease-in-out;
+}
+
+.nav-icon:nth-child(3):hover i {
+    /* Cart icon - swing */
+    animation: iconSwing 0.6s ease-in-out;
+}
