@@ -289,3 +289,24 @@
     font-weight: 500;
     position: relative;
 }
+
+/* Animated gradient underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0071e3, #2997ff, #00d4ff);
+    background-size: 200% 100%;
+    border-radius: 3px 3px 0 0;
+    box-shadow: 0 2px 8px rgba(0, 113, 227, 0.3);
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+    animation: shimmerGradient 2s linear infinite;
+}
