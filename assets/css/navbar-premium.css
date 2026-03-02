@@ -670,3 +670,20 @@
         animation: none;
     }
 }
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+    .navbar {
+        border-bottom: 2px solid currentColor;
+        background: var(--bg-primary);
+        backdrop-filter: none;
+    }
+
+    .nav-link::after {
+        height: 3px;
+    }
+
+    .nav-icon:hover {
+        outline: 2px solid currentColor;
+    }
+}
