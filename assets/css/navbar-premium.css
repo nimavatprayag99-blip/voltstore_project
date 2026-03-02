@@ -310,3 +310,29 @@
     width: 100%;
     animation: shimmerGradient 2s linear infinite;
 }
+
+/* Text glow on hover */
+.nav-link:hover {
+    text-shadow: 0 0 20px rgba(0, 113, 227, 0.2);
+}
+
+/* Active state with volt indicator */
+.nav-link.active {
+    position: relative;
+}
+
+.nav-link.active::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background: #2997ff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #2997ff,
+        0 0 20px #2997ff,
+        0 0 30px #0071e3;
+    animation: voltPulse 2s ease-in-out infinite;
+}
