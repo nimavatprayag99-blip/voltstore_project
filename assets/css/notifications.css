@@ -131,3 +131,33 @@
     transform-origin: left;
     animation: progress-shrink 2.5s linear forwards;
 }
+
+/* Type-specific styling with accent glow */
+.notification-success {
+    border-left-color: #10b981;
+}
+
+.notification-success i {
+    color: #10b981;
+}
+
+.notification-success .notification-progress-bar {
+    color: #10b981;
+}
+
+/* Add subtle glow for success */
+.notification-success::before {
+    content: '';
+    position: absolute;
+    left: -1px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg,
+            rgba(16, 185, 129, 0.4) 0%,
+            rgba(16, 185, 129, 0.2) 50%,
+            rgba(16, 185, 129, 0) 100%);
+    border-radius: 12px 0 0 12px;
+    filter: blur(4px);
+    opacity: 0.8;
+}
