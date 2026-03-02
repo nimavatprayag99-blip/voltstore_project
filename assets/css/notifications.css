@@ -245,3 +245,29 @@
     filter: blur(4px);
     opacity: 0.8;
 }
+
+/* Progress bar animation */
+@keyframes progress-shrink {
+    0% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        transform: scaleX(0);
+    }
+}
+
+/* Responsive - mobile adjustments */
+@media (max-width: 768px) {
+    .notification {
+        min-width: auto;
+        max-width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 16px;
+        padding: 12px 14px 12px 16px;
+    }
+
+    .notification-content span {
+        font-size: 13px;
+    }
+}
