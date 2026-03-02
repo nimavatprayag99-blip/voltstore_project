@@ -443,3 +443,24 @@
     z-index: 1000;
     overflow: hidden;
 }
+
+[data-theme="dark"] .mega-menu {
+    background: rgba(22, 22, 24, 0.85);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 40px 80px rgba(0, 0, 0, 0.5),
+        0 10px 40px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+}
+
+.has-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(10px) scale(1);
+    background: rgba(255, 255, 255, 0.95);
+    /* Lighten up on hover/active */
+}
+
+[data-theme="dark"] .has-dropdown:hover .mega-menu {
+    background: rgba(22, 22, 24, 0.95);
+}
