@@ -592,3 +592,22 @@
     box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15),
         -2px 0 8px rgba(0, 0, 0, 0.08);
 }
+
+[data-theme="dark"] .mobile-menu {
+    background: rgba(18, 18, 18, 0.95);
+    backdrop-filter: saturate(180%) blur(30px);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* =====================================================
+   ACCESSIBILITY ENHANCEMENTS
+   ===================================================== */
+
+/* Focus indicators */
+.nav-link:focus-visible,
+.nav-icon:focus-visible,
+.mega-menu-header:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
