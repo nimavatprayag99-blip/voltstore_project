@@ -523,3 +523,25 @@
     border-bottom: 2px solid rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
 }
+
+[data-theme="dark"] .mega-menu-header {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+}
+
+.mega-menu-header i {
+    font-size: 1.1rem;
+    color: var(--primary);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: rgba(0, 113, 227, 0.1);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.mega-menu-column:hover .mega-menu-header {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
