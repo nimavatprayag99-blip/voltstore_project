@@ -752,3 +752,21 @@
         animation-delay: 0.2s;
     }
 }
+
+/* =====================================================
+   PRINT STYLES
+   ===================================================== */
+
+@media print {
+    .navbar {
+        position: relative;
+        box-shadow: none;
+        border-bottom: 1px solid #000;
+        background: white;
+    }
+
+    .nav-link::after,
+    .nav-link::before {
+        display: none;
+    }
+}
