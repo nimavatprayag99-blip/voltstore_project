@@ -650,3 +650,23 @@ select {
     background: #111111;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
+
+.has-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+.mega-menu-inner {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 32px;
+    padding: 42px;
+}
+
+.mega-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
