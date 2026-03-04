@@ -932,3 +932,32 @@ select {
     color: var(--primary);
     border: 1px solid var(--primary);
 }
+
+.btn-outline:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.btn-ghost:hover {
+    background: var(--bg-secondary);
+}
+
+.btn-danger {
+    background: var(--accent-red);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #d32f2f;
+    color: white;
+}
+
+.btn-success {
+    background: var(--accent-green);
+    color: white;
+}
