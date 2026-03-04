@@ -500,3 +500,27 @@ select {
     letter-spacing: -0.01em;
     line-height: 1.5;
 }
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--primary-light));
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    opacity: 1;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
