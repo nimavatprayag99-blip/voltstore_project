@@ -133,3 +133,25 @@ select {
     font-family: inherit;
     font-size: inherit;
 }
+
+/* =====================================================
+   UTILITY CLASSES
+   ===================================================== */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.container-narrow {
+    max-width: 980px;
+}
+
+.container-wide {
+    max-width: 1600px;
+}
+
+.section {
+    padding: var(--spacing-xxl) 0;
+}
