@@ -121,3 +121,15 @@ button {
     border: none;
     background: none;
 }
+
+ul,
+ol {
+    list-style: none;
+}
+
+input,
+textarea,
+select {
+    font-family: inherit;
+    font-size: inherit;
+}
