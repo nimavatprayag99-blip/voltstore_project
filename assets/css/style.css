@@ -433,3 +433,25 @@ select {
     background: rgba(0, 0, 0, 0.95);
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
 }
+
+.navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 2rem;
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.25s ease;
+    position: relative;
+    letter-spacing: -0.02em;
+}
