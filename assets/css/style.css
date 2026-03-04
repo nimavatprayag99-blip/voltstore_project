@@ -580,3 +580,23 @@ select {
     box-shadow: 0 2px 8px rgba(255, 59, 48, 0.4);
     animation: pulse 2s infinite;
 }
+
+/* Mobile Menu */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+}
