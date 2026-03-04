@@ -829,3 +829,34 @@ select {
     font-weight: 500;
     transition: all 0.25s ease;
 }
+
+.mobile-menu-link:hover,
+.mobile-menu-link.active {
+    background: var(--bg-secondary);
+    color: var(--primary);
+}
+
+/* Mobile Menu Category Section */
+.mobile-menu-category {
+    margin-top: 24px;
+}
+
+.mobile-menu-category-title {
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    padding-left: 16px;
+}
+
+.mobile-menu-category-item {
+    padding: 12px 16px;
+    border-radius: 8px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.25s ease;
+}
