@@ -716,3 +716,29 @@ select {
     overflow: hidden;
     line-height: 1.5;
 }
+
+.mega-menu-column a:not(.mega-menu-header)::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background: var(--primary);
+    transform: scaleY(0);
+    transition: transform 0.25s ease;
+}
+
+.mega-menu-column a:not(.mega-menu-header):hover {
+    background: rgba(0, 113, 227, 0.06);
+    color: var(--primary);
+    padding-left: 20px;
+}
+
+.mega-menu-column a:not(.mega-menu-header):hover::before {
+    transform: scaleY(1);
+}
+
+[data-theme="dark"] .mega-menu-column a:not(.mega-menu-header):hover {
+    background: rgba(41, 151, 255, 0.1);
+}
