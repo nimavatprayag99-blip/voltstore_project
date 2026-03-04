@@ -860,3 +860,42 @@ select {
     gap: 12px;
     transition: all 0.25s ease;
 }
+
+.mobile-menu-category-item i {
+    font-size: 1.1rem;
+    color: var(--primary);
+}
+
+.mobile-menu-category-item:hover {
+    background: var(--bg-secondary);
+    transform: translateX(4px);
+}
+
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 24px;
+    font-size: 0.9375rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-normal);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
