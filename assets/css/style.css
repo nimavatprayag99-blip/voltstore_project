@@ -524,3 +524,31 @@ select {
 .nav-link.active::after {
     width: 100%;
 }
+
+.nav-link i.fa-chevron-down {
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.has-dropdown:hover .nav-link i.fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.nav-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    font-size: 1.1rem;
+}
