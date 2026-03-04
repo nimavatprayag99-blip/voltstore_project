@@ -475,3 +475,28 @@ select {
     box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
     transition: all 0.3s ease;
 }
+
+.logo:hover .logo-icon {
+    transform: rotate(-5deg) scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 113, 227, 0.35);
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    flex: 1;
+    justify-content: center;
+}
+
+.nav-link {
+    font-size: 0.975rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    padding: 10px 0;
+    position: relative;
+    opacity: 0.85;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+}
