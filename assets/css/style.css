@@ -552,3 +552,31 @@ select {
     position: relative;
     font-size: 1.1rem;
 }
+
+.nav-icon:hover {
+    background: rgba(0, 113, 227, 0.08);
+    color: var(--primary);
+    transform: scale(1.1) translateY(-2px);
+}
+
+[data-theme="dark"] .nav-icon:hover {
+    background: rgba(41, 151, 255, 0.15);
+}
+
+.cart-badge {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 18px;
+    height: 18px;
+    background: linear-gradient(135deg, #ff3b30, #ff2d55);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(255, 59, 48, 0.4);
+    animation: pulse 2s infinite;
+}
