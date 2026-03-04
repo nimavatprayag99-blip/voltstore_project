@@ -621,3 +621,32 @@ select {
 .has-dropdown {
     position: relative;
 }
+
+.mega-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 100vw;
+    max-width: 1400px;
+    background: white;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 0 0 20px 20px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+        visibility 0.3s;
+    will-change: opacity, transform;
+    z-index: 999;
+    margin: 0 auto;
+    /* Prevent blurriness */
+    -webkit-font-smoothing: antialiased;
+    backface-visibility: hidden;
+}
+
+[data-theme="dark"] .mega-menu {
+    background: #111111;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+}
