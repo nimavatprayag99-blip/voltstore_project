@@ -1,0 +1,28 @@
+
+/* =====================================================
+   CSS VARIABLES & THEME
+   ===================================================== */
+:root {
+    /* Primary Colors */
+    --primary: #0071e3;
+    --primary-dark: #0077ed;
+    --primary-light: #2997ff;
+
+    /* Background Colors */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f7;
+    --bg-tertiary: #fafafa;
+    --bg-dark: #1d1d1f;
+
+    /* Text Colors */
+    --text-primary: #1d1d1f;
+    --text-secondary: #86868b;
+    --text-light: #f5f5f7;
+    --text-muted: #6e6e73;
+
+    /* Accent Colors */
+    --accent-green: #34c759;
+    --accent-red: #ff3b30;
+    --accent-orange: #ff9500;
+    --accent-purple: #af52de;
+    --accent-pink: #ff2d55;
