@@ -455,3 +455,23 @@ select {
     position: relative;
     letter-spacing: -0.02em;
 }
+
+.logo:hover {
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.logo-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
+    transition: all 0.3s ease;
+}
