@@ -155,3 +155,23 @@ select {
 .section {
     padding: var(--spacing-xxl) 0;
 }
+
+.section-sm {
+    padding: var(--spacing-lg) 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.hidden {
+    display: none !important;
+}
