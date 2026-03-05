@@ -2083,3 +2083,131 @@ select {
     border-radius: var(--radius-full);
     animation: spin 0.8s linear infinite;
 }
+
+/* =====================================================
+   RESPONSIVE DESIGN
+   ===================================================== */
+/* =====================================================
+   RESPONSIVE - NAVIGATION
+   ===================================================== */
+@media (max-width: 1200px) {
+    .mega-menu-inner {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 28px;
+    }
+}
+
+@media (max-width: 1024px) {
+
+    /* Hide desktop navigation */
+    .nav-menu {
+        display: none;
+    }
+
+    /* Show mobile menu button */
+    .mobile-menu-btn {
+        display: flex;
+    }
+
+    /* Adjust navbar height */
+    .navbar {
+        height: 60px;
+    }
+
+    .navbar.navbar-scrolled {
+        height: 55px;
+    }
+
+    /* Adjust icon sizes */
+    .nav-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Further reduce navbar */
+    .navbar {
+        height: 56px;
+    }
+
+    .navbar.navbar-scrolled {
+        height: 52px;
+    }
+
+    /* Logo adjustments */
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .logo-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1.1rem;
+    }
+
+    /* Mobile menu drawer */
+    .mobile-menu {
+        width: 280px;
+    }
+
+    /* Smaller icons */
+    .nav-icon {
+        width: 36px;
+        height: 36px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Compact navbar */
+    .navbar-inner {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .logo span {
+        display: none;
+    }
+
+    .mobile-menu {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+/* =====================================================
+   GENERAL RESPONSIVE
+   ===================================================== */
+@media (max-width: 1024px) {
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-inner {
+        height: 48px;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 48px;
+        left: 0;
+        right: 0;
+        background: var(--bg-primary);
+        flex-direction: column;
+        padding: var(--spacing-md);
+        gap: var(--spacing-sm);
+        border-bottom: 1px solid var(--border-color);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition-normal);
+    }
