@@ -1399,3 +1399,33 @@ select {
     gap: 4px;
     margin-bottom: var(--spacing-sm);
 }
+
+.product-rating .stars {
+    color: var(--accent-orange);
+    font-size: 0.875rem;
+}
+
+.product-rating .count {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+}
+
+.product-price-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.product-price .sale {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    font-weight: 400;
+    margin-left: 8px;
+}
