@@ -1122,3 +1122,26 @@ select {
     color: var(--text-primary);
     margin-top: var(--spacing-sm);
 }
+
+.card-price .original {
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    margin-left: 8px;
+    font-weight: 400;
+}
+
+/* 3D Card Effect */
+.card-3d {
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
+.card-3d-inner {
+    transition: transform var(--transition-normal);
+    transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-3d-inner {
+    transform: rotateY(5deg) rotateX(5deg);
+}
