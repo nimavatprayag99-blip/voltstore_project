@@ -1652,3 +1652,26 @@ select {
     justify-content: center;
     font-size: 1.75rem;
 }
+
+.category-name {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+    transition: color var(--transition-fast);
+}
+
+.category-count {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+}
+
+/* =====================================================
+   FEATURES SECTION
+   ===================================================== */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
