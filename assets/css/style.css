@@ -1094,3 +1094,31 @@ select {
     object-fit: cover;
     transition: transform var(--transition-slow);
 }
+
+.card:hover .card-image img {
+    transform: scale(1.08);
+}
+
+.card-body {
+    padding: var(--spacing-md);
+}
+
+.card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.card-text {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.card-price {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: var(--spacing-sm);
+}
