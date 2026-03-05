@@ -1145,3 +1145,28 @@ select {
 .card-3d:hover .card-3d-inner {
     transform: rotateY(5deg) rotateX(5deg);
 }
+
+/* =====================================================
+   PRODUCT CARDS (SPECIAL)
+   ===================================================== */
+.product-card {
+    background: var(--bg-primary);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    position: relative;
+}
+
+.product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(0, 113, 227, 0.03) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    pointer-events: none;
+}
+
+.product-card:hover::before {
+    opacity: 1;
+}
