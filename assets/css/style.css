@@ -2010,3 +2010,57 @@ select {
     font-weight: 500;
     transition: all var(--transition-fast);
 }
+
+.pagination a {
+    color: var(--text-primary);
+    background: var(--bg-secondary);
+}
+
+.pagination a:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.pagination .current {
+    background: var(--primary);
+    color: white;
+}
+
+.pagination .disabled {
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   BADGES
+   ===================================================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+}
+
+.badge-primary {
+    background: var(--primary);
+    color: white;
+}
+
+.badge-success {
+    background: var(--accent-green);
+    color: white;
+}
+
+.badge-danger {
+    background: var(--accent-red);
+    color: white;
+}
+
+.badge-warning {
+    background: var(--accent-orange);
+    color: white;
+}
