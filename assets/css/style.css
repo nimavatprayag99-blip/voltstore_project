@@ -1626,3 +1626,29 @@ select {
     transform: translateY(-4px);
     box-shadow: var(--shadow-lg);
 }
+
+.category-card:hover::before {
+    opacity: 1;
+}
+
+.category-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+.category-card:hover .category-name,
+.category-card:hover .category-count {
+    color: white;
+}
+
+.category-icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto var(--spacing-sm);
+    background: white;
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+}
