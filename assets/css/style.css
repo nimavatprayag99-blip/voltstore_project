@@ -1225,3 +1225,34 @@ select {
     z-index: 10;
     /* Always visible - no opacity transitions */
 }
+
+/* Premium Wishlist Button (Glassmorphism) */
+.product-action-btn {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+
+    /* Glassmorphism */
+    background: rgba(30, 35, 50, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    /* Subtle border */
+    box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        0 2px 8px rgba(0, 0, 0, 0.2);
+
+    /* Transitions - Apple-level smoothness */
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* Perfect centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+}
