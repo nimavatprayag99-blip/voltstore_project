@@ -1341,3 +1341,33 @@ select {
         transform: scale(1);
     }
 }
+
+/* Ripple effect for premium interaction */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(99, 179, 237, 0.4);
+    width: 10px;
+    height: 10px;
+    animation: wishlist-ripple 0.6s ease-out;
+    pointer-events: none;
+}
+
+@keyframes wishlist-ripple {
+    0% {
+        width: 10px;
+        height: 10px;
+        opacity: 1;
+    }
+
+    100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
+    }
+}
+
+
+.product-info {
+    padding: var(--spacing-md);
+}
