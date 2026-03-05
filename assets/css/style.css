@@ -1170,3 +1170,26 @@ select {
 .product-card:hover::before {
     opacity: 1;
 }
+
+.product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--shadow-xl);
+}
+
+.product-image-wrap {
+    position: relative;
+    padding: var(--spacing-lg);
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.product-image-wrap img {
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    transition: transform var(--transition-slow);
+}
+
+.product-card:hover .product-image-wrap img {
+    transform: scale(1.1);
+}
