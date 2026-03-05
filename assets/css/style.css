@@ -1979,3 +1979,34 @@ select {
     color: var(--accent-orange);
     border: 1px solid rgba(255, 149, 0, 0.2);
 }
+
+.alert-info {
+    background: rgba(0, 113, 227, 0.1);
+    color: var(--primary);
+    border: 1px solid rgba(0, 113, 227, 0.2);
+}
+
+/* =====================================================
+   PAGINATION
+   ===================================================== */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: var(--spacing-xl);
+}
+
+.pagination a,
+.pagination span {
+    min-width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 12px;
+    border-radius: var(--radius-md);
+    font-size: 0.9375rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
