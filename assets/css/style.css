@@ -1835,3 +1835,34 @@ select {
         transform: translateY(0);
     }
 }
+
+.footer-bottom-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-lg);
+    text-align: center;
+}
+
+.footer-copyright {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    margin: 0;
+}
+
+.footer-divider {
+    margin: 0 var(--spacing-sm);
+    opacity: 0.5;
+}
+
+.footer-founder {
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.footer-payment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+}
