@@ -1527,3 +1527,27 @@ select {
     gap: var(--spacing-md);
     flex-wrap: wrap;
 }
+
+.hero-image {
+    position: relative;
+    margin-top: var(--spacing-xl);
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    filter: drop-shadow(0 32px 64px rgba(0, 0, 0, 0.15));
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
