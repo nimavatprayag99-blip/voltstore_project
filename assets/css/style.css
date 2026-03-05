@@ -1584,3 +1584,21 @@ select {
     max-width: 600px;
     margin: 0 auto;
 }
+
+/* =====================================================
+   PRODUCT GRID
+   ===================================================== */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+/* =====================================================
+   CATEGORIES
+   ===================================================== */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
