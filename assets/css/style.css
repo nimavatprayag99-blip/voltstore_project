@@ -1193,3 +1193,35 @@ select {
 .product-card:hover .product-image-wrap img {
     transform: scale(1.1);
 }
+
+.product-badge {
+    position: absolute;
+    top: var(--spacing-sm);
+    left: var(--spacing-sm);
+    padding: 4px 12px;
+    background: var(--accent-red);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    text-transform: uppercase;
+}
+
+.product-badge.new {
+    background: var(--accent-green);
+}
+
+.product-badge.featured {
+    background: var(--primary);
+}
+
+.product-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+    /* Always visible - no opacity transitions */
+}
