@@ -1751,3 +1751,34 @@ select {
     letter-spacing: 0.5px;
     margin-bottom: var(--spacing-md);
 }
+
+.footer-links li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.footer-links li i {
+    color: var(--primary);
+    margin-top: 4px;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+}
+
+.footer-links li div {
+    flex: 1;
+}
+
+.footer-links li strong {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.footer-links li a {
+    color: var(--primary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
