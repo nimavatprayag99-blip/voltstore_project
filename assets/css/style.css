@@ -1866,3 +1866,31 @@ select {
     align-items: center;
     gap: var(--spacing-md);
 }
+
+.payment-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.payment-icons {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.payment-icon {
+    height: 24px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    filter: grayscale(100%) brightness(0) invert(1);
+    animation: fadeIn 0.6s ease-out backwards;
+}
+
+.payment-icon:nth-child(1) {
+    animation-delay: 0.4s;
+}
