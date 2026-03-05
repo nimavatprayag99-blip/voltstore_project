@@ -2285,3 +2285,27 @@ select {
         transform: translateY(-4px) scale(1.01);
     }
 }
+
+/* =====================================================
+   PRINT STYLES
+   ===================================================== */
+@media print {
+
+    .navbar,
+    .footer,
+    .nav-actions,
+    .product-actions,
+    .btn {
+        display: none !important;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .product-card {
+        break-inside: avoid;
+        border: 1px solid #ddd;
+    }
+}
