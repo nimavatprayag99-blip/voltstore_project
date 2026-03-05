@@ -2505,3 +2505,29 @@ select {
     color: var(--text-secondary);
     transition: all var(--transition-fast);
 }
+
+.data-table .action-btn:hover {
+    background: var(--bg-secondary);
+    color: var(--primary);
+}
+
+.data-table .action-btn.delete:hover {
+    background: rgba(255, 59, 48, 0.1);
+    color: var(--accent-red);
+}
+
+/* Admin Responsive */
+@media (max-width: 1024px) {
+    .admin-sidebar {
+        transform: translateX(-100%);
+        transition: transform var(--transition-normal);
+    }
+
+    .admin-sidebar.active {
+        transform: translateX(0);
+    }
+
+    .admin-main {
+        margin-left: 0;
+    }
+}
