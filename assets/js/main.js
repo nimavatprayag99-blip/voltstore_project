@@ -677,3 +677,60 @@
             });
         });
     };
+
+    // =====================================================
+    // PARALLAX EFFECT
+    // =====================================================
+
+    const initParallax = () => {
+        const parallaxElements = $$('[data-parallax]');
+
+        if (!parallaxElements.length) return;
+
+        window.addEventListener('scroll', throttle(() => {
+            const scrolled = window.pageYOffset;
+
+            parallaxElements.forEach(el => {
+                const speed = parseFloat(el.dataset.parallax) || 0.5;
+                const yPos = -(scrolled * speed);
+                el.style.transform = `translateY(${yPos}px)`;
+            });
+        }, 16));
+    };
+
+    // =====================================================
+    // COUNTERS ANIMATION
+    // =====================================================
+
+    const initCounters = () => {
+        const counters = $$('[data-counter]');
+
+        if (!counters.length) return;
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseInt(counter.dataset.counter);
+                    const duration = parseInt(counter.dataset.duration) || 2000;
+                    const step = target / (duration / 16);
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += step;
+                        if (current < target) {
+                            counter.textContent = Math.floor(current).toLocaleString();
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.textContent = target.toLocaleString();
+                        }
+                    };
+
+                    updateCounter();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => observer.observe(counter));
+    };
