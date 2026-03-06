@@ -525,3 +525,32 @@
             notification.remove();
         }, 400);
     };
+    
+    // =====================================================
+    // PRODUCT GALLERY
+    // =====================================================
+
+    const initProductGallery = () => {
+        const thumbnails = $$('.product-thumbnail');
+        const mainImage = $('.product-main-image img');
+
+        if (!thumbnails.length || !mainImage) return;
+
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', () => {
+                // Update active state
+                thumbnails.forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+
+                // Update main image with fade effect
+                const newSrc = thumb.dataset.src || thumb.querySelector('img').src;
+
+                mainImage.style.opacity = '0';
+
+                setTimeout(() => {
+                    mainImage.src = newSrc;
+                    mainImage.style.opacity = '1';
+                }, 200);
+            });
+        });
+    };
