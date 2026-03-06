@@ -155,3 +155,29 @@
             observer.observe(el);
         });
     };
+    
+    // =====================================================
+    // LAZY LOADING IMAGES
+    // =====================================================
+
+    const initLazyLoading = () => {
+        const lazyImages = $$('img[data-src]');
+
+        if (!lazyImages.length) return;
+
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                    img.classList.add('loaded');
+                    imageObserver.unobserve(img);
+                }
+            });
+        }, {
+            rootMargin: '50px'
+        });
+
+        lazyImages.forEach(img => imageObserver.observe(img));
+    };
