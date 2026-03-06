@@ -588,3 +588,92 @@
             }
         });
     };
+    
+    const performSearch = async (query) => {
+        const searchResults = $('.search-results');
+
+        try {
+            const response = await fetch(`search.php?q=${encodeURIComponent(query)}`);
+            const data = await response.json();
+
+            if (data.products && data.products.length) {
+                searchResults.innerHTML = data.products.map(product => `
+                    <a href="product.php?slug=${product.slug}" class="search-result-item">
+                        <img src="${product.image}" alt="${product.name}">
+                        <div>
+                            <h4>${product.name}</h4>
+                            <p>${formatPrice(product.price)}</p>
+                        </div>
+                    </a>
+                `).join('');
+                searchResults.classList.add('show');
+            } else {
+                searchResults.innerHTML = '<div class="search-no-results">No products found</div>';
+                searchResults.classList.add('show');
+            }
+        } catch (error) {
+            console.error('Search error:', error);
+        }
+    };
+
+    // =====================================================
+    // DARK MODE
+    // =====================================================
+
+    const initDarkMode = () => {
+        const themeToggle = $('.theme-toggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Check saved preference or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const isDark = savedTheme === 'dark' || (!savedTheme && prefersDark.matches);
+
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggle?.classList.add('active');
+        }
+
+        themeToggle?.addEventListener('click', () => {
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+
+            if (isDark) {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.classList.remove('active');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.classList.add('active');
+            }
+        });
+    };
+
+    // =====================================================
+    // PRICE FORMATTER
+    // =====================================================
+
+    const formatPrice = (price) => {
+        return '₹' + parseInt(price).toLocaleString('en-IN');
+    };
+
+    // =====================================================
+    // SMOOTH SCROLL
+    // =====================================================
+
+    const initSmoothScroll = () => {
+        $$('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const targetId = anchor.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = $(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    };
