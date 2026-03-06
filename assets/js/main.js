@@ -734,3 +734,28 @@
 
         counters.forEach(counter => observer.observe(counter));
     };
+
+    // =====================================================
+    // BACK TO TOP
+    // =====================================================
+
+    const initBackToTop = () => {
+        const backToTop = $('.back-to-top');
+
+        if (!backToTop) return;
+
+        window.addEventListener('scroll', throttle(() => {
+            if (window.pageYOffset > 500) {
+                backToTop.classList.add('show');
+            } else {
+                backToTop.classList.remove('show');
+            }
+        }, 100));
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    };
