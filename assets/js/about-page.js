@@ -122,3 +122,32 @@
             });
         });
     }
+    
+    // ==========================================
+    // PARALLAX EFFECT FOR HERO BACKGROUND
+    // ==========================================
+
+    function initParallax() {
+        const heroBackground = document.querySelector('.hero-background');
+        if (!heroBackground) return;
+
+        let ticking = false;
+
+        function updateParallax() {
+            const scrolled = window.pageYOffset;
+            const heroHeight = document.querySelector('.about-hero')?.offsetHeight || 0;
+
+            if (scrolled < heroHeight) {
+                heroBackground.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+
+            ticking = false;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                requestAnimationFrame(updateParallax);
+                ticking = true;
+            }
+        }, { passive: true });
+    }
