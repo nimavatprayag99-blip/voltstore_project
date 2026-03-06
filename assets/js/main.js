@@ -803,3 +803,28 @@
             });
         });
     };
+    
+    // =====================================================
+    // TOOLTIPS
+    // =====================================================
+
+    const initTooltips = () => {
+        $$('[data-tooltip]').forEach(el => {
+            el.addEventListener('mouseenter', (e) => {
+                const tooltip = document.createElement('div');
+                tooltip.className = 'tooltip';
+                tooltip.textContent = el.dataset.tooltip;
+                document.body.appendChild(tooltip);
+
+                const rect = el.getBoundingClientRect();
+                tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
+                tooltip.style.top = `${rect.top - tooltip.offsetHeight - 8}px`;
+
+                requestAnimationFrame(() => tooltip.classList.add('show'));
+
+                el.addEventListener('mouseleave', () => {
+                    tooltip.remove();
+                }, { once: true });
+            });
+        });
+    };
