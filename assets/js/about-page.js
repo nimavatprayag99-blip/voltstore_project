@@ -184,3 +184,33 @@
             });
         });
     }
+
+    // ==========================================
+    // INITIALIZATION
+    // ==========================================
+
+    function init() {
+        // Animate hero on page load
+        animateHeroElements();
+
+        // Setup scroll-triggered animations
+        observeElements();
+
+        // Enable smooth scrolling
+        initSmoothScroll();
+
+        // Add parallax effect
+        initParallax();
+
+        // Optional: Add card tilt effect (disable if performance issues)
+        // initCardTilt();
+    }
+
+    // Run when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+})();
