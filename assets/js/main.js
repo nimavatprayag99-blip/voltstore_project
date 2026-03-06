@@ -35,3 +35,38 @@
             timeout = setTimeout(later, wait);
         };
     };
+    
+    const throttle = (func, limit) => {
+        let inThrottle;
+        return function (...args) {
+            if (!inThrottle) {
+                func.apply(this, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+            }
+        };
+    };
+
+    // =====================================================
+    // NAVIGATION
+    // =====================================================
+
+    const initNavigation = () => {
+        const navbar = $('.navbar');
+        const mobileMenuBtn = $('.mobile-menu-btn');
+        const navMenu = $('.nav-menu');
+
+        // Navbar scroll effect
+        let lastScroll = 0;
+
+        window.addEventListener('scroll', throttle(() => {
+            const currentScroll = window.pageYOffset;
+
+            if (currentScroll > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            lastScroll = currentScroll;
+        }, 100));
