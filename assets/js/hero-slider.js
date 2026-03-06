@@ -59,3 +59,32 @@
 
 
     }
+    
+    /**
+     * Preload all slide images for smooth transitions
+     */
+    function preloadImages() {
+        slides.forEach(slide => {
+            const img = slide.querySelector('.product-image');
+            if (img && img.src) {
+                const preloadImg = new Image();
+                preloadImg.src = img.src;
+            }
+        });
+    }
+
+    /**
+     * Setup all event listeners
+     */
+    function setupEventListeners() {
+        // Navigation buttons
+        if (prevBtn) prevBtn.addEventListener('click', () => goToPreviousSlide());
+        if (nextBtn) nextBtn.addEventListener('click', () => goToNextSlide());
+
+        // Dot indicators
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideNum = parseInt(dot.dataset.slide);
+                goToSlide(slideNum);
+            });
+        });
