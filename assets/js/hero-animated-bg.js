@@ -42,3 +42,32 @@
             rafId = null;
         });
     }
+    
+    // Add mouse move listener
+    hero.addEventListener('mousemove', updateMousePosition, { passive: true });
+
+    // Optional: Add subtle parallax on scroll (very lightweight)
+    let scrollRafId = null;
+
+    function updateParallax() {
+        if (scrollRafId) {
+            return;
+        }
+
+        scrollRafId = requestAnimationFrame(() => {
+            const scroll = window.scrollY;
+            const waves = document.querySelectorAll('.bg-wave');
+
+            waves.forEach((wave, index) => {
+                const speed = 0.05 + (index * 0.02);
+                const offset = scroll * speed;
+
+                // Only apply if scroll is within hero section
+                if (scroll < hero.offsetHeight) {
+                    wave.style.transform = `translateY(${offset}px)`;
+                }
+            });
+
+            scrollRafId = null;
+        });
+    }
