@@ -210,3 +210,46 @@
             goToNextSlide();
         }
     }
+    
+    /**
+     * Handle visibility change (pause when tab is hidden)
+     */
+    function handleVisibilityChange() {
+        if (document.hidden) {
+            pauseAutoPlay();
+        } else {
+            resumeAutoPlay();
+        }
+    }
+
+    /**
+     * Initialize swipe gestures for touch devices
+     */
+    function initSwipeGestures() {
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const minSwipeDistance = 50;
+
+        slider.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        slider.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeDistance = touchEndX - touchStartX;
+
+            if (Math.abs(swipeDistance) < minSwipeDistance) return;
+
+            if (swipeDistance > 0) {
+                // Swipe right - go to previous
+                goToPreviousSlide();
+            } else {
+                // Swipe left - go to next
+                goToNextSlide();
+            }
+        }
+    }
