@@ -253,3 +253,48 @@
             }
         }
     }
+    
+    /**
+     * Initialize parallax mouse tracking
+     */
+    function initParallax() {
+        let mouseX = 0;
+        let mouseY = 0;
+        let currentX = 0;
+        let currentY = 0;
+
+        slider.addEventListener('mousemove', (e) => {
+            const rect = slider.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            mouseX = (e.clientX - centerX) * CONFIG.parallaxIntensity;
+            mouseY = (e.clientY - centerY) * CONFIG.parallaxIntensity;
+        });
+
+        // Smooth parallax animation using requestAnimationFrame
+        function animateParallax() {
+            // Smooth interpolation
+            currentX += (mouseX - currentX) * 0.1;
+            currentY += (mouseY - currentY) * 0.1;
+
+            // Apply parallax to background
+            const bgGradient = slider.querySelector('.bg-gradient');
+            if (bgGradient) {
+                bgGradient.style.transform = `translate(${currentX * 0.5}px, ${currentY * 0.5}px)`;
+            }
+
+            // Apply parallax to active slide text (opposite direction for depth)
+            const activeSlide = slider.querySelector('.hero-slide.active');
+            if (activeSlide) {
+                const slideText = activeSlide.querySelector('.hero-slide-text');
+                if (slideText) {
+                    slideText.style.transform = `translate(${currentX * -0.3}px, ${currentY * -0.3}px)`;
+                }
+            }
+
+            requestAnimationFrame(animateParallax);
+        }
+
+        animateParallax();
+    }
