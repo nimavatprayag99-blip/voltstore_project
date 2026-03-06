@@ -72,3 +72,27 @@
             } else {
                 numberElement.textContent = Math.floor(currentValue).toLocaleString();
             }
+            
+            if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+            } else {
+                numberElement.dataset.animated = 'true';
+            }
+        }
+
+        requestAnimationFrame(updateCounter);
+    }
+
+    // ==========================================
+    // HERO ANIMATIONS ON LOAD
+    // ==========================================
+
+    function animateHeroElements() {
+        const heroElements = document.querySelectorAll('.about-hero .fade-in-up');
+
+        heroElements.forEach((el, index) => {
+            setTimeout(() => {
+                el.classList.add('visible');
+            }, index * 100);
+        });
+    }
