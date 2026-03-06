@@ -88,3 +88,23 @@
                 goToSlide(slideNum);
             });
         });
+        
+        // Pause on hover
+        if (CONFIG.pauseOnHover) {
+            slider.addEventListener('mouseenter', pauseAutoPlay);
+            slider.addEventListener('mouseleave', resumeAutoPlay);
+        }
+
+        // Keyboard navigation
+        if (CONFIG.enableKeyboard) {
+            document.addEventListener('keydown', handleKeyboard);
+        }
+
+        // Touch swipe navigation
+        if (CONFIG.enableSwipe && 'ontouchstart' in window) {
+            initSwipeGestures();
+        }
+
+        // Visibility change (pause when tab is not visible)
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+    }
