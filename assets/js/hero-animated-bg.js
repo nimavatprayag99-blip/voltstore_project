@@ -71,3 +71,14 @@
             scrollRafId = null;
         });
     }
+    
+    // Add scroll listener with passive flag for better performance
+    window.addEventListener('scroll', updateParallax, { passive: true });
+
+    // Cleanup on page unload
+    window.addEventListener('beforeunload', () => {
+        if (rafId) cancelAnimationFrame(rafId);
+        if (scrollRafId) cancelAnimationFrame(scrollRafId);
+    });
+
+})();
