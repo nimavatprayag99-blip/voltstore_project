@@ -222,3 +222,46 @@
                 updateCartItem(input);
             });
         });
+        
+        // Remove item buttons
+        $$('.remove-item').forEach(btn => {
+            btn.addEventListener('click', handleRemoveItem);
+        });
+    };
+
+    const handleAddToCart = async (e) => {
+        const btn = e.currentTarget;
+        const productId = btn.dataset.productId;
+
+        if (!productId) return;
+
+        // Add loading state
+        btn.classList.add('loading');
+        btn.disabled = true;
+
+        try {
+            const csrfToken = $('meta[name="csrf-token"]')?.content;
+            const response = await fetch('cart/add_to_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `product_id=${productId}&quantity=1&csrf_token=${csrfToken}`
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                showNotification('Product added to cart!', 'success');
+                updateCartBadge(data.cartCount);
+                animateCartIcon();
+            } else {
+                showNotification(data.message || 'Failed to add product', 'error');
+            }
+        } catch (error) {
+            showNotification('Something went wrong. Please try again.', 'error');
+        } finally {
+            btn.classList.remove('loading');
+            btn.disabled = false;
+        }
+    };
