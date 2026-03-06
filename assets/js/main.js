@@ -265,3 +265,45 @@
             btn.disabled = false;
         }
     };
+    
+    const updateCartItem = debounce(async (input) => {
+        const cartItemId = input.dataset.cartItemId;
+        const quantity = input.value;
+
+        try {
+            const csrfToken = $('meta[name="csrf-token"]')?.content;
+            const response = await fetch('cart/update_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `cart_item_id=${cartItemId}&quantity=${quantity}&csrf_token=${csrfToken}`
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                updateCartTotals(data.totals);
+            } else {
+                showNotification(data.message || 'Failed to update cart', 'error');
+            }
+        } catch (error) {
+            console.error('Error updating cart:', error);
+        }
+    }, 500);
+
+    const handleRemoveItem = async (e) => {
+        const btn = e.currentTarget;
+        const cartItemId = btn.dataset.cartItemId;
+
+        if (!confirm('Are you sure you want to remove this item?')) return;
+
+        try {
+            const csrfToken = $('meta[name="csrf-token"]')?.content;
+            const response = await fetch('cart/remove_from_cart.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `cart_item_id=${cartItemId}&csrf_token=${csrfToken}`
+            });
