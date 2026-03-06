@@ -466,3 +466,62 @@
     const isValidPhone = (phone) => {
         return /^[\d\s\-\+\(\)]{10,}$/.test(phone);
     };
+    
+    // =====================================================
+    // PREMIUM TOAST NOTIFICATIONS
+    // =====================================================
+
+    const showNotification = (message, type = 'info') => {
+        const existingNotification = $('.notification');
+        if (existingNotification) {
+            existingNotification.remove();
+        }
+
+        // Icon mapping
+        const icons = {
+            success: 'fas fa-check-circle',
+            error: 'fas fa-exclamation-circle',
+            info: 'fas fa-info-circle',
+            warning: 'fas fa-exclamation-triangle'
+        };
+
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="${icons[type] || icons.info}"></i>
+                <span>${message}</span>
+            </div>
+            <button class="notification-close" aria-label="Close">&times;</button>
+            <div class="notification-progress">
+                <div class="notification-progress-bar"></div>
+            </div>
+        `;
+
+        document.body.appendChild(notification);
+
+        // Animate in (slide from bottom-right)
+        requestAnimationFrame(() => {
+            notification.classList.add('show');
+        });
+
+        // Auto dismiss after 2.5 seconds
+        const dismissTimeout = setTimeout(() => {
+            dismissNotification(notification);
+        }, 2500);
+
+        // Close button
+        notification.querySelector('.notification-close').addEventListener('click', () => {
+            clearTimeout(dismissTimeout);
+            dismissNotification(notification);
+        });
+    };
+
+    const dismissNotification = (notification) => {
+        notification.classList.remove('show');
+        notification.classList.add('hide');
+
+        setTimeout(() => {
+            notification.remove();
+        }, 400);
+    };
