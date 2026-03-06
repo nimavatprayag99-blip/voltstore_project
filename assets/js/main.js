@@ -759,3 +759,26 @@
             });
         });
     };
+    
+    // =====================================================
+    // TABS
+    // =====================================================
+
+    const initTabs = () => {
+        $$('.tabs').forEach(tabContainer => {
+            const tabs = $$('.tab', tabContainer);
+            const panels = $$('.tab-panel', tabContainer.closest('.tabs-container'));
+
+            tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => {
+                    // Deactivate all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    panels.forEach(p => p.classList.remove('active'));
+
+                    // Activate clicked tab
+                    tab.classList.add('active');
+                    panels[index]?.classList.add('active');
+                });
+            });
+        });
+    };
