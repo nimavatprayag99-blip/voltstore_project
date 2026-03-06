@@ -165,3 +165,48 @@
         // Restart autoplay timer
         resetAutoPlay();
     }
+    
+    /**
+     * Start auto-play
+     */
+    function startAutoPlay() {
+        if (autoPlayTimer) clearInterval(autoPlayTimer);
+
+        autoPlayTimer = setInterval(() => {
+            if (!isPaused && !isTransitioning) {
+                goToNextSlide();
+            }
+        }, CONFIG.autoPlayDelay);
+    }
+
+    /**
+     * Pause auto-play
+     */
+    function pauseAutoPlay() {
+        isPaused = true;
+    }
+
+    /**
+     * Resume auto-play
+     */
+    function resumeAutoPlay() {
+        isPaused = false;
+    }
+
+    /**
+     * Reset auto-play timer
+     */
+    function resetAutoPlay() {
+        startAutoPlay();
+    }
+
+    /**
+     * Handle keyboard navigation
+     */
+    function handleKeyboard(e) {
+        if (e.key === 'ArrowLeft') {
+            goToPreviousSlide();
+        } else if (e.key === 'ArrowRight') {
+            goToNextSlide();
+        }
+    }
