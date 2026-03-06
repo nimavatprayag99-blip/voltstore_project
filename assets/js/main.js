@@ -70,3 +70,22 @@
 
             lastScroll = currentScroll;
         }, 100));
+        
+        // Mobile menu toggle
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenuBtn.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.classList.toggle('menu-open');
+            });
+        }
+
+        // Close mobile menu on link click
+        $$('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn?.classList.remove('active');
+                navMenu?.classList.remove('active');
+                document.body.classList.remove('menu-open');
+            });
+        });
+    };
