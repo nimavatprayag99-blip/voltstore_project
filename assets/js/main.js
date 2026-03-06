@@ -554,3 +554,37 @@
             });
         });
     };
+
+    // =====================================================
+    // SEARCH FUNCTIONALITY
+    // =====================================================
+
+    const initSearch = () => {
+        const searchInput = $('.search-input');
+        const searchResults = $('.search-results');
+
+        if (!searchInput) return;
+
+        let searchTimeout;
+
+        searchInput.addEventListener('input', (e) => {
+            clearTimeout(searchTimeout);
+            const query = e.target.value.trim();
+
+            if (query.length < 2) {
+                searchResults?.classList.remove('show');
+                return;
+            }
+
+            searchTimeout = setTimeout(() => {
+                performSearch(query);
+            }, 300);
+        });
+
+        // Close search on outside click
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.search-container')) {
+                searchResults?.classList.remove('show');
+            }
+        });
+    };
