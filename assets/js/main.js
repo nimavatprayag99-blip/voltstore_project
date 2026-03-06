@@ -348,3 +348,62 @@
             setTimeout(() => cartIcon.classList.remove('pulse'), 500);
         }
     };
+    
+    const updateCartTotals = (totals) => {
+        if (!totals) return;
+
+        const subtotalEl = $('.cart-subtotal');
+        const totalEl = $('.cart-total');
+
+        if (subtotalEl) subtotalEl.textContent = formatPrice(totals.subtotal);
+        if (totalEl) totalEl.textContent = formatPrice(totals.total);
+    };
+
+    // =====================================================
+    // FORM VALIDATION
+    // =====================================================
+
+    const initFormValidation = () => {
+        $$('form[data-validate]').forEach(form => {
+            form.addEventListener('submit', validateForm);
+
+            // Real-time validation
+            $$('input, textarea, select', form).forEach(field => {
+                field.addEventListener('blur', () => validateField(field));
+                field.addEventListener('input', () => clearError(field));
+            });
+        });
+    };
+
+    const validateForm = (e) => {
+        const form = e.target;
+        let isValid = true;
+
+        $$('[data-validate]', form).forEach(field => {
+            if (!validateField(field)) {
+                isValid = false;
+            }
+        });
+
+        if (!isValid) {
+            e.preventDefault();
+        }
+
+        return isValid;
+    };
+
+    const validateField = (field) => {
+        const rules = field.dataset.validate.split('|');
+        const value = field.value.trim();
+        let error = '';
+
+        for (const rule of rules) {
+            if (rule === 'required' && !value) {
+                error = 'This field is required';
+                break;
+            }
+
+            if (rule === 'email' && value && !isValidEmail(value)) {
+                error = 'Please enter a valid email address';
+                break;
+            }
