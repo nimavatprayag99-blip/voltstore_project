@@ -828,3 +828,84 @@
             });
         });
     };
+    
+    // =====================================================
+    // CONFIRM DIALOGS
+    // =====================================================
+
+    const initConfirmDialogs = () => {
+        $$('[data-confirm]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                const message = el.dataset.confirm;
+                if (!confirm(message)) {
+                    e.preventDefault();
+                }
+            });
+        });
+    };
+
+    // =====================================================
+    // PREMIUM WISHLIST BUTTON
+    // =====================================================
+
+    const initWishlist = () => {
+        // This function can be used to initialize wishlist state if needed
+        // For now, we rely on server-side rendering for initial state
+        // and global addToWishlist for actions
+    };
+
+    // Global Add to Wishlist
+    window.addToWishlist = (productId, btn) => {
+        if (!productId) return;
+
+        const csrfToken = document.querySelector('meta[name="csrf-token"]')?.getAttribute('content');
+        if (!csrfToken) {
+            console.error('CSRF token not found');
+            return;
+        }
+
+        // Add loading state
+        const originalContent = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+        btn.disabled = true;
+
+        const formData = new FormData();
+        formData.append('product_id', productId);
+        formData.append('csrf_token', csrfToken);
+
+        fetch('/php/voltstore/user/add_to_wishlist.php', {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                btn.innerHTML = originalContent;
+                btn.disabled = false;
+
+                if (data.success) {
+                    showToast(data.message, 'success');
+                    // Toggle icon
+                    const icon = btn.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = 'var(--accent-red)';
+                    }
+                } else {
+                    if (data.redirect) {
+                        window.location.href = data.redirect;
+                    } else {
+                        showToast(data.message, 'info'); // Using info as it might be "already in wishlist"
+                    }
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                btn.innerHTML = originalContent;
+                btn.disabled = false;
+                showToast('Something went wrong', 'error');
+            });
+    };
