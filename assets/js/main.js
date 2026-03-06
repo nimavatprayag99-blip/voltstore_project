@@ -181,3 +181,44 @@
 
         lazyImages.forEach(img => imageObserver.observe(img));
     };
+
+    // =====================================================
+    // CART FUNCTIONALITY
+    // =====================================================
+
+    const initCart = () => {
+        // Add to cart buttons
+        $$('.add-to-cart').forEach(btn => {
+            btn.addEventListener('click', handleAddToCart);
+        });
+
+        // Quantity selectors
+        $$('.quantity-selector').forEach(selector => {
+            const minusBtn = selector.querySelector('.qty-minus');
+            const plusBtn = selector.querySelector('.qty-plus');
+            const input = selector.querySelector('input');
+
+            minusBtn?.addEventListener('click', () => {
+                let value = parseInt(input.value) || 1;
+                if (value > 1) {
+                    input.value = value - 1;
+                    updateCartItem(input);
+                }
+            });
+
+            plusBtn?.addEventListener('click', () => {
+                let value = parseInt(input.value) || 1;
+                const max = parseInt(input.dataset.max) || 99;
+                if (value < max) {
+                    input.value = value + 1;
+                    updateCartItem(input);
+                }
+            });
+
+            input?.addEventListener('change', () => {
+                let value = parseInt(input.value) || 1;
+                const max = parseInt(input.dataset.max) || 99;
+                input.value = Math.min(Math.max(value, 1), max);
+                updateCartItem(input);
+            });
+        });
