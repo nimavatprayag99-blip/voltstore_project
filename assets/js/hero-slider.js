@@ -298,3 +298,47 @@
 
         animateParallax();
     }
+    
+    /**
+     * Initialize 3D tilt effect on product images
+     */
+    function init3DTilt() {
+        slides.forEach(slide => {
+            const imageWrapper = slide.querySelector('.image-wrapper');
+            const productImage = slide.querySelector('.product-image');
+
+            if (!imageWrapper || !productImage) return;
+
+            imageWrapper.addEventListener('mousemove', (e) => {
+                if (!slide.classList.contains('active')) return;
+
+                const rect = imageWrapper.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                const mouseX = e.clientX - centerX;
+                const mouseY = e.clientY - centerY;
+
+                const rotateX = (mouseY / rect.height) * CONFIG.tiltIntensity;
+                const rotateY = (mouseX / rect.width) * CONFIG.tiltIntensity;
+
+                // Apply 3D transform with smooth transition
+                requestAnimationFrame(() => {
+                    productImage.style.transform = `
+                        perspective(1200px)
+                        rotateX(${-rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        scale3d(1.02, 1.02, 1.02)
+                        translateZ(30px)
+                    `;
+                });
+            });
+
+            imageWrapper.addEventListener('mouseleave', () => {
+                // Reset to original position
+                requestAnimationFrame(() => {
+                    productImage.style.transform = '';
+                });
+            });
+        });
+    }
