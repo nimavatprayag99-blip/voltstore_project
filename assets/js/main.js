@@ -117,3 +117,41 @@
             });
         });
     };
+
+    // =====================================================
+    // SCROLL ANIMATIONS
+    // =====================================================
+
+    const initScrollAnimations = () => {
+        const animatedElements = $$('[data-animate]');
+
+        if (!animatedElements.length) return;
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const element = entry.target;
+                    const animation = element.dataset.animate;
+                    const delay = element.dataset.delay || 0;
+
+                    setTimeout(() => {
+                        element.classList.add(`animate-${animation}`);
+                        element.style.opacity = '1';
+                    }, delay * 100);
+
+                    observer.unobserve(element);
+                }
+            });
+        }, observerOptions);
+
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    };
