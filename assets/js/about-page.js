@@ -42,3 +42,33 @@
             observer.observe(el);
         });
     }
+
+    // ==========================================
+    // COUNTER ANIMATION
+    // ==========================================
+
+    function animateCounter(card) {
+        const numberElement = card.querySelector('.stat-number');
+        if (!numberElement || numberElement.dataset.animated) return;
+
+        const target = parseFloat(numberElement.dataset.target);
+        const decimals = parseInt(numberElement.dataset.decimals) || 0;
+        const duration = 2000; // 2 seconds
+        const startTime = Date.now();
+        const startValue = 0;
+
+        function updateCounter() {
+            const currentTime = Date.now();
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+
+            // Easing function (easeOutCubic)
+            const easeProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = startValue + (target - startValue) * easeProgress;
+
+            // Format number
+            if (decimals > 0) {
+                numberElement.textContent = currentValue.toFixed(decimals);
+            } else {
+                numberElement.textContent = Math.floor(currentValue).toLocaleString();
+            }
