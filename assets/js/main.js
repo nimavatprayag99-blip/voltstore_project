@@ -307,3 +307,44 @@
                 },
                 body: `cart_item_id=${cartItemId}&csrf_token=${csrfToken}`
             });
+            
+            const data = await response.json();
+
+            if (data.success) {
+                const cartItem = btn.closest('.cart-item');
+                cartItem.style.opacity = '0';
+                cartItem.style.transform = 'translateX(-20px)';
+
+                setTimeout(() => {
+                    cartItem.remove();
+                    updateCartBadge(data.cartCount);
+                    updateCartTotals(data.totals);
+
+                    if (data.cartCount === 0) {
+                        location.reload();
+                    }
+                }, 300);
+
+                showNotification('Item removed from cart', 'success');
+            }
+        } catch (error) {
+            showNotification('Failed to remove item', 'error');
+        }
+    };
+
+    const updateCartBadge = (count) => {
+        const badge = $('.cart-badge');
+        if (badge) {
+            badge.textContent = count;
+            badge.classList.add('bounce');
+            setTimeout(() => badge.classList.remove('bounce'), 500);
+        }
+    };
+
+    const animateCartIcon = () => {
+        const cartIcon = $('.nav-icon[href*="cart"]');
+        if (cartIcon) {
+            cartIcon.classList.add('pulse');
+            setTimeout(() => cartIcon.classList.remove('pulse'), 500);
+        }
+    };
