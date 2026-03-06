@@ -342,3 +342,32 @@
             });
         });
     }
+    
+    /**
+     * Cleanup on page unload
+     */
+    window.addEventListener('beforeunload', () => {
+        if (autoPlayTimer) {
+            clearInterval(autoPlayTimer);
+        }
+    });
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // Expose API for external control
+    window.HeroSlider = {
+        goToSlide,
+        goToNext: goToNextSlide,
+        goToPrev: goToPreviousSlide,
+        pause: pauseAutoPlay,
+        resume: resumeAutoPlay,
+        getCurrentSlide: () => currentSlide,
+        getTotalSlides: () => totalSlides
+    };
+
+})();
