@@ -909,3 +909,43 @@
                 showToast('Something went wrong', 'error');
             });
     };
+    // =====================================================
+    // INITIALIZE ALL
+    // =====================================================
+
+    function init() {
+        initNavigation();
+        init3DCards();
+        initScrollAnimations();
+        initLazyLoading();
+        initCart();
+        initFormValidation();
+        initProductGallery();
+        initSearch();
+        initDarkMode();
+        initSmoothScroll();
+        initParallax();
+        initCounters();
+        initBackToTop();
+        initTabs();
+        initAccordion();
+        initTooltips();
+        initConfirmDialogs();
+        initWishlist(); // Premium wishlist functionality
+    }
+
+    // Run on DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // Expose utilities globally
+    window.UrbanCart = {
+        showNotification,
+        formatPrice,
+        updateCartBadge
+    };
+
+})();
