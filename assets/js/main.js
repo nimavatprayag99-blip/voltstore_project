@@ -407,3 +407,62 @@
                 error = 'Please enter a valid email address';
                 break;
             }
+            
+            if (rule.startsWith('min:')) {
+                const min = parseInt(rule.split(':')[1]);
+                if (value.length < min) {
+                    error = `Must be at least ${min} characters`;
+                    break;
+                }
+            }
+
+            if (rule.startsWith('max:')) {
+                const max = parseInt(rule.split(':')[1]);
+                if (value.length > max) {
+                    error = `Must be no more than ${max} characters`;
+                    break;
+                }
+            }
+
+            if (rule === 'phone' && value && !isValidPhone(value)) {
+                error = 'Please enter a valid phone number';
+                break;
+            }
+        }
+
+        if (error) {
+            showFieldError(field, error);
+            return false;
+        }
+
+        clearError(field);
+        return true;
+    };
+
+    const showFieldError = (field, message) => {
+        clearError(field);
+
+        field.classList.add('error');
+
+        const errorEl = document.createElement('span');
+        errorEl.className = 'form-error';
+        errorEl.textContent = message;
+
+        field.parentNode.appendChild(errorEl);
+    };
+
+    const clearError = (field) => {
+        field.classList.remove('error');
+        const errorEl = field.parentNode.querySelector('.form-error');
+        if (errorEl) {
+            errorEl.remove();
+        }
+    };
+
+    const isValidEmail = (email) => {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    };
+
+    const isValidPhone = (phone) => {
+        return /^[\d\s\-\+\(\)]{10,}$/.test(phone);
+    };
