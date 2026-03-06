@@ -108,3 +108,29 @@
         // Visibility change (pause when tab is not visible)
         document.addEventListener('visibilitychange', handleVisibilityChange);
     }
+    
+    /**
+     * Go to next slide
+     */
+    function goToNextSlide() {
+        const nextSlide = currentSlide >= totalSlides ? 1 : currentSlide + 1;
+        goToSlide(nextSlide);
+    }
+
+    /**
+     * Go to previous slide
+     */
+    function goToPreviousSlide() {
+        const prevSlide = currentSlide <= 1 ? totalSlides : currentSlide - 1;
+        goToSlide(prevSlide);
+    }
+
+    /**
+     * Go to specific slide
+     */
+    function goToSlide(slideNum) {
+        if (isTransitioning || slideNum === currentSlide || slideNum < 1 || slideNum > totalSlides) {
+            return;
+        }
+
+        isTransitioning = true;
