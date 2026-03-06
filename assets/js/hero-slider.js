@@ -21,3 +21,41 @@
     let autoPlayTimer = null;
     let isTransitioning = false;
     let isPaused = false;
+    
+    // DOM Elements
+    const slider = document.querySelector('.hero-slider');
+    if (!slider) return;
+
+    const slides = [...document.querySelectorAll('.hero-slide')];
+    const dots = [...document.querySelectorAll('.slider-dot')];
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    const sliderContainer = document.querySelector('.hero-slider-container');
+
+    totalSlides = slides.length;
+
+    /**
+     * Initialize the slider
+     */
+    function init() {
+        // Preload images
+        preloadImages();
+
+        // Setup event listeners
+        setupEventListeners();
+
+        // Start autoplay
+        startAutoPlay();
+
+        // Initialize parallax
+        if (CONFIG.enableParallax) {
+            initParallax();
+        }
+
+        // Initialize 3D tilt (if enabled)
+        if (CONFIG.enable3DTilt) {
+            init3DTilt();
+        }
+
+
+    }
