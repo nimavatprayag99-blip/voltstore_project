@@ -134,3 +134,34 @@
         }
 
         isTransitioning = true;
+        
+        // Update active states
+        slides.forEach(slide => slide.classList.remove('active'));
+        dots.forEach(dot => {
+            dot.classList.remove('active');
+            // Reset progress animation
+            const progressBar = dot.querySelector('::before');
+            if (progressBar) {
+                dot.style.animation = 'none';
+                void dot.offsetHeight; // Trigger reflow
+                dot.style.animation = null;
+            }
+        });
+
+        // Activate new slide
+        const newSlide = slides[slideNum - 1];
+        const newDot = dots[slideNum - 1];
+
+        if (newSlide) newSlide.classList.add('active');
+        if (newDot) newDot.classList.add('active');
+
+        currentSlide = slideNum;
+
+        // Reset transition lock after animation completes
+        setTimeout(() => {
+            isTransitioning = false;
+        }, CONFIG.transitionDuration);
+
+        // Restart autoplay timer
+        resetAutoPlay();
+    }
