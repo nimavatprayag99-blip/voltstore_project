@@ -581,3 +581,30 @@ include __DIR__ . '/includes/header.php';
                             <i class="far fa-heart"></i>
                         </button>
                     </div>
+                    
+                </form>
+                <?php else: ?>
+                    <div class="alert alert-error" style="border-radius: 12px;">
+                        This item is currently out of stock.
+                    </div>
+                <?php endif; ?>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-truck feature-icon"></i>
+                        <span style="font-size: 0.9rem; font-weight: 600;">Free Shipping</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">On orders over ₹999</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-undo feature-icon"></i>
+                        <span style="font-size: 0.9rem; font-weight: 600;">Easy Returns</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">14-day return policy</span>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt feature-icon"></i>
+                        <span style="font-size: 0.9rem; font-weight: 600;">Secure Checkout</span>
+                        <span style="font-size: 0.8rem; color: var(--text-muted);">SSL Encrypted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
