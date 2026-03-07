@@ -68,3 +68,34 @@
             ticking = true;
         }
     }, { passive: true });
+    
+    // ===== MEGA MENU HOVER DELAY =====
+    const dropdowns = document.querySelectorAll('.has-dropdown');
+    let menuOpenTimeout;
+    let menuCloseTimeout;
+
+    dropdowns.forEach(dropdown => {
+        const megaMenu = dropdown.querySelector('.mega-menu');
+
+        dropdown.addEventListener('mouseenter', function () {
+            clearTimeout(menuCloseTimeout);
+
+            menuOpenTimeout = setTimeout(() => {
+                megaMenu.style.opacity = '1';
+                megaMenu.style.visibility = 'visible';
+                megaMenu.style.pointerEvents = 'auto';
+                megaMenu.style.transform = 'translateX(-50%) translateY(0)';
+            }, 150);
+        });
+
+        dropdown.addEventListener('mouseleave', function () {
+            clearTimeout(menuOpenTimeout);
+
+            menuCloseTimeout = setTimeout(() => {
+                megaMenu.style.opacity = '0';
+                megaMenu.style.visibility = 'hidden';
+                megaMenu.style.pointerEvents = 'none';
+                megaMenu.style.transform = 'translateX(-50%) translateY(-10px)';
+            }, 300);
+        });
+    });
