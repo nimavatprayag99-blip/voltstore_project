@@ -220,3 +220,39 @@ $pageStyles = '
         padding-bottom: 32px;
         border-bottom: 1px solid var(--border-color);
     }
+        
+    .current-price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+    }
+
+    .original-price {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        text-decoration: line-through;
+    }
+
+    .discount-badge {
+        background: var(--accent-red);
+        color: white;
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.9rem;
+    }
+
+    .description-text {
+        font-size: 1.1rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        margin-bottom: 32px;
+    }
+
+    /* Action Buttons */
+    .actions-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 32px;
+    }
