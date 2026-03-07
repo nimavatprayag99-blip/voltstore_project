@@ -83,3 +83,33 @@ try {
 } catch (PDOException $e) {
     error_log("Reviews fetch error: " . $e->getMessage());
 }
+
+// Parse product images
+$productImages = [];
+if ($product['images']) {
+    $productImages = json_decode($product['images'], true) ?: [];
+}
+if (empty($productImages) && $product['featured_image']) {
+    $productImages[] = $product['featured_image'];
+}
+
+$pageTitle = $product['name'];
+$pageStyles = '
+    .product-page-container {
+        padding-top: 40px;
+        padding-bottom: 80px;
+    }
+
+    .product-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 60px;
+        align-items: start;
+    }
+    
+    @media (max-width: 992px) {
+        .product-layout {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+    }
