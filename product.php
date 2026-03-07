@@ -554,3 +554,30 @@ include __DIR__ . '/includes/header.php';
                             <button type="button" class="qty-btn plus"><i class="fas fa-plus"></i></button>
                         </div>
                     </div>
+
+                    <div class="actions-container">
+                        <button type="button" class="btn-add-cart">
+                            <i class="fas fa-shopping-bag"></i>
+                            Add to Cart
+                        </button>
+                        <button type="button" class="btn-buy-now">
+                            <i class="fas fa-bolt"></i>
+                            Buy Now
+                        </button>
+                        <button type="button" class="btn-wishlist" onclick="addToWishlist(<?php echo $product['id']; ?>, this)" style="
+                            height: 56px;
+                            width: 56px;
+                            border-radius: 50%;
+                            border: 1px solid var(--border-color);
+                            background: var(--bg-secondary);
+                            color: var(--text-secondary);
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 1.2rem;
+                            cursor: pointer;
+                            transition: all 0.2s;
+                        ">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
