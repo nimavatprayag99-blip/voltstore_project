@@ -774,3 +774,52 @@ include __DIR__ . '/includes/header.php';
     </div>
 </section>
 <?php endif; ?>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Image Gallery
+        window.changeImage = function(src, btn) {
+            const mainImage = document.getElementById('mainImage');
+            if(!mainImage) return;
+            
+            mainImage.style.opacity = '0';
+            
+            setTimeout(() => {
+                mainImage.src = src;
+                mainImage.style.opacity = '1';
+            }, 200);
+            
+            document.querySelectorAll('.thumbnail-btn').forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+        };
+
+        // Tabs
+        window.switchTab = function(tabId, btn) {
+            document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+            const tab = document.getElementById(tabId);
+            if(tab) tab.style.display = 'block';
+            
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            if(btn) btn.classList.add('active');
+        };
+
+        // Quantity Logic
+        const qtyInput = document.querySelector('.qty-input');
+        const maxQty = <?php echo isset($product['stock_quantity']) ? (int)$product['stock_quantity'] : 0; ?>;
+        
+        const plusBtn = document.querySelector('.qty-btn.plus');
+        const minusBtn = document.querySelector('.qty-btn.minus');
+
+        if (qtyInput && plusBtn) {
+            plusBtn.addEventListener('click', () => {
+                let val = parseInt(qtyInput.value) || 1;
+                if (val < maxQty) qtyInput.value = val + 1;
+            });
+        }
+        
+        if (qtyInput && minusBtn) {
+            minusBtn.addEventListener('click', () => {
+                let val = parseInt(qtyInput.value) || 1;
+                if (val > 1) qtyInput.value = val - 1;
+            });
+        }
