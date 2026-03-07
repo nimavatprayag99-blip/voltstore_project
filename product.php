@@ -496,3 +496,33 @@ include __DIR__ . '/includes/header.php';
                 </div>
                 <?php endif; ?>
             </div>
+            
+            <!-- Right Column: Info -->
+            <div class="product-info-wrapper">
+                <span class="product-category-badge">
+                    <?php echo $product['category_name']; ?>
+                </span>
+                
+                <h1 class="product-title"><?php echo $product['name']; ?></h1>
+                
+                <div class="rating-row">
+                    <div style="color: #FFB400;">
+                         <?php 
+                            $stars = round($averageRating * 2) / 2; // Round to nearest 0.5
+                            for($i=1; $i<=5; $i++): 
+                        ?>
+                            <i class="<?php echo $i <= $stars ? 'fas' : ($i - 0.5 <= $stars ? 'fas fa-star-half-alt' : 'far'); ?> fa-star"></i>
+                        <?php endfor; ?>
+                    </div>
+                    <span style="color: var(--text-secondary); font-weight: 500;"><?php echo $averageRating; ?> (<?php echo $totalReviews; ?> Review<?php echo $totalReviews !== 1 ? 's' : ''; ?>)</span>
+                    
+                    <?php if ($product['stock_quantity'] > 0): ?>
+                        <span style="color: var(--accent-green); margin-left: auto; display: flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-check-circle"></i> In Stock
+                        </span>
+                    <?php else: ?>
+                        <span style="color: var(--accent-red); margin-left: auto; display: flex; align-items: center; gap: 6px;">
+                            <i class="fas fa-times-circle"></i> Out of Stock
+                        </span>
+                    <?php endif; ?>
+                </div>
