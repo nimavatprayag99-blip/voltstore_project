@@ -155,3 +155,43 @@
             }
         }, 250);
     });
+    
+    // ===== ACTIVE LINK HIGHLIGHTING =====
+    const currentPage = window.location.pathname.split('/').pop().split('.')[0] || 'index';
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href').split('/').pop().split('.')[0];
+        if (linkPage === currentPage) {
+            link.classList.add('active');
+        }
+    });
+
+    // ===== PREVENT MEGA MENU CLOSE ON CLICK INSIDE =====
+    const megaMenus = document.querySelectorAll('.mega-menu');
+    megaMenus.forEach(menu => {
+        menu.addEventListener('click', function (e) {
+            e.stopPropagation();
+        });
+    });
+
+    // ===== SMOOTH SCROLL FOR ANCHOR LINKS =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href !== '#' && href.length > 1) {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    const offsetTop = target.offsetTop - 70; // Account for fixed navbar
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
+
+
+})();
