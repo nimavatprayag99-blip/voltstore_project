@@ -54,3 +54,32 @@ try {
 } catch (PDOException $e) {
     error_log("Related products error: " . $e->getMessage());
 }
+
+// Fetch reviews
+$reviews = [];
+$averageRating = 0;
+$totalReviews = 0;
+try {
+    $db = getDB();
+    // Get reviews with user details
+    $stmt = $db->prepare("
+        SELECT r.*, u.first_name, u.last_name 
+        FROM reviews r 
+        JOIN users u ON r.user_id = u.id 
+        WHERE r.product_id = ? 
+        ORDER BY r.created_at DESC
+    ");
+    $stmt->execute([$product['id']]);
+    $reviews = $stmt->fetchAll();
+    $totalReviews = count($reviews);
+    
+    if ($totalReviews > 0) {
+        $sum = 0;
+        foreach ($reviews as $review) {
+            $sum += $review['rating'];
+        }
+        $averageRating = round($sum / $totalReviews, 1);
+    }
+} catch (PDOException $e) {
+    error_log("Reviews fetch error: " . $e->getMessage());
+}
