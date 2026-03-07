@@ -641,3 +641,37 @@ include __DIR__ . '/includes/header.php';
                 <?php endif; endforeach; ?>
             </table>
         </div>
+        
+        <div id="reviews" class="tab-content" style="display: none;">
+            <div style="max-width: 800px;">
+                
+                <!-- Review Statistics -->
+                <div style="display: flex; gap: 40px; align-items: center; margin-bottom: 40px; background: var(--bg-secondary); padding: 32px; border-radius: 16px;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 3.5rem; font-weight: 700; color: var(--text-primary); line-height: 1;"><?php echo $averageRating; ?></div>
+                        <div style="color: #FFB400; margin: 8px 0;">
+                            <?php for($i=1; $i<=5; $i++): ?>
+                                <i class="<?php echo $i <= $averageRating ? 'fas' : ($i - 0.5 <= $averageRating ? 'fas fa-star-half-alt' : 'far'); ?> fa-star"></i>
+                            <?php endfor; ?>
+                        </div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);"><?php echo $totalReviews; ?> Review<?php echo $totalReviews !== 1 ? 's' : ''; ?></div>
+                    </div>
+                    
+                    <div style="flex: 1; border-left: 1px solid var(--border-color); padding-left: 40px;">
+                        <!-- Review Form / Login Prompt -->
+                        <?php if (isLoggedIn()): ?>
+                            <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 16px;">Write a Review</h3>
+                            <form action="<?php echo SITE_URL; ?>/product/submit_review.php" method="POST" id="review-form">
+                                <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                                <input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Rating</label>
+                                    <div class="star-rating">
+                                        <input type="radio" id="star5" name="rating" value="5" required /><label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+                                    </div>
+                                </div>
