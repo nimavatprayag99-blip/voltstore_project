@@ -256,3 +256,46 @@ $pageStyles = '
         gap: 20px;
         margin-top: 32px;
     }
+        
+    .quantity-control {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--bg-secondary);
+        border: 1px solid var(--border-color);
+        border-radius: 50px;
+        padding: 4px 8px;
+        height: 56px;
+        max-width: 140px;
+    }
+    
+    .qty-btn {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--bg-tertiary); /* Distinct from container */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: var(--text-primary);
+        transition: all 0.2s;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .qty-btn:hover {
+        background: var(--primary);
+        color: white;
+    }
+    
+    .qty-input {
+        width: 40px;
+        text-align: center;
+        background: transparent;
+        border: none;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--text-primary);
+        outline: none;
+    }
