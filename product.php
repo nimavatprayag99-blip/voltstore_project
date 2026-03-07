@@ -149,3 +149,35 @@ $pageStyles = '
         grid-template-columns: repeat(4, 1fr);
         gap: 16px;
     }
+        
+    .thumbnail-btn {
+        aspect-ratio: 1/1;
+        border-radius: 12px;
+        border: 2px solid transparent;
+        background: var(--bg-secondary);
+        cursor: pointer;
+        padding: 8px;
+        transition: all 0.2s ease;
+        overflow: hidden;
+    }
+
+    .thumbnail-btn.active {
+        border-color: var(--primary);
+        background: rgba(0, 113, 227, 0.05);
+    }
+
+    .thumbnail-btn img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transition: transform 0.2s ease;
+    }
+    
+    .thumbnail-btn:hover img {
+        transform: scale(1.1);
+    }
+
+    /* Product Info Styles */
+    .product-info-wrapper {
+        animation: fadeInUp 0.6s ease forwards;
+    }
