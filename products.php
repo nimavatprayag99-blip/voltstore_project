@@ -94,3 +94,46 @@ try {
 } catch (PDOException $e) {
     error_log("Products fetch error: " . $e->getMessage());
 }
+
+// Get all categories for filter
+$categories = [];
+try {
+    $db = getDB();
+    $stmt = $db->query("
+        SELECT c.*, COUNT(p.id) as product_count 
+        FROM categories c 
+        LEFT JOIN products p ON c.id = p.category_id AND p.status = 1 
+        WHERE c.status = 1 
+        GROUP BY c.id 
+        ORDER BY c.name
+    ");
+    $categories = $stmt->fetchAll();
+} catch (PDOException $e) {
+    error_log("Categories error: " . $e->getMessage());
+}
+
+$pageTitle = $search ? "Search: $search" : ($category ? ucfirst($category) : 'All Products');
+include __DIR__ . '/includes/header.php';
+?>
+
+<!-- Page Header -->
+<section class="section-sm" style="background: var(--bg-secondary); padding-top: 100px;">
+    <div class="container">
+        <nav style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px;">
+            <a href="<?php echo SITE_URL; ?>/index.php">Home</a>
+            <i class="fas fa-chevron-right" style="margin: 0 8px; font-size: 0.75rem;"></i>
+            <span>Products</span>
+            <?php if ($category): ?>
+            <i class="fas fa-chevron-right" style="margin: 0 8px; font-size: 0.75rem;"></i>
+            <span><?php echo ucfirst($category); ?></span>
+            <?php endif; ?>
+        </nav>
+        
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary);">
+            <?php echo $search ? "Search Results for \"$search\"" : ($category ? ucfirst($category) : 'All Products'); ?>
+        </h1>
+        <p style="color: var(--text-secondary); margin-top: 8px;">
+            Showing <?php echo count($products); ?> of <?php echo $totalProducts; ?> products
+        </p>
+    </div>
+</section>
