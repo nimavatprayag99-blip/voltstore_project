@@ -874,3 +874,42 @@ include __DIR__ . '/includes/header.php';
                     throw new Error('Invalid server response');
                 }
             })
+             .then(data => {
+                if (data.success) {
+                    if (isBuyNow) {
+                         window.location.href = '<?php echo SITE_URL; ?>/cart/checkout.php';
+                    } else {
+                        // Update Cart Badge
+                        const badge = document.querySelector('.cart-badge');
+                        if (badge) {
+                            badge.textContent = data.cartCount;
+                        } else {
+                            // If no badge exists, reload to show it
+                             location.reload(); 
+                             return;
+                        }
+                        
+                        showToast(data.message, 'success');
+                    }
+                } else {
+                    showToast(data.message, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast(error.message || 'Something went wrong. Please try again.', 'error');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            });
+        }
+
+        // Custom Toast Notification
+        window.showToast = function(message, type = 'success') {
+            let container = document.querySelector('.toast-container');
+            if (!container) {
+                container = document.createElement('div');
+                container.className = 'toast-container';
+                document.body.appendChild(container);
+            }
