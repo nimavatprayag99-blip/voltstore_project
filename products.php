@@ -295,3 +295,36 @@ include __DIR__ . '/includes/header.php';
                                 </a>
                             </div>
                         </div>
+                        
+                        <div class="product-info">
+                            <p class="product-category"><?php echo $product['category_name']; ?></p>
+                            <h3 class="product-name">
+                                <a href="<?php echo SITE_URL; ?>/product.php?slug=<?php echo $product['slug']; ?>">
+                                    <?php echo $product['name']; ?>
+                                </a>
+                            </h3>
+                            
+                            <div class="product-rating">
+                                <span class="stars">
+                                    <?php for ($i = 1; $i <= 5; $i++): ?>
+                                    <i class="fas fa-star"></i>
+                                    <?php endfor; ?>
+                                </span>
+                                <span class="count">(<?php echo rand(10, 200); ?>)</span>
+                            </div>
+                            
+                            <div class="product-price-row">
+                                <div class="product-price">
+                                    <?php echo formatPrice($product['sale_price'] ?: $product['price']); ?>
+                                    <?php if ($product['sale_price']): ?>
+                                    <span class="sale"><?php echo formatPrice($product['price']); ?></span>
+                                    <?php endif; ?>
+                                </div>
+                                <a href="<?php echo SITE_URL; ?>/product.php?slug=<?php echo $product['slug']; ?>" class="add-to-cart" title="View Details">
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                </div>
