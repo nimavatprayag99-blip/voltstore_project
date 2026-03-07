@@ -299,3 +299,39 @@ $pageStyles = '
         color: var(--text-primary);
         outline: none;
     }
+        
+    .btn-add-cart, .btn-buy-now {
+        height: 56px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        width: 100%;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .btn-add-cart {
+        background: transparent;
+        border: 2px solid var(--primary);
+        color: var(--primary);
+    }
+
+    .btn-add-cart:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2);
+    }
+
+    .btn-buy-now {
+        background: var(--primary);
+        color: white;
+        border: none;
+        box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+    }
