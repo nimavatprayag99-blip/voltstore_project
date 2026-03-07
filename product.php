@@ -438,3 +438,18 @@ $pageStyles = '
         opacity: 0;
         transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     }
+        
+    .custom-toast.show {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    .custom-toast.success { border-left-color: var(--accent-green); }
+    .custom-toast.error { border-left-color: var(--accent-red); }
+    
+    .toast-icon { font-size: 1.25rem; }
+    .toast-message { font-weight: 500; color: var(--text-primary); }
+';
+
+include __DIR__ . '/includes/header.php';
+?>
