@@ -205,3 +205,19 @@ include __DIR__ . '/includes/header.php';
                             <?php if ($search): ?>
                             <input type="hidden" name="search" value="<?php echo $search; ?>">
                             <?php endif; ?>
+                            
+                            <div style="display: flex; gap: 8px;">
+                                <input type="number" name="min_price" value="<?php echo $minPrice > 0 ? $minPrice : ''; ?>" 
+                                       placeholder="Min" min="0"
+                                       style="width: 50%; padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 0.875rem;">
+                                <input type="number" name="max_price" value="<?php echo $maxPrice < 1000000 ? $maxPrice : ''; ?>" 
+                                       placeholder="Max" min="0"
+                                       style="width: 50%; padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 0.875rem;">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm btn-full">
+                                Apply Filter
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </aside>
