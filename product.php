@@ -453,3 +453,46 @@ $pageStyles = '
 
 include __DIR__ . '/includes/header.php';
 ?>
+
+<!-- Breadcrumb -->
+<section class="section-sm" style="background: var(--bg-secondary); padding-top: 100px; padding-bottom: 20px;">
+    <div class="container">
+        <nav style="font-size: 0.9rem; color: var(--text-muted); font-weight: 500;">
+            <a href="<?php echo SITE_URL; ?>/index.php" style="color: var(--text-secondary);">Home</a>
+            <i class="fas fa-chevron-right" style="margin: 0 12px; font-size: 0.75rem; opacity: 0.5;"></i>
+            <a href="<?php echo SITE_URL; ?>/products.php" style="color: var(--text-secondary);">Products</a>
+            <i class="fas fa-chevron-right" style="margin: 0 12px; font-size: 0.75rem; opacity: 0.5;"></i>
+            <a href="<?php echo SITE_URL; ?>/products.php?category=<?php echo $product['category_slug']; ?>" style="color: var(--text-secondary);">
+                <?php echo $product['category_name']; ?>
+            </a>
+            <i class="fas fa-chevron-right" style="margin: 0 12px; font-size: 0.75rem; opacity: 0.5;"></i>
+            <span style="color: var(--text-primary);"><?php echo $product['name']; ?></span>
+        </nav>
+    </div>
+</section>
+
+<!-- Product Main Section -->
+<section class="section product-page-container" style="background: var(--bg-primary);">
+    <div class="container">
+        <div class="product-layout">
+            <!-- Left Column: Gallery -->
+            <div class="gallery-container">
+                <div class="main-image-wrapper">
+                    <img id="mainImage" class="main-image"
+                         src="<?php echo SITE_URL; ?>/assets/images/products/<?php echo $productImages[0] ?? $product['featured_image'] ?: 'placeholder.jpg'; ?>" 
+                         alt="<?php echo $product['name']; ?>"
+                         onerror="this.src='https://via.placeholder.com/600x600/f5f5f7/86868b?text=<?php echo urlencode($product['name']); ?>'">
+                </div>
+                
+                <?php if (count($productImages) > 1): ?>
+                <div class="thumbnails-grid">
+                    <?php foreach ($productImages as $index => $image): ?>
+                    <button class="thumbnail-btn <?php echo $index === 0 ? 'active' : ''; ?>" 
+                            onclick="changeImage('<?php echo SITE_URL; ?>/assets/images/products/<?php echo $image; ?>', this)">
+                        <img src="<?php echo SITE_URL; ?>/assets/images/products/<?php echo $image; ?>" 
+                             alt="View <?php echo $index + 1; ?>">
+                    </button>
+                    <?php endforeach; ?>
+                </div>
+                <?php endif; ?>
+            </div>
