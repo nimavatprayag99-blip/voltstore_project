@@ -675,3 +675,50 @@ include __DIR__ . '/includes/header.php';
                                         <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 star"><i class="fas fa-star"></i></label>
                                     </div>
                                 </div>
+                                
+                                <div class="form-group">
+                                    <label class="form-label">Your Review</label>
+                                    <textarea name="comment" class="form-input" rows="3" placeholder="What did you like or dislike?" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">Submit Review</button>
+                            </form>
+                        <?php else: ?>
+                            <div style="text-align: center; padding: 20px;">
+                                <p style="margin-bottom: 16px; color: var(--text-secondary);">Please login to write a review.</p>
+                                <a href="<?php echo SITE_URL; ?>/login.php?redirect=<?php echo urlencode($_SERVER['REQUEST_URI']); ?>" class="btn btn-outline btn-sm">Login Now</a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <!-- Reviews List -->
+                <?php if (empty($reviews)): ?>
+                    <p style="color: var(--text-muted); font-style: italic;">No reviews yet. Be the first to review this product!</p>
+                <?php else: ?>
+                    <?php foreach ($reviews as $review): ?>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div style="display: flex; gap: 12px; align-items: center;">
+                                <div style="width: 40px; height: 40px; background: var(--bg-tertiary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--primary);">
+                                    <?php echo strtoupper(substr($review['first_name'], 0, 1) . substr($review['last_name'], 0, 1)); ?>
+                                </div>
+                                <div>
+                                    <h4 style="font-size: 0.95rem; font-weight: 600; margin: 0;">
+                                        <?php echo htmlspecialchars($review['first_name'] . ' ' . $review['last_name']); ?>
+                                    </h4>
+                                    <div style="font-size: 0.8rem; color: #FFB400;">
+                                        <?php for($i=1; $i<=5; $i++): ?>
+                                            <i class="<?php echo $i <= $review['rating'] ? 'fas' : 'far'; ?> fa-star"></i>
+                                        <?php endfor; ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">
+                                <?php echo date('M d, Y', strtotime($review['created_at'])); ?>
+                            </span>
+                        </div>
+                        <p style="color: var(--text-secondary); line-height: 1.6;">
+                            <?php echo nl2br(htmlspecialchars($review['comment'])); ?>
+                        </p>
+                    </div>
