@@ -137,3 +137,37 @@ include __DIR__ . '/includes/header.php';
         </p>
     </div>
 </section>
+
+<!-- Products Section -->
+<section class="section" style="background: var(--bg-primary);">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 280px 1fr; gap: 32px;">
+            <!-- Sidebar Filters -->
+            <aside style="position: sticky; top: 80px; height: fit-content;">
+                <div style="background: var(--bg-secondary); border-radius: 18px; padding: 24px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+                        <h3 style="font-size: 1.125rem; font-weight: 600;">
+                            <i class="fas fa-filter" style="margin-right: 8px;"></i>
+                            Filters
+                        </h3>
+                        <?php if ($category || $search || $minPrice > 0 || $maxPrice < 1000000): ?>
+                        <a href="<?php echo SITE_URL; ?>/products.php" style="font-size: 0.875rem; color: var(--primary);">
+                            Clear All
+                        </a>
+                        <?php endif; ?>
+                    </div>
+                    
+                    <!-- Search Filter -->
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+                            Search
+                        </h4>
+                        <form action="" method="GET" style="display: flex; gap: 8px;">
+                            <input type="text" name="search" value="<?php echo $search; ?>" 
+                                   placeholder="Search products..."
+                                   style="flex: 1; padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 0.875rem;">
+                            <button type="submit" class="btn btn-primary btn-sm">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
