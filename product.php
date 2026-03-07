@@ -750,3 +750,27 @@ include __DIR__ . '/includes/header.php';
                         </button>
                     </div>
                 </div>
+                
+                <div class="product-info">
+                    <p class="product-category"><?php echo $related['category_name']; ?></p>
+                    <h3 class="product-name">
+                        <a href="<?php echo SITE_URL; ?>/product.php?slug=<?php echo $related['slug']; ?>">
+                            <?php echo $related['name']; ?>
+                        </a>
+                    </h3>
+                    
+                    <div class="product-price-row">
+                        <div class="product-price">
+                            <?php echo formatPrice($related['sale_price'] ?: $related['price']); ?>
+                        </div>
+                        <a href="<?php echo SITE_URL; ?>/product.php?slug=<?php echo $related['slug']; ?>" class="add-to-cart">
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</section>
+<?php endif; ?>
