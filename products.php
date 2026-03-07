@@ -255,3 +255,43 @@ include __DIR__ . '/includes/header.php';
                         </select>
                     </form>
                 </div>
+                
+                <?php if (empty($products)): ?>
+                <!-- Empty State -->
+                <div style="text-align: center; padding: 64px 24px; background: var(--bg-secondary); border-radius: 18px;">
+                    <i class="fas fa-search" style="font-size: 4rem; color: var(--text-muted); margin-bottom: 24px;"></i>
+                    <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 8px;">No products found</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 24px;">
+                        Try adjusting your search or filters to find what you're looking for.
+                    </p>
+                    <a href="<?php echo SITE_URL; ?>/products.php" class="btn btn-primary">
+                        View All Products
+                    </a>
+                </div>
+                <?php else: ?>
+                <!-- Products Grid -->
+                <div class="products-grid">
+                    <?php foreach ($products as $product): ?>
+                    <div class="product-card">
+                        <div class="product-image-wrap">
+                            <?php if ($product['sale_price']): ?>
+                            <span class="product-badge">Sale</span>
+                            <?php elseif ($product['featured']): ?>
+                            <span class="product-badge featured">Featured</span>
+                            <?php endif; ?>
+                            
+                            <a href="<?php echo SITE_URL; ?>/product.php?slug=<?php echo $product['slug']; ?>" class="product-image-link">
+                                <img src="<?php echo SITE_URL; ?>/assets/images/products/<?php echo $product['featured_image'] ?: 'placeholder.jpg'; ?>" 
+                                     alt="<?php echo $product['name']; ?>"
+                                     onerror="this.src='https://via.placeholder.com/400x300/f5f5f7/86868b?text=<?php echo urlencode($product['name']); ?>'">
+                            </a>
+                            
+                            <div class="product-actions">
+                                <button class="product-action-btn" title="Add to Wishlist" onclick="addToWishlist(<?php echo $product['id']; ?>, this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <a href="<?php echo SITE_URL; ?>/product.php?slug=<?php echo $product['slug']; ?>" class="product-action-btn" title="View Details">
+                                    <i class="far fa-eye"></i>
+                                </a>
+                            </div>
+                        </div>
