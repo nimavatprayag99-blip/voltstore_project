@@ -36,3 +36,35 @@
         } else {
             navbar.classList.remove('navbar-scrolled');
         }
+
+        // Auto-hide navbar on scroll down, reveal on scroll up
+        if (Math.abs(scrollPos - lastScrollPosition) > scrollThreshold) {
+            if (scrollDirection === 'down' && scrollPos > hideThreshold) {
+                navbar.classList.add('navbar-hidden');
+                navbar.classList.remove('navbar-visible');
+            } else if (scrollDirection === 'up') {
+                navbar.classList.remove('navbar-hidden');
+                navbar.classList.add('navbar-visible');
+            }
+        }
+
+        // Always show navbar at top of page
+        if (scrollPos < 100) {
+            navbar.classList.remove('navbar-hidden');
+            navbar.classList.add('navbar-visible');
+        }
+
+        lastScrollPosition = scrollPos;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function () {
+        const scrollPos = window.pageYOffset;
+
+        if (!ticking) {
+            window.requestAnimationFrame(function () {
+                updateNavbar(scrollPos);
+            });
+            ticking = true;
+        }
+    }, { passive: true });
