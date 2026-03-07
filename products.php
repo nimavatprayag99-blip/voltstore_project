@@ -221,3 +221,37 @@ include __DIR__ . '/includes/header.php';
                     </div>
                 </div>
             </aside>
+            
+            <!-- Products Grid -->
+            <div>
+                <!-- Sort Bar -->
+                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+                    <p style="color: var(--text-secondary); font-size: 0.9375rem;">
+                        Showing <?php echo $offset + 1; ?> - <?php echo min($offset + $perPage, $totalProducts); ?> of <?php echo $totalProducts; ?> results
+                    </p>
+                    
+                    <form action="" method="GET" style="display: flex; align-items: center; gap: 8px;">
+                        <?php if ($category): ?>
+                        <input type="hidden" name="category" value="<?php echo $category; ?>">
+                        <?php endif; ?>
+                        <?php if ($search): ?>
+                        <input type="hidden" name="search" value="<?php echo $search; ?>">
+                        <?php endif; ?>
+                        <?php if ($minPrice > 0): ?>
+                        <input type="hidden" name="min_price" value="<?php echo $minPrice; ?>">
+                        <?php endif; ?>
+                        <?php if ($maxPrice < 1000000): ?>
+                        <input type="hidden" name="max_price" value="<?php echo $maxPrice; ?>">
+                        <?php endif; ?>
+                        
+                        <label style="font-size: 0.9375rem; color: var(--text-secondary);">Sort by:</label>
+                        <select name="sort" onchange="this.form.submit()" 
+                                style="padding: 10px 14px; border: 1px solid var(--border-color); border-radius: 10px; font-size: 0.875rem; background: white; cursor: pointer;">
+                            <option value="newest" <?php echo $sort === 'newest' ? 'selected' : ''; ?>>Newest First</option>
+                            <option value="price_low" <?php echo $sort === 'price_low' ? 'selected' : ''; ?>>Price: Low to High</option>
+                            <option value="price_high" <?php echo $sort === 'price_high' ? 'selected' : ''; ?>>Price: High to Low</option>
+                            <option value="name" <?php echo $sort === 'name' ? 'selected' : ''; ?>>Name: A to Z</option>
+                            <option value="popular" <?php echo $sort === 'popular' ? 'selected' : ''; ?>>Most Popular</option>
+                        </select>
+                    </form>
+                </div>
