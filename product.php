@@ -335,3 +335,42 @@ $pageStyles = '
         border: none;
         box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
     }
+        
+    .btn-buy-now:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 113, 227, 0.4);
+    }
+    
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+        padding: 24px;
+        background: var(--bg-tertiary);
+        border-radius: 16px;
+    }
+    
+    .feature-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .feature-icon {
+        font-size: 1.5rem;
+        color: var(--primary);
+        margin-bottom: 4px;
+    }
+
+    /* Tabs */
+    .tabs-header {
+        display: flex;
+        gap: 40px;
+        border-bottom: 1px solid var(--border-color);
+        margin-top: 80px;
+        margin-bottom: 40px;
+    }
