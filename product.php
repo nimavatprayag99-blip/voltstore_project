@@ -526,3 +526,31 @@ include __DIR__ . '/includes/header.php';
                         </span>
                     <?php endif; ?>
                 </div>
+                
+                <div class="price-container">
+                    <span class="current-price"><?php echo formatPrice($product['sale_price'] ?: $product['price']); ?></span>
+                    <?php if ($product['sale_price']): ?>
+                        <span class="original-price"><?php echo formatPrice($product['price']); ?></span>
+                        <span class="discount-badge">
+                            -<?php echo round((($product['price'] - $product['sale_price']) / $product['price']) * 100); ?>%
+                        </span>
+                    <?php endif; ?>
+                </div>
+                
+                <div class="description-text">
+                    <?php echo nl2br($product['short_description'] ?: substr($product['description'], 0, 200) . '...'); ?>
+                </div>
+                
+                <?php if ($product['stock_quantity'] > 0): ?>
+                <form id="addToCartForm" class="actions-wrapper">
+                    <input type="hidden" name="product_id" value="<?php echo $product['id']; ?>">
+                    <input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
+                    
+                    <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 24px;">
+                       <label style="font-weight: 600; color: var(--text-primary);">Quantity</label>
+                       <div class="quantity-control">
+                            <button type="button" class="qty-btn minus"><i class="fas fa-minus"></i></button>
+                            <input type="number" name="quantity" class="qty-input" value="1" min="1" max="<?php echo $product['stock_quantity']; ?>" readonly>
+                            <button type="button" class="qty-btn plus"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
