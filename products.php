@@ -25,3 +25,38 @@ if ($category) {
     $whereConditions[] = 'c.slug = ?';
     $params[] = $category;
 }
+
+if ($search) {
+    $whereConditions[] = '(p.name LIKE ? OR p.description LIKE ?)';
+    $params[] = "%$search%";
+    $params[] = "%$search%";
+}
+
+if ($minPrice > 0) {
+    $whereConditions[] = 'COALESCE(p.sale_price, p.price) >= ?';
+    $params[] = $minPrice;
+}
+
+if ($maxPrice < 1000000) {
+    $whereConditions[] = 'COALESCE(p.sale_price, p.price) <= ?';
+    $params[] = $maxPrice;
+}
+
+$whereClause = implode(' AND ', $whereConditions);
+
+// Sort options
+$orderBy = 'p.created_at DESC';
+switch ($sort) {
+    case 'price_low':
+        $orderBy = 'COALESCE(p.sale_price, p.price) ASC';
+        break;
+    case 'price_high':
+        $orderBy = 'COALESCE(p.sale_price, p.price) DESC';
+        break;
+    case 'name':
+        $orderBy = 'p.name ASC';
+        break;
+    case 'popular':
+        $orderBy = 'p.id DESC';
+        break;
+}
