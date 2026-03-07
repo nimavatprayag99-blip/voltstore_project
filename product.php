@@ -823,3 +823,54 @@ include __DIR__ . '/includes/header.php';
                 if (val > 1) qtyInput.value = val - 1;
             });
         }
+        
+        // Add to Cart Logic
+        const addToCartBtn = document.querySelector('.btn-add-cart');
+        const buyNowBtn = document.querySelector('.btn-buy-now');
+        const addToCartForm = document.getElementById('addToCartForm');
+
+        if (addToCartBtn) {
+            addToCartBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                submitCartForm(false, this);
+            });
+        }
+
+        if (buyNowBtn) {
+            buyNowBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                submitCartForm(true, this);
+            });
+        }
+
+        function submitCartForm(isBuyNow, btn) {
+            if (!addToCartForm) return;
+
+            const formData = new FormData(addToCartForm);
+            const originalText = btn.innerHTML;
+            
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            
+            fetch('<?php echo SITE_URL; ?>/cart/add_to_cart.php', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => {
+                // Check if response is ok
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.text(); // Get text first to debug if needed
+            })
+            .then(text => {
+                try {
+                    return JSON.parse(text);
+                } catch (e) {
+                    console.error('JSON Parse Error:', text);
+                    throw new Error('Invalid server response');
+                }
+            })
