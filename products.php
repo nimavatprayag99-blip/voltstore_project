@@ -1,0 +1,27 @@
+<?php
+/**
+ * UrbanCart - Products Listing Page
+ * 
+ * @package UrbanCart
+ * @version 1.0
+ */
+
+require_once __DIR__ . '/config/db.php';
+
+// Get filter parameters
+$category = sanitize($_GET['category'] ?? '');
+$search = sanitize($_GET['search'] ?? '');
+$sort = sanitize($_GET['sort'] ?? 'newest');
+$minPrice = floatval($_GET['min_price'] ?? 0);
+$maxPrice = floatval($_GET['max_price'] ?? 1000000);
+$page = max(1, intval($_GET['page'] ?? 1));
+$perPage = 12;
+
+// Build query
+$whereConditions = ['p.status = 1'];
+$params = [];
+
+if ($category) {
+    $whereConditions[] = 'c.slug = ?';
+    $params[] = $category;
+}
