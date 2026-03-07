@@ -608,3 +608,36 @@ include __DIR__ . '/includes/header.php';
                 </div>
             </div>
         </div>
+        
+        <!-- Tabs Section -->
+        <div class="tabs-header">
+            <div class="tab-btn active" onclick="switchTab('description', this)">Description</div>
+            <div class="tab-btn" onclick="switchTab('specs', this)">Specifications</div>
+            <div class="tab-btn" onclick="switchTab('reviews', this)">Reviews (<?php echo $totalReviews; ?>)</div>
+        </div>
+        
+        <div id="description" class="tab-content">
+            <div style="max-width: 800px; color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">
+                <h3 style="color: var(--text-primary); margin-bottom: 20px;">Product Details</h3>
+                <?php echo nl2br($product['description'] ?: 'No detailed description available.'); ?>
+            </div>
+        </div>
+        
+        <div id="specs" class="tab-content" style="display: none;">
+             <table style="width: 100%; max-width: 600px; border-collapse: collapse;">
+                <?php 
+                $specs = [
+                    'SKU' => $product['sku'],
+                    'Brand' => $product['brand'],
+                    'Weight' => $product['weight'] ? $product['weight'] . ' kg' : null,
+                    'Dimensions' => $product['dimensions']
+                ];
+                foreach ($specs as $label => $value): if ($value): 
+                ?>
+                <tr style="border-bottom: 1px solid var(--border-color);">
+                    <td style="padding: 16px 0; color: var(--text-secondary); font-weight: 500;"><?php echo $label; ?></td>
+                    <td style="padding: 16px 0; color: var(--text-primary); font-weight: 600; text-align: right;"><?php echo $value; ?></td>
+                </tr>
+                <?php endif; endforeach; ?>
+            </table>
+        </div>
