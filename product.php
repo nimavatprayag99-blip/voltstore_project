@@ -913,3 +913,34 @@ include __DIR__ . '/includes/header.php';
                 container.className = 'toast-container';
                 document.body.appendChild(container);
             }
+            
+            const icon = type === 'success' ? '<i class="fas fa-check-circle" style="color: var(--accent-green)"></i>' 
+                                          : '<i class="fas fa-exclamation-circle" style="color: var(--accent-red)"></i>';
+            
+            const toast = document.createElement('div');
+            toast.className = `custom-toast ${type}`;
+            toast.innerHTML = `
+                <div class="toast-icon">${icon}</div>
+                <div class="toast-message">${message}</div>
+            `;
+
+            container.appendChild(toast);
+
+            // Trigger animation
+            requestAnimationFrame(() => {
+                toast.classList.add('show');
+            });
+
+            // Remove after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    toast.remove();
+                    if (container.children.length === 0) {
+                        container.remove();
+                    }
+                }, 400); // Wait for transition
+            }, 3000);
+        };
+    });
+</script>
