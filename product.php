@@ -722,3 +722,31 @@ include __DIR__ . '/includes/header.php';
                             <?php echo nl2br(htmlspecialchars($review['comment'])); ?>
                         </p>
                     </div>
+                       <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Related Products -->
+<?php if (!empty($relatedProducts)): ?>
+<section class="section" style="background: var(--bg-secondary); padding-top: 40px;">
+    <div class="container">
+        <h2 style="font-size: 1.75rem; font-weight: 800; margin-bottom: 32px; text-align: center;">You May Also Like</h2>
+        
+        <div class="products-grid">
+            <?php foreach ($relatedProducts as $related): ?>
+            <div class="product-card">
+                <div class="product-image-wrap">
+                    <img src="<?php echo SITE_URL; ?>/assets/images/products/<?php echo $related['featured_image'] ?: 'placeholder.jpg'; ?>" 
+                         alt="<?php echo $related['name']; ?>"
+                         onerror="this.src='https://via.placeholder.com/400x400/f5f5f7/86868b?text=<?php echo urlencode($related['name']); ?>'">
+                    
+                    <div class="product-actions">
+                        <button class="product-action-btn" title="Add to Wishlist" onclick="addToWishlist(<?php echo $related['id']; ?>, this)">
+                            <i class="far fa-heart"></i>
+                        </button>
+                    </div>
+                </div>
