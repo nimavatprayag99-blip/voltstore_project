@@ -171,3 +171,37 @@ include __DIR__ . '/includes/header.php';
                             </button>
                         </form>
                     </div>
+                    
+                    <!-- Categories Filter -->
+                    <div style="margin-bottom: 24px;">
+                        <h4 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+                            Categories
+                        </h4>
+                        <div style="display: flex; flex-direction: column; gap: 8px;">
+                            <?php foreach ($categories as $cat): ?>
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9375rem;">
+                                <input type="radio" name="category_filter" 
+                                       <?php echo $category === $cat['slug'] ? 'checked' : ''; ?>
+                                       onchange="window.location.href='<?php echo $category === $cat['slug'] ? SITE_URL . '/products.php' : SITE_URL . '/products.php?category=' . $cat['slug']; ?>'"
+                                       style="width: 18px; height: 18px; accent-color: var(--primary);">
+                                <span><?php echo $cat['name']; ?></span>
+                                <span style="margin-left: auto; color: var(--text-muted); font-size: 0.8125rem;">
+                                    (<?php echo $cat['product_count']; ?>)
+                                </span>
+                            </label>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    
+                    <!-- Price Filter -->
+                    <div>
+                        <h4 style="font-size: 0.875rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">
+                            Price Range
+                        </h4>
+                        <form action="" method="GET" style="display: flex; flex-direction: column; gap: 12px;">
+                            <?php if ($category): ?>
+                            <input type="hidden" name="category" value="<?php echo $category; ?>">
+                            <?php endif; ?>
+                            <?php if ($search): ?>
+                            <input type="hidden" name="search" value="<?php echo $search; ?>">
+                            <?php endif; ?>
