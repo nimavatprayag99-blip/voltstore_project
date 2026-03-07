@@ -374,3 +374,34 @@ $pageStyles = '
         margin-top: 80px;
         margin-bottom: 40px;
     }
+        
+    .tab-btn {
+        font-size: 1.1rem;
+        font-weight: 600;
+        padding: 16px 0;
+        color: var(--text-secondary);
+        position: relative;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+
+    .tab-btn.active {
+        color: var(--text-primary);
+    }
+
+    .tab-btn.active::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--primary);
+    }
+    
+    .review-card {
+        background: var(--bg-secondary);
+        padding: 24px;
+        border-radius: 16px;
+        margin-bottom: 20px;
+    }
