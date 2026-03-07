@@ -181,3 +181,42 @@ $pageStyles = '
     .product-info-wrapper {
         animation: fadeInUp 0.6s ease forwards;
     }
+        
+    .product-category-badge {
+        display: inline-block;
+        padding: 6px 12px;
+        background: rgba(0, 113, 227, 0.1);
+        color: var(--primary);
+        font-size: 0.85rem;
+        font-weight: 600;
+        border-radius: 50px;
+        margin-bottom: 16px;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    .product-title {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: 16px;
+        color: var(--text-primary);
+        letter-spacing: -0.02em;
+    }
+
+    .rating-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 24px;
+        font-size: 1rem;
+    }
+
+    .price-container {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        margin-bottom: 32px;
+        padding-bottom: 32px;
+        border-bottom: 1px solid var(--border-color);
+    }
