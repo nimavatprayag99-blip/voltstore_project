@@ -405,3 +405,36 @@ $pageStyles = '
         border-radius: 16px;
         margin-bottom: 20px;
     }
+        
+    .review-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 12px;
+    }
+    
+    /* Custom Toast */
+    .toast-container {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .custom-toast {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-left: 4px solid var(--primary);
+        padding: 16px 24px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        min-width: 300px;
+        transform: translateX(100px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
