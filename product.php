@@ -113,3 +113,39 @@ $pageStyles = '
             gap: 40px;
         }
     }
+        
+    /* Gallery Styles */
+    .gallery-container {
+        position: sticky;
+        top: 100px;
+        animation: slideInLeft 0.6s ease forwards;
+    }
+
+    .main-image-wrapper {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        background: var(--bg-secondary);
+        aspect-ratio: 1/1;
+        margin-bottom: 20px;
+        box-shadow: var(--shadow-md);
+        cursor: zoom-in;
+    }
+
+    .main-image {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        padding: 40px;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    
+    .main-image:hover {
+        transform: scale(1.05);
+    }
+
+    .thumbnails-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+    }
