@@ -72,3 +72,23 @@ try {
                 $response['message'] = 'Cannot add more. Only ' . $product['stock_quantity'] . ' units available.';
                 sendResponse($response, $isAjax);
             }
+            
+            $stmt = $db->prepare("UPDATE cart SET quantity = ? WHERE id = ?");
+            $stmt->execute([$newQuantity, $existingItem['id']]);
+        } else {
+            // Add new item
+            $stmt = $db->prepare("INSERT INTO cart (user_id, product_id, quantity) VALUES (?, ?, ?)");
+            $stmt->execute([$userId, $productId, $quantity]);
+        }
+        
+        // Get updated cart count
+        $stmt = $db->prepare("SELECT SUM(quantity) as count FROM cart WHERE user_id = ?");
+        $stmt->execute([$userId]);
+        $result = $stmt->fetch();
+        $response['cartCount'] = $result['count'] ?? 0;
+        
+    } else {
+        // Guest cart - store in session
+        if (!isset($_SESSION['guest_cart'])) {
+            $_SESSION['guest_cart'] = [];
+        }
