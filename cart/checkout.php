@@ -232,3 +232,118 @@ include __DIR__ . '/../includes/header.php';
                                 <input type="text" name="shipping_city" class="form-input" 
                                        value="<?php echo $_POST['shipping_city'] ?? $user['city'] ?? ''; ?>" required>
                             </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">State *</label>
+                                <input type="text" name="shipping_state" class="form-input" 
+                                       value="<?php echo $_POST['shipping_state'] ?? $user['state'] ?? ''; ?>" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">ZIP Code *</label>
+                                <input type="text" name="shipping_zip" class="form-input" 
+                                       value="<?php echo $_POST['shipping_zip'] ?? $user['zip_code'] ?? ''; ?>" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Payment Method -->
+                    <div style="background: var(--bg-secondary); border-radius: 18px; padding: 32px;">
+                        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 24px;">
+                            <i class="fas fa-credit-card" style="color: var(--primary); margin-right: 10px;"></i>
+                            Payment Method
+                        </h2>
+                        
+                        <div style="display: flex; flex-direction: column; gap: 12px;">
+                            <label style="display: flex; align-items: center; gap: 16px; padding: 20px; background: var(--bg-primary); border-radius: 12px; cursor: pointer; border: 2px solid var(--border-color); transition: all 0.2s;"
+                                   onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border-color)'">
+                                <input type="radio" name="payment_method" value="cod" style="width: 20px; height: 20px; accent-color: var(--primary);"
+                                       <?php echo ($_POST['payment_method'] ?? '') === 'cod' ? 'checked' : ''; ?> required>
+                                <i class="fas fa-money-bill-wave" style="font-size: 1.5rem; color: var(--accent-green);"></i>
+                                <div>
+                                    <p style="font-weight: 600; margin-bottom: 2px;">Cash on Delivery</p>
+                                    <p style="font-size: 0.875rem; color: var(--text-muted);">Pay when you receive</p>
+                                </div>
+                            </label>
+                            
+                            <label style="display: flex; align-items: center; gap: 16px; padding: 20px; background: var(--bg-primary); border-radius: 12px; cursor: pointer; border: 2px solid var(--border-color); transition: all 0.2s;"
+                                   onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border-color)'">
+                                <input type="radio" name="payment_method" value="card" style="width: 20px; height: 20px; accent-color: var(--primary);"
+                                       <?php echo ($_POST['payment_method'] ?? '') === 'card' ? 'checked' : ''; ?>>
+                                <i class="fas fa-credit-card" style="font-size: 1.5rem; color: var(--primary);"></i>
+                                <div>
+                                    <p style="font-weight: 600; margin-bottom: 2px;">Credit/Debit Card</p>
+                                    <p style="font-size: 0.875rem; color: var(--text-muted);">Secure online payment</p>
+                                </div>
+                            </label>
+                            
+                            <label style="display: flex; align-items: center; gap: 16px; padding: 20px; background: var(--bg-primary); border-radius: 12px; cursor: pointer; border: 2px solid var(--border-color); transition: all 0.2s;"
+                                   onmouseover="this.style.borderColor='var(--primary)'" onmouseout="if(!this.querySelector('input').checked) this.style.borderColor='var(--border-color)'">
+                                <input type="radio" name="payment_method" value="upi" style="width: 20px; height: 20px; accent-color: var(--primary);"
+                                       <?php echo ($_POST['payment_method'] ?? '') === 'upi' ? 'checked' : ''; ?>>
+                                <i class="fas fa-mobile-alt" style="font-size: 1.5rem; color: var(--accent-purple);"></i>
+                                <div>
+                                    <p style="font-weight: 600; margin-bottom: 2px;">UPI</p>
+                                    <p style="font-size: 0.875rem; color: var(--text-muted);">Pay using UPI apps</p>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Summary -->
+                <div>
+                    <div class="cart-summary" style="position: sticky; top: 80px; background: var(--bg-secondary); border-radius: 18px; padding: 32px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 24px;">Order Summary</h3>
+                        
+                        <!-- Order Items -->
+                        <div style="max-height: 300px; overflow-y: auto; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                            <?php foreach ($cartItems as $item): 
+                                $price = $item['sale_price'] ?: $item['price'];
+                            ?>
+                            <div style="display: flex; gap: 12px; margin-bottom: 16px;">
+                                <img src="<?php echo SITE_URL; ?>/assets/images/products/<?php echo $item['featured_image'] ?: 'placeholder.jpg'; ?>" 
+                                     alt="<?php echo $item['name']; ?>"
+                                     style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;"
+                                     onerror="this.src='https://via.placeholder.com/60x60/f5f5f7/86868b?text=<?php echo urlencode(substr($item['name'], 0, 2)); ?>'">
+                                <div style="flex: 1;">
+                                    <p style="font-size: 0.875rem; font-weight: 500; margin-bottom: 2px;"><?php echo $item['name']; ?></p>
+                                    <p style="font-size: 0.8125rem; color: var(--text-muted);">Qty: <?php echo $item['quantity']; ?></p>
+                                </div>
+                                <p style="font-weight: 600;"><?php echo formatPrice($price * $item['quantity']); ?></p>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span><?php echo formatPrice($cartTotal); ?></span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span><?php echo $shippingCost === 0 ? 'FREE' : formatPrice($shippingCost); ?></span>
+                        </div>
+                        
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span><?php echo formatPrice($finalTotal); ?></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top: 24px;">
+                            Place Order
+                            <i class="fas fa-check-circle"></i>
+                        </button>
+                        
+                        <p style="text-align: center; font-size: 0.8125rem; color: var(--text-muted); margin-top: 16px;">
+                            <i class="fas fa-lock"></i>
+                            Your information is secure and encrypted
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+
+<?php include __DIR__ . '/../includes/footer.php'; ?>
