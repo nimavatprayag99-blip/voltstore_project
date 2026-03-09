@@ -108,3 +108,18 @@ try {
         
         $response['cartCount'] = array_sum($_SESSION['guest_cart']);
     }
+    
+    $response['success'] = true;
+    $response['message'] = 'Product added to cart successfully!';
+    
+} catch (PDOException $e) {
+    error_log("Add to cart error: " . $e->getMessage());
+    $response['message'] = 'Something went wrong. Please try again.';
+}
+
+sendResponse($response, $isAjax);
+
+// Helper to clean output
+function cleanOutput() {
+    if (ob_get_length()) ob_clean();
+}
