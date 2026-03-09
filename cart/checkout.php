@@ -74,3 +74,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $shippingState = sanitize($_POST['shipping_state'] ?? '');
         $shippingZip = sanitize($_POST['shipping_zip'] ?? '');
         $paymentMethod = sanitize($_POST['payment_method'] ?? '');
+        
+        if (empty($shippingName)) $errors[] = 'Full name is required.';
+        if (empty($shippingEmail) || !filter_var($shippingEmail, FILTER_VALIDATE_EMAIL)) {
+            $errors[] = 'Valid email address is required.';
+        }
+        if (empty($shippingPhone)) $errors[] = 'Phone number is required.';
+        if (empty($shippingAddress)) $errors[] = 'Shipping address is required.';
+        if (empty($shippingCity)) $errors[] = 'City is required.';
+        if (empty($shippingState)) $errors[] = 'State is required.';
+        if (empty($shippingZip)) $errors[] = 'ZIP code is required.';
+        if (empty($paymentMethod)) $errors[] = 'Please select a payment method.';
+        
+        if (empty($errors)) {
+            try {
+                $db = getDB();
+                $db->beginTransaction();
+                
+                // Generate order number
+                $orderNumber = 'UC' . date('Ymd') . strtoupper(substr(uniqid(), -6));
+                
+                // Create order
+                $orderId = insert('orders', [
+                    'order_number' => $orderNumber,
+                    'user_id' => $_SESSION['user_id'],
+                    'total_amount' => $cartTotal,
+                    'shipping_amount' => $shippingCost,
+                    'final_amount' => $finalTotal,
+                    'payment_method' => $paymentMethod,
+                    'shipping_name' => $shippingName,
+                    'shipping_email' => $shippingEmail,
+                    'shipping_phone' => $shippingPhone,
+                    'shipping_address' => $shippingAddress,
+                    'shipping_city' => $shippingCity,
+                    'shipping_state' => $shippingState,
+                    'shipping_zip' => $shippingZip,
+                    'shipping_country' => 'India',
+                    'status' => 'pending',
+                    'payment_status' => 'pending'
+                ]);
