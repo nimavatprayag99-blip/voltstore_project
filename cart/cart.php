@@ -113,3 +113,49 @@ include __DIR__ . '/../includes/header.php';
         </h1>
     </div>
 </section>
+
+<!-- Cart Section -->
+<section class="section" style="background: var(--bg-primary);">
+    <div class="container">
+        <?php if (empty($cartItems)): ?>
+        <!-- Empty Cart -->
+        <!-- Empty Cart -->
+        <div style="text-align: center; padding: 80px 24px; background: var(--bg-secondary); border-radius: 24px;">
+            <i class="fas fa-shopping-cart" style="font-size: 5rem; color: var(--text-muted); margin-bottom: 24px;"></i>
+            <h2 style="font-size: 1.75rem; font-weight: 600; margin-bottom: 12px; color: var(--text-primary);">Your cart is empty</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 32px; max-width: 400px; margin-left: auto; margin-right: auto;">
+                Looks like you haven't added anything to your cart yet. Browse our products and find something you love!
+            </p>
+            <a href="<?php echo SITE_URL; ?>/products.php" class="btn btn-primary btn-lg">
+                <i class="fas fa-shopping-bag"></i>
+                Start Shopping
+            </a>
+        </div>
+        <?php else: ?>
+        <!-- Cart Content -->
+        <form method="POST" action="">
+            <input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
+            
+            <div style="display: grid; grid-template-columns: 1fr 380px; gap: 32px;">
+                <!-- Cart Items -->
+                <div style="background: var(--bg-secondary); border-radius: 20px; padding: 24px;">
+                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px;">
+                        <h2 style="font-size: 1.25rem; font-weight: 600;">
+                            <?php echo $cartCount; ?> Item<?php echo $cartCount > 1 ? 's' : ''; ?> in Cart
+                        </h2>
+                        <a href="<?php echo SITE_URL; ?>/products.php" class="btn btn-ghost btn-sm" style="color: var(--primary);">
+                            <i class="fas fa-arrow-left"></i>
+                            Continue Shopping
+                        </a>
+                    </div>
+                    
+                    <?php foreach ($cartItems as $item): 
+                        $price = $item['sale_price'] ?: $item['price'];
+                        $subtotal = $price * $item['quantity'];
+                    ?>
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="<?php echo SITE_URL; ?>/assets/images/products/<?php echo $item['featured_image'] ?: 'placeholder.jpg'; ?>" 
+                                 alt="<?php echo $item['name']; ?>"
+                                 onerror="this.src='https://via.placeholder.com/100x100/f5f5f7/86868b?text=<?php echo urlencode(substr($item['name'], 0, 2)); ?>'">
+                        </div>
