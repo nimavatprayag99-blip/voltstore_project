@@ -84,3 +84,17 @@ if (isLoggedIn()) {
         }
     }
 }
+
+// Calculate totals
+foreach ($cartItems as $item) {
+    $price = $item['sale_price'] ?: $item['price'];
+    $cartTotal += $price * $item['quantity'];
+    $cartCount += $item['quantity'];
+}
+
+$shippingCost = $cartTotal >= 999 ? 0 : 99;
+$finalTotal = $cartTotal + $shippingCost;
+
+$pageTitle = 'Shopping Cart';
+include __DIR__ . '/../includes/header.php';
+?>
