@@ -98,3 +98,18 @@ $finalTotal = $cartTotal + $shippingCost;
 $pageTitle = 'Shopping Cart';
 include __DIR__ . '/../includes/header.php';
 ?>
+
+<!-- Page Header -->
+<section class="section-sm" style="background: var(--bg-secondary); padding-top: 100px;">
+    <div class="container">
+        <nav style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px;">
+            <a href="<?php echo SITE_URL; ?>/index.php">Home</a>
+            <i class="fas fa-chevron-right" style="margin: 0 8px; font-size: 0.75rem;"></i>
+            <span style="color: var(--text-primary);">Shopping Cart</span>
+        </nav>
+        
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary);">
+            Shopping Cart
+        </h1>
+    </div>
+</section>
