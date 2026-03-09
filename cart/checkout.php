@@ -18,3 +18,23 @@ if (!isLoggedIn()) {
 // Get cart items
 $cartItems = [];
 $cartTotal = 0;
+
+try {
+    $db = getDB();
+    $stmt = $db->prepare("
+        SELECT c.id as cart_id, c.quantity, p.* 
+        FROM cart c 
+        JOIN products p ON c.product_id = p.id 
+        WHERE c.user_id = ? AND p.status = 1
+    ");
+    $stmt->execute([$_SESSION['user_id']]);
+    $cartItems = $stmt->fetchAll();
+} catch (PDOException $e) {
+    error_log("Cart fetch error: " . $e->getMessage());
+}
+
+// Redirect if cart is empty
+if (empty($cartItems)) {
+    setFlashMessage('warning', 'Your cart is empty.');
+    redirect(SITE_URL . '/products.php');
+}
