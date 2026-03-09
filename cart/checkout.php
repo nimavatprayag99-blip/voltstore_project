@@ -38,3 +38,39 @@ if (empty($cartItems)) {
     setFlashMessage('warning', 'Your cart is empty.');
     redirect(SITE_URL . '/products.php');
 }
+
+// Calculate totals
+foreach ($cartItems as $item) {
+    $price = $item['sale_price'] ?: $item['price'];
+    $cartTotal += $price * $item['quantity'];
+}
+
+$shippingCost = $cartTotal >= 999 ? 0 : 99;
+$finalTotal = $cartTotal + $shippingCost;
+
+// Get user details
+$user = null;
+try {
+    $db = getDB();
+    $stmt = $db->prepare("SELECT * FROM users WHERE id = ?");
+    $stmt->execute([$_SESSION['user_id']]);
+    $user = $stmt->fetch();
+} catch (PDOException $e) {
+    error_log("User fetch error: " . $e->getMessage());
+}
+
+// Handle form submission
+$errors = [];
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (!verifyCSRFToken($_POST['csrf_token'] ?? '')) {
+        $errors[] = 'Invalid request. Please try again.';
+    } else {
+        // Validate shipping details
+        $shippingName = sanitize($_POST['shipping_name'] ?? '');
+        $shippingEmail = sanitize($_POST['shipping_email'] ?? '');
+        $shippingPhone = sanitize($_POST['shipping_phone'] ?? '');
+        $shippingAddress = sanitize($_POST['shipping_address'] ?? '');
+        $shippingCity = sanitize($_POST['shipping_city'] ?? '');
+        $shippingState = sanitize($_POST['shipping_state'] ?? '');
+        $shippingZip = sanitize($_POST['shipping_zip'] ?? '');
+        $paymentMethod = sanitize($_POST['payment_method'] ?? '');
