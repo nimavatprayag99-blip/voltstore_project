@@ -123,3 +123,24 @@ sendResponse($response, $isAjax);
 function cleanOutput() {
     if (ob_get_length()) ob_clean();
 }
+
+/**
+ * Send response based on request type
+ */
+function sendResponse($response, $isAjax) {
+    if ($isAjax) {
+        cleanOutput(); // Ensure no previous output (warnings/notices) corrupts JSON
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit;
+    } else {
+        // Regular form submission
+        if ($response['success']) {
+            setFlashMessage('success', $response['message']);
+        } else {
+            setFlashMessage('error', $response['message']);
+        }
+        redirect($_SERVER['HTTP_REFERER'] ?? SITE_URL . '/products.php');
+    }
+}
+?>
