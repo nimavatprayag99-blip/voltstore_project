@@ -92,3 +92,19 @@ try {
         if (!isset($_SESSION['guest_cart'])) {
             $_SESSION['guest_cart'] = [];
         }
+        
+        if (isset($_SESSION['guest_cart'][$productId])) {
+            $newQuantity = $_SESSION['guest_cart'][$productId] + $quantity;
+            
+            if ($newQuantity > $product['stock_quantity']) {
+                $response['message'] = 'Cannot add more. Only ' . $product['stock_quantity'] . ' units available.';
+                sendResponse($response, $isAjax);
+            }
+            
+            $_SESSION['guest_cart'][$productId] = $newQuantity;
+        } else {
+            $_SESSION['guest_cart'][$productId] = $quantity;
+        }
+        
+        $response['cartCount'] = array_sum($_SESSION['guest_cart']);
+    }
