@@ -152,3 +152,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 }
+
+$pageTitle = 'Checkout';
+include __DIR__ . '/../includes/header.php';
+?>
+
+<!-- Page Header -->
+<section class="section-sm" style="background: var(--bg-secondary); padding-top: 100px;">
+    <div class="container">
+        <nav style="font-size: 0.875rem; color: var(--text-muted); margin-bottom: 16px;">
+            <a href="<?php echo SITE_URL; ?>/index.php">Home</a>
+            <i class="fas fa-chevron-right" style="margin: 0 8px; font-size: 0.75rem;"></i>
+            <a href="<?php echo SITE_URL; ?>/cart/cart.php">Cart</a>
+            <i class="fas fa-chevron-right" style="margin: 0 8px; font-size: 0.75rem;"></i>
+            <span style="color: var(--text-primary);">Checkout</span>
+        </nav>
+        
+        <h1 style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary);">
+            Checkout
+        </h1>
+    </div>
+</section>
+
+<!-- Checkout Section -->
+<section class="section" style="background: var(--bg-primary);">
+    <div class="container">
+        <?php if (!empty($errors)): ?>
+        <div class="alert alert-error" style="margin-bottom: 24px;">
+            <i class="fas fa-exclamation-circle"></i>
+            <ul style="margin: 0; padding-left: 20px;">
+                <?php foreach ($errors as $error): ?>
+                <li><?php echo $error; ?></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+        <?php endif; ?>
