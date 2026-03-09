@@ -70,3 +70,17 @@ if (isLoggedIn()) {
                 LEFT JOIN categories cat ON p.category_id = cat.id 
                 WHERE p.id IN ($placeholders) AND p.status = 1
             ");
+            $stmt->execute($productIds);
+            $products = $stmt->fetchAll();
+            
+            foreach ($products as $product) {
+                $cartItems[] = array_merge($product, [
+                    'cart_id' => $product['id'],
+                    'quantity' => $_SESSION['guest_cart'][$product['id']]
+                ]);
+            }
+        } catch (PDOException $e) {
+            error_log("Guest cart fetch error: " . $e->getMessage());
+        }
+    }
+}
