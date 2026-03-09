@@ -113,3 +113,42 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'status' => 'pending',
                     'payment_status' => 'pending'
                 ]);
+                
+                // Create order items
+                foreach ($cartItems as $item) {
+                    $price = $item['sale_price'] ?: $item['price'];
+                    $subtotal = $price * $item['quantity'];
+                    
+                    insert('order_items', [
+                        'order_id' => $orderId,
+                        'product_id' => $item['id'],
+                        'product_name' => $item['name'],
+                        'product_image' => $item['featured_image'],
+                        'price' => $price,
+                        'quantity' => $item['quantity'],
+                        'subtotal' => $subtotal
+                    ]);
+                    
+                    // Update product stock
+                    $db->prepare("UPDATE products SET stock_quantity = stock_quantity - ? WHERE id = ?")
+                       ->execute([$item['quantity'], $item['id']]);
+                }
+                
+                // Clear cart
+                $db->prepare("DELETE FROM cart WHERE user_id = ?")
+                   ->execute([$_SESSION['user_id']]);
+                
+                $db->commit();
+                
+                // Set success message and redirect
+                setFlashMessage('success', 'Order placed successfully!');
+                redirect(SITE_URL . '/cart/order_confirmation.php?order_number=' . $orderNumber);
+                
+            } catch (PDOException $e) {
+                $db->rollBack();
+                error_log("Checkout error: " . $e->getMessage());
+                $errors[] = 'Something went wrong. Please try again.';
+            }
+        }
+    }
+}
