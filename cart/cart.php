@@ -51,3 +51,22 @@ if (isLoggedIn()) {
             LEFT JOIN categories cat ON p.category_id = cat.id 
             WHERE c.user_id = ? AND p.status = 1
         ");
+         $stmt->execute([$_SESSION['user_id']]);
+        $cartItems = $stmt->fetchAll();
+    } catch (PDOException $e) {
+        error_log("Cart fetch error: " . $e->getMessage());
+    }
+} else {
+    // Guest cart
+    if (!empty($_SESSION['guest_cart'])) {
+        try {
+            $db = getDB();
+            $productIds = array_keys($_SESSION['guest_cart']);
+            $placeholders = implode(',', array_fill(0, count($productIds), '?'));
+            
+            $stmt = $db->prepare("
+                SELECT p.*, cat.name as category_name 
+                FROM products p 
+                LEFT JOIN categories cat ON p.category_id = cat.id 
+                WHERE p.id IN ($placeholders) AND p.status = 1
+            ");
