@@ -31,3 +31,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_cart'])) {
                 }
             }
         }
+         setFlashMessage('success', 'Cart updated successfully.');
+    }
+    redirect(SITE_URL . '/cart/cart.php');
+}
+
+// Get cart items
+$cartItems = [];
+$cartTotal = 0;
+$cartCount = 0;
+
+if (isLoggedIn()) {
+    try {
+        $db = getDB();
+        $stmt = $db->prepare("
+            SELECT c.id as cart_id, c.quantity, p.*, cat.name as category_name 
+            FROM cart c 
+            JOIN products p ON c.product_id = p.id 
+            LEFT JOIN categories cat ON p.category_id = cat.id 
+            WHERE c.user_id = ? AND p.status = 1
+        ");
