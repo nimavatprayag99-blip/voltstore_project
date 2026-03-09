@@ -194,3 +194,65 @@ include __DIR__ . '/../includes/header.php';
                         Update Cart
                     </button>
                 </div>
+                
+                <!-- Cart Summary -->
+                <div>
+                    <div class="cart-summary" style="position: sticky; top: 80px; background: var(--bg-secondary); border-radius: 20px; padding: 32px;">
+                        <h3 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 24px;">Order Summary</h3>
+                        
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span class="cart-subtotal"><?php echo formatPrice($cartTotal); ?></span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span>Shipping</span>
+                            <span><?php echo $shippingCost === 0 ? 'FREE' : formatPrice($shippingCost); ?></span>
+                        </div>
+                        
+                        <?php if ($shippingCost === 0): ?>
+                        <div style="padding: 12px; background: rgba(52, 199, 89, 0.1); border-radius: 8px; margin: 16px 0;">
+                            <p style="font-size: 0.875rem; color: var(--accent-green);">
+                                <i class="fas fa-check-circle"></i>
+                                You qualify for free shipping!
+                            </p>
+                        </div>
+                        <?php else: ?>
+                        <div style="padding: 12px; background: var(--bg-secondary); border-radius: 8px; margin: 16px 0;">
+                            <p style="font-size: 0.875rem; color: var(--text-secondary);">
+                                <i class="fas fa-info-circle"></i>
+                                Add <?php echo formatPrice(999 - $cartTotal); ?> more for free shipping
+                            </p>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span class="cart-total"><?php echo formatPrice($finalTotal); ?></span>
+                        </div>
+                        
+                        <a href="<?php echo SITE_URL; ?>/cart/checkout.php" class="btn btn-primary btn-full btn-lg" style="margin-top: 24px;">
+                            Proceed to Checkout
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        
+                        <div style="margin-top: 24px; text-align: center;">
+                            <p style="font-size: 0.8125rem; color: var(--text-muted); margin-bottom: 12px;">
+                                We accept:
+                            </p>
+                            <div style="display: flex; justify-content: center; gap: 12px; opacity: 0.6;">
+                                <i class="fab fa-cc-visa" style="font-size: 1.5rem;"></i>
+                                <i class="fab fa-cc-mastercard" style="font-size: 1.5rem;"></i>
+                                <i class="fab fa-cc-paypal" style="font-size: 1.5rem;"></i>
+                                <i class="fas fa-university" style="font-size: 1.5rem;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <?php endif; ?>
+    </div>
+</section>
+
+<?php include __DIR__ . '/../includes/footer.php'; ?>
