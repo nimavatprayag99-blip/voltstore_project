@@ -159,3 +159,38 @@ include __DIR__ . '/../includes/header.php';
                                  alt="<?php echo $item['name']; ?>"
                                  onerror="this.src='https://via.placeholder.com/100x100/f5f5f7/86868b?text=<?php echo urlencode(substr($item['name'], 0, 2)); ?>'">
                         </div>
+                        
+                        <div class="cart-item-details">
+                            <h3 class="cart-item-name">
+                                <a href="<?php echo SITE_URL; ?>/product.php?slug=<?php echo $item['slug']; ?>">
+                                    <?php echo $item['name']; ?>
+                                </a>
+                            </h3>
+                            <p class="cart-item-variant"><?php echo $item['category_name']; ?></p>
+                            <p class="cart-item-price"><?php echo formatPrice($price); ?></p>
+                        </div>
+                        
+                        <div class="cart-item-actions">
+                            <div class="quantity-selector">
+                                <button type="button" class="qty-minus">-</button>
+                                <input type="number" name="quantities[<?php echo $item['cart_id']; ?>]" 
+                                       value="<?php echo $item['quantity']; ?>" 
+                                       min="1" max="<?php echo $item['stock_quantity']; ?>"
+                                       data-cart-item-id="<?php echo $item['cart_id']; ?>">
+                                <button type="button" class="qty-plus">+</button>
+                            </div>
+                            
+                            <a href="<?php echo SITE_URL; ?>/cart/remove.php?id=<?php echo $item['cart_id']; ?>" 
+                               class="remove-item" 
+                               data-confirm="Are you sure you want to remove this item?">
+                                <i class="fas fa-trash-alt"></i> Remove
+                            </a>
+                        </div>
+                    </div>
+                    <?php endforeach; ?>
+                    
+                    <button type="submit" name="update_cart" class="btn btn-primary btn-outline" style="margin-top: 16px;">
+                        <i class="fas fa-sync-alt"></i>
+                        Update Cart
+                    </button>
+                </div>
