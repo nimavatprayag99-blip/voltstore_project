@@ -187,3 +187,48 @@ include __DIR__ . '/../includes/header.php';
             </ul>
         </div>
         <?php endif; ?>
+        
+        <form method="POST" action="">
+            <input type="hidden" name="csrf_token" value="<?php echo generateCSRFToken(); ?>">
+            
+            <div style="display: grid; grid-template-columns: 1fr 380px; gap: 32px;">
+                <!-- Checkout Form -->
+                <div>
+                    <!-- Shipping Information -->
+                    <div style="background: var(--bg-secondary); border-radius: 18px; padding: 32px; margin-bottom: 24px;">
+                        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 24px;">
+                            <i class="fas fa-shipping-fast" style="color: var(--primary); margin-right: 10px;"></i>
+                            Shipping Information
+                        </h2>
+                        
+                        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+                            <div class="form-group">
+                                <label class="form-label">Full Name *</label>
+                                <input type="text" name="shipping_name" class="form-input" 
+                                       value="<?php echo $_POST['shipping_name'] ?? ($user['first_name'] . ' ' . $user['last_name']) ?? ''; ?>" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Email Address *</label>
+                                <input type="email" name="shipping_email" class="form-input" 
+                                       value="<?php echo $_POST['shipping_email'] ?? $user['email'] ?? ''; ?>" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Phone Number *</label>
+                            <input type="tel" name="shipping_phone" class="form-input" 
+                                   value="<?php echo $_POST['shipping_phone'] ?? $user['phone'] ?? ''; ?>" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Address *</label>
+                            <textarea name="shipping_address" class="form-input" rows="3" required><?php echo $_POST['shipping_address'] ?? $user['address'] ?? ''; ?></textarea>
+                        </div>
+                        
+                        <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;">
+                            <div class="form-group">
+                                <label class="form-label">City *</label>
+                                <input type="text" name="shipping_city" class="form-input" 
+                                       value="<?php echo $_POST['shipping_city'] ?? $user['city'] ?? ''; ?>" required>
+                            </div>
